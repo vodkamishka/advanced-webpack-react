@@ -1,5 +1,5 @@
 # Сборка
-build/
+dist/
 
 # Зависимости
 node_modules/
