@@ -1,0 +1,8 @@
+# Сборка
+build/
+
+# Зависимости
+node_modules/
+
+# IDE
+.idea/
