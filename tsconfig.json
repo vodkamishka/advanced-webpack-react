@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "module": "ESNext",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true // позволяет использовать import и export в CommonJs
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS" // позволяет запускать ts-код напрямую в Node.js без предварительной компиляции в js
+    }
+  }
+}
