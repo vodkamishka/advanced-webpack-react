@@ -1,3 +1,3 @@
 import { someFn } from './test';
 
-someFn('Hello world');
+someFn('Hello world 234233535');
