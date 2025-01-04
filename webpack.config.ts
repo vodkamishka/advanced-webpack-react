@@ -6,7 +6,7 @@ const config = (env: EnvOptions) => {
 
     const paths = {
         html: path.resolve(__dirname, 'public', 'index.html'),
-        entry: path.resolve(__dirname, 'src', 'index.ts'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'dist')
     }
 
