@@ -19,7 +19,7 @@ export function buildWebpackConfig(options: BuildOptions) {
             clean: true // очитска старых неиспользуемых файлов
         },
         module: {
-            rules: buildLoaders()
+            rules: buildLoaders(options)
         },
         resolve: buildResolvers(),
         plugins: buildPlugins(options),
