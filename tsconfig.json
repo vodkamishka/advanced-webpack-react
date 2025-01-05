@@ -6,7 +6,9 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "esModuleInterop": true // позволяет использовать import и export в CommonJs
+    "esModuleInterop": true, // позволяет использовать import и export в CommonJs
+    "allowSyntheticDefaultImports": true // использовать синтетический экспорт по умолчанию для модулей, которые не
+    //имеют реального экспорта по умолчанию (импортировать без *)
   },
   "ts-node": {
     "compilerOptions": {

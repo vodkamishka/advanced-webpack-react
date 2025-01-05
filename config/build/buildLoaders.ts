@@ -1,7 +1,7 @@
 import {BuildOptions} from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
-export function buildLoaders(options: BuildOptions) {
+export function buildLoaders({isDev}: BuildOptions) {
 
     const typeScriptLoader = {
         test: /\.tsx?$/,
@@ -13,9 +13,17 @@ export function buildLoaders(options: BuildOptions) {
         test: /\.s[ac]ss$/i,
         use: [
             // Creates `style` nodes from JS strings
-            options.isDev ? "style-loader" : MiniCssExtractPlugin.loader,
+            isDev ? "style-loader" : MiniCssExtractPlugin.loader,
             // Translates CSS into CommonJS
-            "css-loader",
+            {
+                loader: 'css-loader',
+                options: {
+                    modules: {
+                        auto: ((resourcePath: string) => Boolean(resourcePath.includes('.module.'))),
+                        localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:5]',
+                    }
+                }
+            },
             // Compiles Sass to CSS
             "sass-loader",
         ],
