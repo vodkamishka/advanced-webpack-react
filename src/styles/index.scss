@@ -1,0 +1,19 @@
+@use "reset";
+@use "variables/global";
+@use "themes/light";
+@use "themes/dark";
+
+.app {
+  font: var(--font-m);
+
+  background: var(--bg-color);
+  color: var(--primary-color);
+
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+

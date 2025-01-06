@@ -1,13 +1,13 @@
 import React, {Suspense} from 'react';
-import '../index.scss';
+import './styles/index.scss';
 import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
-import {MainPageAsync} from "../pages/MainPage/MainPage.async";
-import {AboutPageAsync} from "../pages/AboutPage/AboutPage.async";
+import {MainPageAsync} from "./pages/MainPage/MainPage.async";
+import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
 
 const App = () => {
     return (
         <BrowserRouter>
-            <div className={'app'}>
+            <div className={'app dark'}>
                 fdfgfhgjjkuyiuouiop
                 <ul className="navbar">
                     <li>
