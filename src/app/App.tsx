@@ -1,17 +1,18 @@
-import React, {Suspense, useContext, useState} from 'react';
+import React, {Suspense} from 'react';
 import './styles/index.scss';
-import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
-import {MainPageAsync} from "./pages/MainPage/MainPage.async";
-import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
+import {Routes, Route, Link} from "react-router-dom";
 
-import {useTheme} from "./theme/useTheme";
+import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
+import {classNames} from "shared/lib/classNames";
+import {AboutPage} from "pages/AboutPage";
+import {MainPage} from "pages/MainPage";
 const App = () => {
 
     const {theme, toggleTheme} = useTheme();
 
     return (
         <>
-                <div className={`app ${theme}`}>
+                <div className={classNames('app', {}, [theme])}>
                     fdfgfhgjjkuyiuouiop
                     <ul className="navbar">
                         <li>
@@ -26,8 +27,8 @@ const App = () => {
 
                     <Suspense>
                         <Routes>
-                            <Route path={"/"} element={<MainPageAsync/>}/>
-                            <Route path={"/about"} element={<AboutPageAsync/>}/>
+                            <Route path={"/"} element={<MainPage/>}/>
+                            <Route path={"/about"} element={<AboutPage/>}/>
                         </Routes>
                     </Suspense>
 
