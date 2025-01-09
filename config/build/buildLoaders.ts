@@ -8,6 +8,15 @@ export function buildLoaders({isDev}: BuildOptions) {
         use: ['@svgr/webpack'],
     }
 
+    const fileLoader = {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+            {
+                loader: 'file-loader',
+            },
+        ],
+    }
+
     const typeScriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -36,6 +45,7 @@ export function buildLoaders({isDev}: BuildOptions) {
 
     return [
         svgLoader,
+        fileLoader,
         typeScriptLoader,
         scssLoader,
     ]
