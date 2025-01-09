@@ -3,6 +3,11 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export function buildLoaders({isDev}: BuildOptions) {
 
+    const svgLoader = {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
+    }
+
     const typeScriptLoader = {
         test: /\.tsx?$/,
         use: 'ts-loader',
@@ -30,7 +35,8 @@ export function buildLoaders({isDev}: BuildOptions) {
     }
 
     return [
+        svgLoader,
         typeScriptLoader,
-        scssLoader
+        scssLoader,
     ]
 }
