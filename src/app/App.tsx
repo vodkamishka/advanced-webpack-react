@@ -1,25 +1,22 @@
 import React from 'react';
-import './styles/index.scss';
-
-import {useTheme} from "app/providers/ThemeProvider/lib/useTheme";
+import {Sidebar} from "widgets/sidebar";
+import {useTheme} from "app/providers/ThemeProvider";
+import {Navbar} from "widgets/navbar";
+import {AppRouter} from "app/providers/router";
 import {classNames} from "shared/lib/classNames";
 
-import AppRouter from "app/providers/router/ui/AppRouter";
-import {Navbar} from "widgets/navbar";
 
 const App = () => {
-
-    const {theme, toggleTheme} = useTheme();
-
-
+   const { theme } = useTheme();
 
     return (
-        <>
-                <div className={classNames('app', {}, [theme])}>
-                    <Navbar/>
-                    <AppRouter />
-                </div>
-        </>
+        <div className={classNames('app', {}, [theme])}>
+            <Navbar />
+            <div className="content-page">
+                <Sidebar />
+                <AppRouter />
+            </div>
+        </div>
     );
 };
 
