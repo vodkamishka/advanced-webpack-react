@@ -16,3 +16,5 @@ declare module '*.svg' {
     const src: string;
     export default src;
 }
+
+declare var __IS_DEV__: boolean;
