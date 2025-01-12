@@ -6,6 +6,7 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         port: options.port,
         open: true,
         historyApiFallback: true, // проксирует запросы через гравную страницу - при перезагрузке страницы
-        // страница не пропадает
+        // страница не пропадает,
+        hot: true, // включает плагин hot module replacement - для обновления страницы без перезагрузки
     }
 }
