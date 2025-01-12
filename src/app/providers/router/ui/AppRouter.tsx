@@ -4,7 +4,7 @@ import {routeConfig} from "shared/config/routeConfig/routeConfig";
 
 const AppRouter = () => {
     return (
-        <Suspense>
+
             <Routes>
                 {Object.values(routeConfig).map(({path, element}) => (
                     <Route
@@ -14,7 +14,7 @@ const AppRouter = () => {
                     />
                 ))}
             </Routes>
-        </Suspense>
+
     );
 };
 

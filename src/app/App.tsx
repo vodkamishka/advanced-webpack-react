@@ -3,11 +3,13 @@ import {Sidebar} from "widgets/sidebar";
 import {useTheme} from "app/providers/ThemeProvider";
 import {Navbar} from "widgets/navbar";
 import {AppRouter} from "app/providers/router";
-import {classNames} from "shared/lib/classNames";
+import {classNames} from "shared/lib/classNames/classNames";
+import {useTranslation} from "react-i18next";
 
 
 const App = () => {
    const { theme } = useTheme();
+
 
     return (
         <div className={classNames('app', {}, [theme])}>
