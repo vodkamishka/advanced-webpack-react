@@ -1,14 +1,13 @@
-import {BuildOptions} from "./types/config";
-import {buildLoaders} from "./buildLoaders";
-import {buildResolvers} from "./buildResolvers";
-import {buildPlugins} from "./buildPlugins";
-import {buildDevServer} from "./buildDevServer";
+import { BuildOptions } from './types/config';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+import { buildPlugins } from './buildPlugins';
+import { buildDevServer } from './buildDevServer';
 
 export function buildWebpackConfig(options: BuildOptions) {
+    const { paths, isDev } = options;
 
-    const {paths, isDev} = options;
-
-    const { entry, output} = paths;
+    const { entry, output } = paths;
 
     return {
         mode: options.mode,
@@ -16,15 +15,15 @@ export function buildWebpackConfig(options: BuildOptions) {
         output: {
             filename: '[name][contenthash].js', // кеширование js файлов
             path: output,
-            clean: true // очитска старых неиспользуемых файлов
+            clean: true, // очитска старых неиспользуемых файлов
         },
         module: {
-            rules: buildLoaders(options)
+            rules: buildLoaders(options),
         },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
         ...(isDev ? { devtool: 'inline-source-map' } : {}),
-        ...(isDev ? { devServer: buildDevServer(options) } : {})
+        ...(isDev ? { devServer: buildDevServer(options) } : {}),
 
-    }
+    };
 }

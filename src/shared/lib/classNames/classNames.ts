@@ -1,14 +1,13 @@
 type Mode = Record<string, boolean | string>
 
-export const classNames = (className: string, mode: Mode = {}, additionalClasses: string[] = []): string => {
-
-    return [
-        className,
-        ...Object.entries(mode)
-            .filter(([cls, value]) => Boolean(value))
-            .map(([cls, value]) => cls)
-        ,
-        ...additionalClasses
-    ].join(' ')
-
-}
+export const classNames = (
+    className: string,
+    mode: Mode = {},
+    additionalClasses: string[] = [],
+): string => [
+    className,
+    ...Object.entries(mode)
+        .filter(([, value]) => Boolean(value))
+        .map(([cls, _]) => cls),
+    ...additionalClasses,
+].join(' ');

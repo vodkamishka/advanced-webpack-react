@@ -18,8 +18,7 @@ i18n
 
         backend: {
             loadPath: '/locales/{{lng}}/{{ns}}.json', // позволяет загружать переводы из внешних файлов
-        }
+        },
     });
-
 
 export default i18n;

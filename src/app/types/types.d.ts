@@ -12,9 +12,10 @@ declare module '*.jpeg'
 
 declare module '*.svg' {
     import React = require('react');
+
     export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
     const src: string;
     export default src;
 }
 
-declare var __IS_DEV__: boolean;
+declare let __IS_DEV__: boolean;
