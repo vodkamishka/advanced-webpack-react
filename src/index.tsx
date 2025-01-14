@@ -5,14 +5,17 @@ import { BrowserRouter } from 'react-router-dom';
 import ThemeProvider from 'app/providers/ThemeProvider/ui/ThemeProvider';
 import { Suspense } from 'react';
 import 'shared/config/i18n/i18n';
+import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 
 const root = createRoot(document.getElementById('root'));
 root.render(
     <BrowserRouter>
         <ThemeProvider>
-            <Suspense>
-                <App />
-            </Suspense>
+            <ErrorBoundary>
+                <Suspense fallback="...Loading">
+                    <App />
+                </Suspense>
+            </ErrorBoundary>
         </ThemeProvider>
     </BrowserRouter>,
 );

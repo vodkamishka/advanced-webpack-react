@@ -10,5 +10,8 @@ export function buildDevServer(options: BuildOptions): DevServerConfiguration {
         // страница не пропадает,
         hot: true, // включает плагин hot module replacement -
         // для обновления страницы без перезагрузки
+        client: {
+            overlay: false, // отключает перкрытие ошибок для отображения компонента ErrorBoundary
+        },
     };
 }
