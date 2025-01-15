@@ -6,6 +6,7 @@ export const ErrorPage = () => {
     return (
         <div>
             {t('Произошла ошибка')}
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <button onClick={onClick}>перезагрузите страницу</button>
         </div>
     );

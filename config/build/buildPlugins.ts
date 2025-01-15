@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import BundleAnalyzerPlugin from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(options: BuildOptions) {
@@ -12,6 +13,7 @@ export function buildPlugins(options: BuildOptions) {
             // будет создаваться заново
         }),
         new webpack.ProgressPlugin(), // отображает в процентах процесс сборки,
+        new BundleAnalyzerPlugin(),
     ];
 
     if (isDev) {

@@ -18,6 +18,7 @@ const MainPage = () => {
     return (
         <div>
             {t('Главная страница')}
+            {/* eslint-disable-next-line i18next/no-literal-string */}
             <button onClick={onClick}>throw error</button>
         </div>
     );

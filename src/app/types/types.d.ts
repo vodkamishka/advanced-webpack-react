@@ -11,7 +11,7 @@ declare module '*.jpg'
 declare module '*.jpeg'
 
 declare module '*.svg' {
-    import React = require('react');
+    import React from 'react';
 
     export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
     const src: string;
