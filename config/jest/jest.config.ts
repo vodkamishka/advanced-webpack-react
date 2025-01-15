@@ -42,6 +42,7 @@ const config: Config = {
     // module's location
     moduleDirectories: [
         'node_modules',
+        'src'
     ],
 
     // The root directory that Jest should scan for tests and modules within
