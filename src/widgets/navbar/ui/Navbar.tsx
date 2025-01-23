@@ -3,7 +3,7 @@ import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/ui/AppLink';
 import { useTranslation } from 'react-i18next';
-import * as cls from './Navbar.module.scss';
+import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;

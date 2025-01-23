@@ -34,6 +34,7 @@ export function buildLoaders({ isDev }: BuildOptions) {
                     modules: {
                         auto: ((resourcePath: string) => Boolean(resourcePath.includes('.module.'))),
                         localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:5]',
+                        namedExport: false, // отключает экспорт каждого класса как отдельной именованной переменной
                     },
                 },
             },
