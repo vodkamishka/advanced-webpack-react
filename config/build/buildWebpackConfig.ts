@@ -20,6 +20,7 @@ export function buildWebpackConfig(options: BuildOptions) {
         module: {
             rules: buildLoaders(options),
         },
+        cache: false, // Отключаем кэширование
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
         ...(isDev ? { devtool: 'inline-source-map' } : {}),
