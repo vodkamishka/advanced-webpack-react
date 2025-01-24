@@ -3,6 +3,7 @@
     "noImplicitAny": true,
     "module": "ESNext",
     "target": "es5",
+    "lib": ["es2017"],
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
@@ -19,5 +20,9 @@
     "compilerOptions": {
       "module": "CommonJS" // позволяет запускать ts-код напрямую в Node.js без предварительной компиляции в js
     }
-  }
+  },
+  "include": [
+    "src/**/*.ts",
+    "config/jest/jest-setup.ts"
+  ]
 }

@@ -8,8 +8,9 @@ i18n
     .use(LanguageDetector) // автоматически определяет язык пользователя
     .use(initReactI18next) // bind react-i18n to the instance
     .init({
+        lng: 'ru',
         fallbackLng: 'ru', // язык по умолчанию
-        debug: __IS_DEV__,
+        debug: false,
         returnNull: false,
 
         interpolation: {
