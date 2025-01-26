@@ -3,6 +3,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 
 import '../../src/app/styles/index.scss'
 import './preview.scss';
+import {BrowserRouter} from "react-router-dom";
 
 const preview: Preview = {
     parameters: {
@@ -24,6 +25,12 @@ const preview: Preview = {
             },
             defaultTheme: 'light',
         }),
+        (Story) => (
+            <BrowserRouter>
+                {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
+                <Story />
+            </BrowserRouter>
+        ),
     ],
 
 };

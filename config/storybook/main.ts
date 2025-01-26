@@ -1,21 +1,7 @@
 import type { StorybookConfig } from "@storybook/react-webpack5";
 import { storybookWebpackConfig } from './storybookWebpackConfig';
 
-const config: {
-    webpackFinal: (config) => Promise<never>;
-    stories: string[];
-    framework: { name: string; options: object };
-    docs: object;
-    addons: string[];
-    typescript: {
-        reactDocgen: string;
-        reactDocgenTypescriptOptions: {
-            compilerOptions: { allowSyntheticDefaultImports: boolean; esModuleInterop: boolean };
-            propFilter: (prop) => boolean
-        }
-    };
-    swc: (config, options) => { jsc: { transform: { react: { runtime: string } } } }
-} = {
+const config: StorybookConfig = {
     stories: ["../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 
     addons: [
@@ -31,7 +17,7 @@ const config: {
         options: {},
     },
 
-    swc: (config, options) => ({
+    swc: () => ({
         jsc: {
             transform: {
                 react: {
@@ -44,19 +30,6 @@ const config: {
     webpackFinal: storybookWebpackConfig,
 
     docs: {},
-
-    typescript: {
-        reactDocgen: 'react-docgen-typescript',
-        reactDocgenTypescriptOptions: {
-            compilerOptions: {
-                allowSyntheticDefaultImports: false,
-                esModuleInterop: false,
-            },
-            // Filter out third-party props from node_modules except @mui packages.
-            propFilter: (prop) =>
-                prop.parent ? !/node_modules\/(?!@mui)/.test(prop.parent.fileName) : true,
-        },
-    },
 
 };
 export default config;

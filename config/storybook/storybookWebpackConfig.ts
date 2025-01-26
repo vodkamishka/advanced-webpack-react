@@ -1,8 +1,8 @@
 import path from "path";
 import {getScssLoader} from "../build/loaders/getStyleLoader";
 import {getSvgLoader} from "../build/loaders/getSvgLoader";
-
-export async function storybookWebpackConfig(config) {
+import {Configuration} from "webpack";
+export async function storybookWebpackConfig(config: Configuration) {
 
     config.resolve.modules = [
         path.resolve(__dirname, "../../src"),
