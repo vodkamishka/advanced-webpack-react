@@ -1,0 +1,13 @@
+@use "../../src/app/styles/index";
+
+.light {
+
+    @extend.light;
+    @extend.app;
+}
+
+.dark {
+
+    @extend.dark;
+    @extend.app;
+}

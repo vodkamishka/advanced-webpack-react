@@ -11,7 +11,9 @@
     "lint:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
-    "unit": "jest --config ./config/jest/jest.config.ts"
+    "unit": "jest --config ./config/jest/jest.config.ts",
+    "storybook": "storybook dev -p 6006 -c ./config/storybook",
+    "build-storybook": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +22,18 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
+    "@chromatic-com/storybook": "^3.2.4",
     "@eslint/js": "^9.18.0",
+    "@storybook/addon-essentials": "^8.5.1",
+    "@storybook/addon-interactions": "^8.5.1",
+    "@storybook/addon-themes": "^8.5.1",
+    "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
+    "@storybook/blocks": "^8.5.1",
+    "@storybook/manager-api": "^8.5.1",
+    "@storybook/react": "^8.5.1",
+    "@storybook/react-webpack5": "^8.5.1",
+    "@storybook/test": "^8.5.1",
+    "@storybook/theming": "^8.5.1",
     "@svgr/webpack": "^8.1.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -37,6 +50,7 @@
     "eslint": "^9.18.0",
     "eslint-plugin-i18next": "^6.1.1",
     "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-storybook": "^0.11.2",
     "file-loader": "^6.2.0",
     "globals": "^15.14.0",
     "html-webpack-plugin": "^5.6.3",
@@ -46,9 +60,11 @@
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.83.1",
     "sass-loader": "^16.0.4",
+    "storybook": "^8.5.1",
     "style-loader": "^4.0.0",
     "stylelint": "^14.5.3",
     "stylelint-config-standard-scss": "^3.0.0",
+    "svg-inline-loader": "^0.8.2",
     "ts-jest": "^29.2.5",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
@@ -67,5 +83,10 @@
     "react-dom": "^18.0.0",
     "react-i18next": "^15.4.0",
     "react-router-dom": "^7.1.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

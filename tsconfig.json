@@ -7,6 +7,7 @@
     "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
+    "no-console": false,
     "esModuleInterop": true, // позволяет использовать import и export в CommonJs
     "allowSyntheticDefaultImports": true, // использовать синтетический экспорт по умолчанию для модулей, которые не
     //имеют реального экспорта по умолчанию (импортировать без *),
@@ -22,7 +23,9 @@
     }
   },
   "include": [
-    "src/**/*.ts",
-    "config/jest/jest-setup.ts"
-  ]
+   "src/**/*.ts",
+    "src/**/*.tsx",
+    "config/jest/**/*",
+    "config/storybook/**/*"
+  ],
 }
