@@ -20,6 +20,9 @@ export function buildWebpackConfig(options: BuildOptions) {
         module: {
             rules: buildLoaders(options),
         },
+        performance: {
+            hints: false, // отключает предупреждения о размерах точек входа и активов
+        },
         cache: false, // Отключаем кэширование
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
