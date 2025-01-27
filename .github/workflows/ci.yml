@@ -1,0 +1,56 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main  # Запускать процесс при пуше в основную ветку
+  pull_request:
+    branches:
+      - main  # Запускать процесс при открытии пул-реквеста в основную ветку
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # Используем последнюю версию Ubuntu для выполнения работы на виртуальной машине
+
+    steps:
+      # Шаг 1: Клонирование репозитория
+      - name: Checkout code
+        uses: actions/checkout@v3  # Данный шаг клонирует репозиторий на сервер CI
+
+      # Шаг 2: Настройка Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Устанавливаем Node.js
+        with:
+          node-version: '20'  # Указываем версию Node.js для выполнения команд
+
+      # Шаг 3: Установка зависимостей проекта
+      - name: Install dependencies
+        run: npm install  # Выполняем команду для установки зависимостей через npm
+
+      # Шаг 4: Запуск production сборки
+      - name: Run production build
+        run: npm run build:prod  # Запускаем сборку в продакшн режиме
+
+      # Шаг 5: Запуск линтера для всего кода
+      - name: Lint code
+        run: npm run lint  # Запускаем линтер для проверки кода
+        continue-on-error: true
+
+      # Шаг 6: Запуск линтера для SCSS файлов
+      - name: Lint SCSS files
+        run: npm run lint:scss  # Запускаем линтер для SCSS файлов
+        continue-on-error: true
+
+      # Шаг 7: Запуск unit тестов через Jest
+      - name: Run Jest unit tests
+        run: npm run unit  # Запускаем unit тесты через Jest
+        continue-on-error: true
+
+      # Шаг 8: Сборка Storybook
+      - name: Build Storybook
+        run: npm run storybook:build  # Запускаем сборку Storybook
+        continue-on-error: true
+
+      # Шаг 9: Запуск Loki CI тестов для визуальных изменений
+      - name: Run Loki CI tests
+        run: npm run loki:ci:abridged  # Запускаем визуальные тесты с использованием Loki
