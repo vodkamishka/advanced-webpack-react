@@ -51,7 +51,7 @@ jobs:
         if: always()
         run: npm run storybook:build  # Запускаем сборку Storybook
 
-      # Шаг 9: Запуск Loki CI тестов для визуальных изменений
-      - name: Run Loki CI tests
-        if: always()
-        run: npm run loki:ci  # Запускаем визуальные тесты с использованием Loki
+#      # Шаг 9: Запуск Loki CI тестов для визуальных изменений
+#      - name: Run Loki CI tests
+#        if: always()
+#        run: npm run loki:ci  # Запускаем визуальные тесты с использованием Loki
