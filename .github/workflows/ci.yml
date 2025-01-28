@@ -54,4 +54,4 @@ jobs:
       # Шаг 9: Запуск Loki CI тестов для визуальных изменений
       - name: Run Loki CI tests
         if: always()
-        run: npm run loki:ci:abridged  # Запускаем визуальные тесты с использованием Loki
+        run: npm run loki:ci  # Запускаем визуальные тесты с использованием Loki
