@@ -16,7 +16,7 @@
     "storybook:build": "storybook build -c ./config/storybook",
     "loki": "loki --chromeConcurrency 2",
     "loki:ok": "loki approve",
-    "loki:ci:abridged": "loki --port 6006 --host 127.0.0.1 --requireReference --reactUri file:./storybook-static",
+    "loki:ci:abridged": "loki --port 6006 --host 127.0.0.1 --requireReference",
     "loki:ci": "npm run storybook:build && loki  --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
