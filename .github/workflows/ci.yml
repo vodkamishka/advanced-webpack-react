@@ -30,28 +30,28 @@ jobs:
       # Шаг 4: Запуск production сборки
       - name: Run production build
         run: npm run build:prod  # Запускаем сборку в продакшн режиме
-        continue-on-error: true
 
       # Шаг 5: Запуск линтера для всего кода
       - name: Lint code
+        if: always()
         run: npm run lint  # Запускаем линтер для проверки кода
-        continue-on-error: true
 
       # Шаг 6: Запуск линтера для SCSS файлов
       - name: Lint SCSS files
+        if: always()
         run: npm run lint:scss  # Запускаем линтер для SCSS файлов
-        continue-on-error: true
 
       # Шаг 7: Запуск unit тестов через Jest
       - name: Run Jest unit tests
+        if: always()
         run: npm run unit  # Запускаем unit тесты через Jest
-        continue-on-error: true
 
       # Шаг 8: Сборка Storybook
       - name: Build Storybook
+        if: always()
         run: npm run storybook:build  # Запускаем сборку Storybook
-        continue-on-error: true
 
       # Шаг 9: Запуск Loki CI тестов для визуальных изменений
       - name: Run Loki CI tests
+        if: always()
         run: npm run loki:ci:abridged  # Запускаем визуальные тесты с использованием Loki
