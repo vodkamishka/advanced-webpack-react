@@ -17,7 +17,7 @@
     "loki": "loki --chromeConcurrency 2",
     "loki:ok": "loki approve",
     "loki:ci:abridged": "loki --requireReference --reactUri file:./storybook-static",
-    "loki:ci": "storybook:build && loki --requireReference --reactUri file:./storybook-static"
+    "loki:ci": "npm run storybook:build && loki --requireReference --reactUri file:./storybook-static"
   },
   "keywords": [],
   "author": "",
