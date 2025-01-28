@@ -13,9 +13,9 @@ export function buildPlugins(options: BuildOptions) {
             // будет создаваться заново
         }),
         new webpack.ProgressPlugin(), // отображает в процентах процесс сборки,
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
-        }), // плагин для анализа размеров бандла
+        // new BundleAnalyzerPlugin({
+        //     openAnalyzer: false
+        // }), // плагин для анализа размеров бандла
     ];
 
     if (isDev) {
