@@ -11,11 +11,10 @@ declare module '*.jpg'
 declare module '*.jpeg'
 
 declare module '*.svg' {
-    import React from 'react';
+    import { ReactElement, SVGProps } from 'react';
 
-    export const ReactComponent: React.SFC<React.SVGProps<SVGSVGElement>>;
-    const src: string;
-    export default src;
+    const content: (props: SVGProps<SVGElement>) => ReactElement;
+    export default content;
 }
 
 declare let __IS_DEV__: boolean;
