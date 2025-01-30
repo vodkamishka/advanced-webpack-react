@@ -1,6 +1,6 @@
 import { BuildOptions } from './types/config';
-import {getScssLoader} from "./loaders/getStyleLoader";
-import {getSvgLoader} from "./loaders/getSvgLoader";
+import { getScssLoader } from "./loaders/getStyleLoader";
+import { getSvgLoader } from "./loaders/getSvgLoader";
 
 export function buildLoaders({ isDev }: BuildOptions) {
 

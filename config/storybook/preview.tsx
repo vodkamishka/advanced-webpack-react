@@ -3,7 +3,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 
 import '../../src/app/styles/index.scss'
 import './preview.scss';
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 const preview: Preview = {
     parameters: {
