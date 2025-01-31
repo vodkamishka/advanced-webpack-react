@@ -28,8 +28,8 @@ export default [
     },
     rules: {
       ...hooksPlugin.configs.recommended.rules,
-      "react-hooks/rules-of-hooks": "error", // Пример: превращаем предупреждение в ошибку
-      "react-hooks/exhaustive-deps": "error", // Пример: также делаем ошибкой
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
     },
   },
   {
@@ -51,7 +51,8 @@ export default [
       'import/no-extraneous-dependencies': 'off',
       'no-underscore-dangle': 'off',
       'i18next/no-literal-string': ['error', { markupOnly: true }],
-      'object-curly-spacing': ['error', 'always'], // Пробелы внутри скобок
+      'object-curly-spacing': ['error', 'always'], // пробелы внутри скобок
+      "quotes": ["error", "single", { "avoidEscape": true }] // одианрные кавычки
     }
   }
 ];
