@@ -3,6 +3,7 @@ import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import i18next from 'eslint-plugin-i18next';
+import hooksPlugin from "eslint-plugin-react-hooks"
 
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -20,6 +21,17 @@ export default [
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   i18next.configs['flat/recommended'],
+
+  {
+    plugins: {
+      "react-hooks": hooksPlugin,
+    },
+    rules: {
+      ...hooksPlugin.configs.recommended.rules,
+      "react-hooks/rules-of-hooks": "error", // Пример: превращаем предупреждение в ошибку
+      "react-hooks/exhaustive-deps": "error", // Пример: также делаем ошибкой
+    },
+  },
   {
     rules: {
       'react/jsx-indent': [2, 4],
