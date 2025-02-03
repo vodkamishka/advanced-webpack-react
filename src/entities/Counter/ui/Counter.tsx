@@ -25,13 +25,13 @@ export const Counter = ({ className }: CounterProps) => {
                 data-testid="increment-btn"
                 onClick={increment}
             >
-                {t('инкремент')}
+                {t('Инкремент')}
             </button>
             <button
                 data-testid="decrement-btn"
                 onClick={decrement}
             >
-                {t('декремент')}
+                {t('Декремент')}
             </button>
         </div>
     );

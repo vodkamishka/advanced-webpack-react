@@ -1,4 +1,4 @@
-npm run build:prod
+npm run build:prod  # Запускаем сборку в продакшн режиме
 
 npm run lint  # Запускаем линтер для проверки кода
 
