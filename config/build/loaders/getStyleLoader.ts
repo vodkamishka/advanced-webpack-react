@@ -1,4 +1,4 @@
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export const getScssLoader = (isDev: boolean) => {
     return {
@@ -14,7 +14,7 @@ export const getScssLoader = (isDev: boolean) => {
                         auto: ((resourcePath: string) => Boolean(resourcePath.includes('.module.'))),
                         localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:5]',
                         namedExport: false, // отключает экспорт каждого класса как отдельной именованной переменной,
-                        exportLocalsConvention: "asIs" // оставляет оригинальные имена классов
+                        exportLocalsConvention: 'asIs' // оставляет оригинальные имена классов
                     },
                 },
             },

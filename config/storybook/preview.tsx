@@ -1,9 +1,9 @@
-import type { Preview } from "@storybook/react";
+import type { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
 
 import '../../src/app/styles/index.scss'
 import './preview.scss';
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter } from 'react-router-dom';
 
 const preview: Preview = {
     parameters: {
@@ -15,7 +15,7 @@ const preview: Preview = {
         },
     },
 
-    tags: ["autodocs"],
+    tags: ['autodocs'],
 
     decorators: [
         withThemeByClassName({

@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
+import { Counter } from 'entities/Counter';
 
 const MainPage = () => {
     const { t } = useTranslation('main-page');
@@ -18,6 +19,7 @@ const MainPage = () => {
     return (
         <div>
             {t('Главная страница')}
+            <Counter/>
             {/* eslint-disable-next-line i18next/no-literal-string */}
             <button onClick={onClick}>throw error</button>
         </div>

@@ -1,16 +1,16 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Sidebar } from "widgets/sidebar";
+import { Sidebar } from 'widgets/sidebar';
 import 'shared/config/i18n/i18n';
-import { renderWithI18nRouter } from "shared/lib/tests/renderWithI18nRouter/renderWithI18nRouter";
+import { testProvider } from 'shared/lib/tests/testProvider/testProvider';
 
 describe('Sidebar', () => {
     test('with only first param', () => {
-        renderWithI18nRouter(<Sidebar />);
+        testProvider(<Sidebar />);
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
     });
 
     test('test toggle', () => {
-        renderWithI18nRouter(<Sidebar />);
+        testProvider(<Sidebar />);
         const toggleBtn = screen.getByTestId('sidebar-toggle');
         expect(screen.getByTestId('sidebar')).toBeInTheDocument();
         fireEvent.click(toggleBtn);

@@ -59,7 +59,7 @@ const config: Config = {
 
     // A map from regular expressions to paths to transformers
     transform: {
-        "^.+\\.(js|ts|jsx|tsx)$": "ts-jest",
+        '^.+\\.(js|ts|jsx|tsx)$': 'ts-jest',
     },
 
     // A preset that is used as a base for Jest's configuration
