@@ -1,0 +1,10 @@
+
+
+   npm run lint  # Запускаем линтер для проверки кода
+
+   npm run lint:scss  # Запускаем линтер для SCSS файлов
+
+   npm run unit  # Запускаем unit тесты через Jest
+
+  npm run storybook:build  # Запускаем сборку Storybook
+
