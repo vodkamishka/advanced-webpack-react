@@ -20,12 +20,9 @@ const App = () => {
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
             >
-                Piece words and group words
-                Piece words make it possible to talk about a single unit or units of something which is seen as uncountable.
-                Piece words include words such as piece, bit, item, article. We normally use them with of. We can use them in
-                the singular or the plural. …
+                {'Piece words and group words'}
             </Modal>
-            <button onClick={openModal}>toggle</button>
+            <button onClick={openModal}>{'toggle'}</button>
             <div className="content-page">
                 <Sidebar />
                 <AppRouter />
