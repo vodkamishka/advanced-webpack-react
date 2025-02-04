@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { getCounterStateValue } from '../model/selectors/getCounterStateValue/getCounterStateValue';
+import { getCounterValue } from '..';
 import { useDispatch, useSelector } from 'react-redux';
-import { counterDecrement, counterIncrement } from '../';
+import { counterDecrement, counterIncrement } from '..';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -11,7 +11,7 @@ interface CounterProps {
 
 export const Counter = ({ className }: CounterProps) => {
     const { t } = useTranslation();
-    const counterValue = useSelector(getCounterStateValue);
+    const counterValue = useSelector(getCounterValue);
     const dispatch = useDispatch();
     
     const increment = useCallback(() => dispatch(counterIncrement()), [dispatch]);

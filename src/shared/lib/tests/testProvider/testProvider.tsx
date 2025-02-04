@@ -6,10 +6,11 @@ import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from 'app/providers/StoreProvider/';
 import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
 
-export const testInitialState = {
+export const testInitialState: StoreSchema = {
     counter: {
         value: 10
-    }
+    },
+    user: undefined
 }
 
 export const testProvider = (

@@ -6,14 +6,15 @@ import ThemeProvider from 'app/providers/ThemeProvider/ui/ThemeProvider';
 import { Suspense } from 'react';
 import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
-import { StoreProvider } from 'app/providers/StoreProvider/';
+import { StoreProvider, StoreSchema } from 'app/providers/StoreProvider/';
 
 const root = createRoot(document.getElementById('root'));
 
-export const initialState = {
+export const initialState: StoreSchema = {
     counter: {
         value: 10
-    }
+    },
+    user: undefined
 }
 
 root.render(
