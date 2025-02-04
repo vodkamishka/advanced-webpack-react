@@ -18,7 +18,7 @@
     "loki": "loki --chromeConcurrency 2",
     "loki:ok": "loki approve",
     "loki:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "prepare": ".husky/pre-commit"
+    "prepare": "chmod +x ./node_modules/husky/lib/bin.js && husky install"
   },
   "keywords": [],
   "author": "",
