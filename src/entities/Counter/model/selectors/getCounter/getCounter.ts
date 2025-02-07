@@ -1,4 +1,4 @@
 
 import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
 
-export const getCounter = (state: StoreSchema) => state.counter;
+export const getCounter = (state: Pick<StoreSchema, 'counter'>) => state.counter;

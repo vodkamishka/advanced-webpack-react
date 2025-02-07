@@ -1,16 +1,12 @@
 import { FC, ReactNode } from 'react';
-import { createStore } from '../config/Store';
+import { store } from '../config/Store';
 import { Provider } from 'react-redux'
-import { StoreSchema } from '../config/StoreSchema';
 
 interface StoreProviderProps {
     children: ReactNode;
-    initialState: StoreSchema
 }
 
-export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
-
-    const store = createStore(initialState);
+export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
 
     return (
         <Provider store={store}>
@@ -18,3 +14,5 @@ export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }
         </Provider>
     )
 }
+
+

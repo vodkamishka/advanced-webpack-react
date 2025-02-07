@@ -4,21 +4,12 @@ import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { StoreProvider } from 'app/providers/StoreProvider/';
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
-
-export const testInitialState: StoreSchema = {
-    counter: {
-        value: 10
-    },
-    user: undefined
-}
 
 export const testProvider = (
-    children: ReactNode,
-    initialState: StoreSchema = testInitialState
+    children: ReactNode
 ) => {
     return render(
-        <StoreProvider initialState={initialState}>
+        <StoreProvider>
             <MemoryRouter>
                 <I18nextProvider i18n={i18n}>
                     {children}

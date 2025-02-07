@@ -3,9 +3,8 @@ import { getCounter } from './getCounter';
 
 describe('getCounter selector', () => {
     test('must return counter state', () => {
-        const state: StoreSchema = {
+        const state: Pick<StoreSchema, 'counter'> = {
             counter: { value: 10 },
-            user: undefined
         };
 
         expect(getCounter(state)).toEqual({ value: 10 });
