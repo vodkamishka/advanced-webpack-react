@@ -1,3 +1,3 @@
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getLoginForm = (state: Pick<StoreSchema, 'loginForm'>) => state.loginForm;
+export const getLoginForm = (state: Pick<StateSchema, 'loginForm'>) => state?.loginForm;

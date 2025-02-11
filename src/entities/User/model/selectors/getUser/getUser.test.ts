@@ -1,9 +1,9 @@
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
 import { getUser } from './getUser';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 
 describe('getUser selector', () => {
     test('must return user state', () => {
-        const state: Pick<StoreSchema, 'user'> = {
+        const state: Pick<StateSchema, 'user'> = {
             user: {
                 authData: {
                     username: 'username',
@@ -21,7 +21,7 @@ describe('getUser selector', () => {
     });
 
     test('must return undefined, if state is empty', () => {
-        const state = {} as StoreSchema;
+        const state = {} as StateSchema;
         expect(getUser(state)).toBeUndefined();
     });
 });

@@ -26,8 +26,6 @@ export const Navbar = ({ className }: NavbarProps) => {
         dispatch(logout());
     }, [dispatch]);
 
-    console.log('authData', authData);
-
     if (authData) {
         return (
             <div className={classNames(cls.navbar, {}, [className])}>
@@ -52,6 +50,7 @@ export const Navbar = ({ className }: NavbarProps) => {
             <LoginModal
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
+                lazy={true}
             />
         </div>
     );

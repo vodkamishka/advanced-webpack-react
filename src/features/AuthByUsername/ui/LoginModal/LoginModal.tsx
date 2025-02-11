@@ -1,6 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal'
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginForm } from '../LoginForm/';
+import { Suspense } from 'react';
 
 interface LoginModalProps {
     className?: string;
@@ -17,7 +18,9 @@ export const LoginModal = ({ className, isOpen, setIsOpen, lazy }: LoginModalPro
             setIsOpen={setIsOpen}
             lazy={lazy}
         >
-            <LoginForm/>
+            <Suspense>
+                <LoginForm/>
+            </Suspense>
         </Modal>
     );
 };

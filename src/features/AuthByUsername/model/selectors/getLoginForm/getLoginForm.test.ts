@@ -1,8 +1,8 @@
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
 import { getLoginForm } from './getLoginForm';
+import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 describe('getLoginForm selector', () => {
 
-    const state: Pick<StoreSchema, 'loginForm'> = {
+    const state: Pick<StateSchema, 'loginForm'> = {
         loginForm: {
             username: 'username' ,
             password: 'password',
@@ -19,7 +19,7 @@ describe('getLoginForm selector', () => {
     });
 
     test('must return undefined, if state is empty', () => {
-        const state = {} as StoreSchema;
+        const state = {} as StateSchema;
         expect(getLoginForm(state)).toBeUndefined();
     });
 });

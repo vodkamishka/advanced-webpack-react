@@ -1,9 +1,9 @@
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
 import { getCounter } from './getCounter';
+import { StateSchema } from 'app/providers/StoreProvider';
 
 describe('getCounter selector', () => {
     test('must return counter state', () => {
-        const state: Pick<StoreSchema, 'counter'> = {
+        const state: Pick<StateSchema, 'counter'> = {
             counter: { value: 10 },
         };
 
@@ -11,7 +11,7 @@ describe('getCounter selector', () => {
     });
 
     test('must return undefined, if state is empty', () => {
-        const state = {} as StoreSchema;
+        const state = {} as StateSchema;
         expect(getCounter(state)).toBeUndefined();
     });
 });

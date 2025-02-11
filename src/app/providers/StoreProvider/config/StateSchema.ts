@@ -2,8 +2,14 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User/model/types/userTypes';
 import { LoginSchema } from 'features/AuthByUsername/model/types/loginTypes';
 
-export interface StoreSchema {
+export interface StateSchema {
     counter?: CounterSchema;
     user: UserSchema | undefined;
-    loginForm: LoginSchema
+
+    // Асинхронные редюсеры
+    loginForm?: LoginSchema;
+
+
 }
+
+export type StateSchemaKey = keyof StateSchema;

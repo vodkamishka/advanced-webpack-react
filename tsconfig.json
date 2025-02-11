@@ -22,10 +22,11 @@
     }
   },
   "include": [
-   "src/**/*.ts",
+    "src/**/*.ts",
     "src/**/*.tsx",
     "config/jest/**/*",
-    "config/storybook/**/*"
+    "config/storybook/**/*",
+    "storybook-static/sb-manager/globals-runtime.js"
   ],
   "exclude": [
     "node_modules"

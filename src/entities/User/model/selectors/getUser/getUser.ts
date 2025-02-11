@@ -1,3 +1,3 @@
-import { StoreSchema } from 'app/providers/StoreProvider/config/StoreSchema';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getUser= (state: Pick<StoreSchema, 'user'>) => state.user;
+export const getUser= (state: Pick<StateSchema, 'user'>) => state.user;
