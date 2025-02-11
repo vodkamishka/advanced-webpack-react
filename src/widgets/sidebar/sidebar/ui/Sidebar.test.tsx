@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { Sidebar } from 'widgets/sidebar';
+import { Sidebar } from './Sidebar';
 import 'shared/config/i18n/i18n';
 import { testProvider } from 'shared/lib/tests/testProvider/testProvider';
 
