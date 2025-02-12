@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
@@ -11,12 +11,12 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+export const Sidebar = memo( function Sidebar ({ className }: SidebarProps) {
     const [collapsed, setCollapsed] = useState(false);
 
-    const onToggle = () => {
+    const onToggle = useCallback(() => {
         setCollapsed((prev) => !prev);
-    };
+    }, []);
 
     return (
         <div
@@ -51,4 +51,4 @@ export const Sidebar = ({ className }: SidebarProps) => {
             </div>
         </div>
     );
-};
+});

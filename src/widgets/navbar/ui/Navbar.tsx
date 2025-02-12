@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
@@ -13,14 +13,14 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(function Navbar({ className }: NavbarProps)  {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const authData = useSelector(getAuthData);
 
     const [isOpen, setIsOpen] = useState(false);
 
-    const openModal = () => setIsOpen(true);
+    const openModal = useCallback(() => setIsOpen(true), []);
 
     const onLogout = useCallback(() => {
         dispatch(logout());
@@ -56,4 +56,4 @@ export const Navbar = ({ className }: NavbarProps) => {
     );
 
 
-};
+});
