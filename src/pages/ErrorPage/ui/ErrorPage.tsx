@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
-export const ErrorPage = () => {
+export const ErrorPage = memo(function ErrorPage () {
     const onClick = () => window.location.reload();
     const { t } = useTranslation();
     return (
@@ -10,4 +11,4 @@ export const ErrorPage = () => {
             <button onClick={onClick}>перезагрузите страницу</button>
         </div>
     );
-};
+});

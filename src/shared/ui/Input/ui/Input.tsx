@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
-import React, {  InputHTMLAttributes } from 'react';
+import React, { InputHTMLAttributes, memo } from 'react';
 
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'> {
@@ -11,7 +11,7 @@ interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value'
     placeholder?: string;
 }
 
-export const Input = (
+export const Input = memo(function Input (
     { 
         className, 
         type = 'string' ,
@@ -19,7 +19,7 @@ export const Input = (
         placeholder,
         value,
         ...otherProps
-    }: InputProps) => {
+    }: InputProps) {
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(e.target.value);
@@ -37,4 +37,4 @@ export const Input = (
 
         </input>
     );
-};
+});

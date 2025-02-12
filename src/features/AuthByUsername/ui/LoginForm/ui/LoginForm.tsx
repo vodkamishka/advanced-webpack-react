@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import cls from './LoginForm.module.scss';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 import { loginReducer, setPassword, setUsername } from 'features/AuthByUsername/model/slice/loginSlice';
 import { useSelector } from 'react-redux';
 import { Text } from 'shared/ui/Text';
@@ -21,7 +21,7 @@ export interface LoginFormProps {
     className?: string
 }
 
-const LoginForm = ({ className }: LoginFormProps) => {
+const LoginForm = memo(function LoginForm ({ className }: LoginFormProps) {
 
     const dispatch = useAppDispatch();
 
@@ -68,6 +68,6 @@ const LoginForm = ({ className }: LoginFormProps) => {
         </DinamicModuleLoader>
 
     );
-};
+});
 
 export default LoginForm;

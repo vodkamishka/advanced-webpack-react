@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Counter } from 'entities/Counter';
 
-const MainPage = () => {
+const MainPage = memo(function MainPage ()  {
     const { t } = useTranslation('main-page');
 
     const [error, setError] = useState(false);
@@ -24,6 +24,6 @@ const MainPage = () => {
             <button onClick={onClick}>throw error</button>
         </div>
     );
-};
+});
 
 export default MainPage;

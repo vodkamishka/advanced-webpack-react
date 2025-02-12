@@ -52,7 +52,8 @@ export default [
       'no-underscore-dangle': 'off',
       'i18next/no-literal-string': ['error', { markupOnly: true }],
       'object-curly-spacing': ['error', 'always'], // пробелы внутри скобок
-      "quotes": ["error", "single", { "avoidEscape": true }] // одианрные кавычки
+      "quotes": ["error", "single", { "avoidEscape": true }], // одианрные кавычки,
+      'react/prop-types': 'off'
     }
   }
 ];
