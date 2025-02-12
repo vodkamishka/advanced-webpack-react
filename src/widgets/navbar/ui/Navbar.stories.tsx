@@ -14,7 +14,7 @@ const meta = {
 } satisfies Meta<typeof Navbar>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Navbar>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {

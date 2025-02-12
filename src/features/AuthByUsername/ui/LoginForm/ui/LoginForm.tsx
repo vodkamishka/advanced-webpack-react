@@ -14,7 +14,7 @@ import { getUsername } from 'features/AuthByUsername/model/selectors/getUsername
 import { getPassword } from 'features/AuthByUsername/model/selectors/getPassword/getPassword';
 import { getIsLoading } from 'features/AuthByUsername/model/selectors/getIsLoading/getIsLoading';
 import { getError } from 'features/AuthByUsername/model/selectors/getError/getError';
-import { DinamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 
 export interface LoginFormProps {
@@ -43,7 +43,7 @@ const LoginForm = memo(function LoginForm ({ className }: LoginFormProps) {
 
     const { t } = useTranslation();
     return (
-        <DinamicModuleLoader asyncReducers={asyncReducers}>
+        <DynamicModuleLoader asyncReducers={asyncReducers}>
             <div className={classNames(cls.loginForm, {}, [className])}>
                 <Text title={t('Форма авторизации')}/>
                 {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR}/>}
@@ -65,7 +65,7 @@ const LoginForm = memo(function LoginForm ({ className }: LoginFormProps) {
                     {t('Войти')}
                 </Button>
             </div>
-        </DinamicModuleLoader>
+        </DynamicModuleLoader>
 
     );
 });
