@@ -4,7 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins(options: BuildOptions) {
-    const { isDev } = options;
+    const { isDev,  apiUrl } = options;
 
     let plugins = [
         new HtmlWebpackPlugin({
@@ -22,6 +22,7 @@ export function buildPlugins(options: BuildOptions) {
             ...plugins,
             new webpack.DefinePlugin({
                 __IS_DEV__: JSON.stringify(isDev),
+                __API__: JSON.stringify(apiUrl),
             }),
             new webpack.HotModuleReplacementPlugin(), // для обновления страницы без перезагрузки
         ];

@@ -19,7 +19,7 @@ export const LoginModal = ({ className, isOpen, setIsOpen, lazy }: LoginModalPro
             lazy={lazy}
         >
             <Suspense>
-                <LoginForm/>
+                <LoginForm setIsOpen={setIsOpen}/>
             </Suspense>
         </Modal>
     );

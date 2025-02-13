@@ -9,12 +9,12 @@ export const testProvider = (
     children: ReactNode
 ) => {
     return render(
-        <StoreProvider>
-            <MemoryRouter>
+        <MemoryRouter>
+            <StoreProvider>
                 <I18nextProvider i18n={i18n}>
                     {children}
                 </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>
+            </StoreProvider>
+        </MemoryRouter>
     )
 }

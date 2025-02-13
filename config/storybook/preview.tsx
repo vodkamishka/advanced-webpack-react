@@ -27,12 +27,12 @@ const preview: Preview = {
             defaultTheme: 'light',
         }),
         (Story) => (
-            <StoreProvider>
-                <BrowserRouter>
+            <BrowserRouter>
+                <StoreProvider>
                     {/* 👇 Decorators in Storybook also accept a function. Replace <Story/> with Story() to enable it  */}
                     <Story />
-                </BrowserRouter>
-            </StoreProvider>
+                </StoreProvider>
+            </BrowserRouter>
         ),
     ],
 

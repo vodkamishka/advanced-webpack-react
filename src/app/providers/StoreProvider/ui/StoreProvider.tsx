@@ -1,12 +1,20 @@
 import { FC, ReactNode } from 'react';
-import { store } from '../config/Store';
 import { Provider } from 'react-redux'
+import { StateSchema } from 'app/providers/StoreProvider';
+import { createStore, IStore } from 'app/providers/StoreProvider/config/Store';
+import { useNavigate } from 'react-router-dom';
 
 interface StoreProviderProps {
     children: ReactNode;
+    initialState?: StateSchema;
 }
 
-export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
+export let store: IStore = undefined;
+export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
+
+    const navigate = useNavigate();
+
+    store = createStore(navigate);
 
     return (
         <Provider store={store}>
@@ -14,5 +22,6 @@ export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
         </Provider>
     )
 }
+
 
 

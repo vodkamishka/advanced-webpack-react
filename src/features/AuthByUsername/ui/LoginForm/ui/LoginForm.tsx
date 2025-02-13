@@ -18,10 +18,11 @@ import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/D
 
 
 export interface LoginFormProps {
-    className?: string
+    className?: string;
+    setIsOpen?: (isOpen: boolean) => void;
 }
 
-const LoginForm = memo(function LoginForm ({ className }: LoginFormProps) {
+const LoginForm = memo(function LoginForm ({ className, setIsOpen }: LoginFormProps) {
 
     const dispatch = useAppDispatch();
 
@@ -32,10 +33,19 @@ const LoginForm = memo(function LoginForm ({ className }: LoginFormProps) {
 
     const setUsernameValue = useCallback((username: string) => dispatch(setUsername(username)), [dispatch]);
     const setPasswordValue = useCallback((password: string) => dispatch(setPassword(password)), [dispatch]);
-    
-    const submit = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username])
+
+    const onClose = useCallback(() => {
+        setIsOpen?.(false);
+    }, [setIsOpen])
+
+    const submit = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result?.meta.requestStatus === 'fulfilled') {
+            onClose();
+        }
+    }, [dispatch, onClose, password, username])
+
+
 
     const asyncReducers = {
         loginForm: loginReducer

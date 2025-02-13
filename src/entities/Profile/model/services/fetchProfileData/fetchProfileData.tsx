@@ -1,11 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-export const fetchProfileData = createAsyncThunk(
+import { Profile } from '../../types/profileTypes';
+import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema'; 
+
+export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg }>(
     'profile/fetchProfileData',
-    async (_, { rejectWithValue }) => {
+    async (_, { extra, rejectWithValue }) => {
         try {
-            const response = await axios.post('http://localhost:8000/profile');
+            const response = await extra.api.get<Profile>('/profile');
 
             return response.data;
         } catch (error) {

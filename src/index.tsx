@@ -12,8 +12,8 @@ const root = createRoot(document.getElementById('root'));
 
 
 root.render(
-    <StoreProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+        <StoreProvider>
             <ThemeProvider>
                 <ErrorBoundary>
                     <Suspense fallback="...Loading">
@@ -21,6 +21,6 @@ root.render(
                     </Suspense>
                 </ErrorBoundary>
             </ThemeProvider>
-        </BrowserRouter>
-    </StoreProvider>
+        </StoreProvider>
+    </BrowserRouter>
 );

@@ -13,12 +13,14 @@ const config = (env: EnvOptions) => {
     const mode = env.mode || 'development';
     const isDev = mode === 'development';
     const port = env.PORT || 3000;
+    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     return buildWebpackConfig({
         mode,
         paths,
         isDev,
         port,
+        apiUrl,
     });
 };
 
