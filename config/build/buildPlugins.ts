@@ -2,15 +2,17 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 export function buildPlugins(options: BuildOptions) {
     const { isDev,  apiUrl } = options;
 
     let plugins = [
-        new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({ // для обработки html
             template: options.paths.html, // обязательно указание шаблона, иначе каждый раз
             // будет создаваться заново
         }),
+        new ReactRefreshWebpackPlugin(), // для обновления реакта без перзагрузки страницы
         new webpack.ProgressPlugin(), // отображает в процентах процесс сборки,
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false
