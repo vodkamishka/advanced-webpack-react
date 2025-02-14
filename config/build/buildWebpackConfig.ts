@@ -3,6 +3,7 @@ import { buildLoaders } from './buildLoaders';
 import { buildResolvers } from './buildResolvers';
 import { buildPlugins } from './buildPlugins';
 import { buildDevServer } from './buildDevServer';
+import { buildOptimisation } from './buildOptimisation';
 
 export function buildWebpackConfig(options: BuildOptions) {
     const { paths, isDev } = options;
@@ -23,6 +24,7 @@ export function buildWebpackConfig(options: BuildOptions) {
         cache: false, // Отключаем кэширование
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
+        optimization: buildOptimisation(),
         ...(isDev ? { devtool: 'inline-source-map' } : {}),
         ...(isDev ? { devServer: buildDevServer(options) } : {}),
 
