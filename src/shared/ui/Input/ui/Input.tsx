@@ -17,7 +17,7 @@ export const Input = memo(function Input (
         type = 'string' ,
         onChange,
         placeholder,
-        value,
+        value = '',
         ...otherProps
     }: InputProps) {
 

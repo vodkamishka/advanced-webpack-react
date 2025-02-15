@@ -3,9 +3,10 @@ import webpack from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import Dotenv from 'dotenv-webpack';
 
 export function buildPlugins(options: BuildOptions) {
-    const { isDev,  apiUrl } = options;
+    const { isDev,  apiUrl, paths } = options;
 
     let plugins = [
         new HtmlWebpackPlugin({ // для обработки html
@@ -14,6 +15,13 @@ export function buildPlugins(options: BuildOptions) {
         }),
         new ReactRefreshWebpackPlugin(), // для обновления реакта без перзагрузки страницы
         new webpack.ProgressPlugin(), // отображает в процентах процесс сборки,
+        new Dotenv({
+            path: paths.env,
+        }),
+        new webpack.DefinePlugin({
+            __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiUrl),
+        }),
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false
         // }), // плагин для анализа размеров бандла
@@ -22,10 +30,6 @@ export function buildPlugins(options: BuildOptions) {
     if (isDev) {
         plugins = [
             ...plugins,
-            new webpack.DefinePlugin({
-                __IS_DEV__: JSON.stringify(isDev),
-                __API__: JSON.stringify(apiUrl),
-            }),
             new webpack.HotModuleReplacementPlugin(), // для обновления страницы без перезагрузки
         ];
     }
