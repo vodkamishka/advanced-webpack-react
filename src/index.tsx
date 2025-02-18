@@ -8,19 +8,31 @@ import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider/';
 
-const root = createRoot(document.getElementById('root'));
+const rootElement = document.getElementById('root');
+
+if (rootElement) {
+
+    const root = createRoot(rootElement);
+
+    root.render(
+        <BrowserRouter>
+            <StoreProvider>
+                <ThemeProvider>
+                    <ErrorBoundary>
+                        <Suspense fallback="...Loading">
+                            <App />
+                        </Suspense>
+                    </ErrorBoundary>
+                </ThemeProvider>
+            </StoreProvider>
+        </BrowserRouter>
+    );
+
+} else {
+    console.error('Root element not found');
+}
 
 
-root.render(
-    <BrowserRouter>
-        <StoreProvider>
-            <ThemeProvider>
-                <ErrorBoundary>
-                    <Suspense fallback="...Loading">
-                        <App />
-                    </Suspense>
-                </ErrorBoundary>
-            </ThemeProvider>
-        </StoreProvider>
-    </BrowserRouter>
-);
+
+
+

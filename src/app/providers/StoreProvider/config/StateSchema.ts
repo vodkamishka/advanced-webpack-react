@@ -6,12 +6,12 @@ import { AxiosInstance } from 'axios';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
-    counter?: CounterSchema;
-    user: UserSchema | undefined;
+    counter: CounterSchema;
+    user: UserSchema;
 
     // Асинхронные редюсеры
-    loginForm?: LoginSchema;
-    profile?: ProfileSchema;
+    loginForm?: LoginSchema | undefined;
+    profile?: ProfileSchema | undefined;
 
 
 }

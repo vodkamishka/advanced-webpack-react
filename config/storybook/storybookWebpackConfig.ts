@@ -4,7 +4,7 @@ import { getSvgLoader } from '../build/loaders/getSvgLoader';
 import { Configuration } from 'webpack';
 export async function storybookWebpackConfig(config: Configuration) {
 
-    config.resolve.modules = [
+    config!.resolve!.modules = [
         path.resolve(__dirname, '../../src'),
         'node_modules'
     ];
@@ -17,7 +17,7 @@ export async function storybookWebpackConfig(config: Configuration) {
         }
     });
 
-    config.module.rules.push(
+    config!.module!.rules!.push(
         getSvgLoader(),
         getScssLoader(true),
     )

@@ -3,6 +3,7 @@ import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { setAuthData } from '../../../../../entities/User';
 import { User } from 'entities/User';
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { AxiosError } from 'axios';
 
 
 interface LoginPayload {
@@ -25,7 +26,10 @@ export const loginByUsername =
                 dispatch(setAuthData(response.data));
                 return response.data;
             } catch (error) {
-                return rejectWithValue(error.response?.data || 'Login failed');
+                if (error  instanceof AxiosError) {
+                    return rejectWithValue(error.response?.data || 'Login failed');
+                }
+                return rejectWithValue('An unknown error occurred');
             }
         }
     );

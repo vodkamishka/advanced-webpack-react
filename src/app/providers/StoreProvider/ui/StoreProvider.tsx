@@ -9,8 +9,8 @@ interface StoreProviderProps {
     initialState?: StateSchema;
 }
 
-export let store: IStore = undefined;
-export const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
+export let store: IStore;
+export const StoreProvider: FC<StoreProviderProps> = ({ children }) => {
 
     const navigate = useNavigate();
 

@@ -5,7 +5,7 @@ import { Portal } from 'shared/ui/Portal';
 
 interface ModalProps {
     className?: string;
-    isOpen: boolean;
+    isOpen?: boolean;
     children?: never | string | ReactNode;
     setIsOpen?: (isOpen: boolean) => void
     lazy?: boolean;
@@ -17,7 +17,7 @@ export const Modal = ({ className, isOpen, children, setIsOpen, lazy }: ModalPro
         [cls.isOpen]: isOpen
     }
     
-    const closeModal = useCallback(() => setIsOpen(false), [setIsOpen]);
+    const closeModal = useCallback(() => setIsOpen?.(false), [setIsOpen]);
     const clickContent = useCallback((e: React.MouseEvent) => e.stopPropagation(), []);
     
     const [isMounted, setIsMounted] = useState(false);

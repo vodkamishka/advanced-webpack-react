@@ -27,14 +27,14 @@ export const Button: FC<ButtonProps> = memo(function Button (props) {
     const {
         className,
         children,
-        theme,
+        theme = ButtonTheme.OUTLINE,
         square,
         size = ButtonSize.M,
         ...otherProps
     } = props;
 
 
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]: true,

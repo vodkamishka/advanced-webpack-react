@@ -1,7 +1,7 @@
 import { configureStore, EnhancedStore, ReducersMapObject, ThunkDispatch, UnknownAction } from '@reduxjs/toolkit'
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from '../../../../entities/Counter';
-import { userReducer } from '../../../../entities/User';
+import { userReducer, UserSchema } from '../../../../entities/User';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
 import { $api } from 'shared/api/api';
 import { NavigateOptions, To } from 'react-router-dom';
@@ -19,7 +19,7 @@ export const initialState: StateSchema = {
     counter: {
         value: 10
     },
-    user: undefined,
+    user: {} as UserSchema,
 }
 
 export const createStore = (
@@ -34,8 +34,8 @@ export const createStore = (
     };
 
     const store: IStore = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
         preloadedState: initialState,
+        reducer: reducerManager.reduce,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 extraArgument: extraArg,
@@ -49,7 +49,7 @@ export const createStore = (
 
 }
 
-export type AppDispatch = ThunkDispatch<StateSchema, undefined, UnknownAction>;
+export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, UnknownAction>;
 
 
 

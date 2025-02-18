@@ -8,7 +8,7 @@ const config = (env: EnvOptions) => {
         entry: path.resolve(__dirname, 'src', 'index.tsx'),
         output: path.resolve(__dirname, 'dist'),
         src: path.resolve(__dirname, 'src'),
-        env: path.resolve(__dirname, 'src', '.env'),
+        env: path.resolve(__dirname, '.env'),
     };
 
     const mode = env.mode || 'development';

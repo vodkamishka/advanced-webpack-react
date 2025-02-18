@@ -1,7 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Profile } from '../../types/profileTypes';
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema'; 
+import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { AxiosError } from 'axios';
 
 export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg }>(
     'profile/fetchProfileData',
@@ -11,7 +12,10 @@ export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkEx
 
             return response.data;
         } catch (error) {
-            return rejectWithValue(error.response?.data || 'Fetch data failed');
+            if (error  instanceof AxiosError) {
+                return rejectWithValue(error.response?.data || 'Fetch data failed');
+            }
+            return rejectWithValue('An unknown error occurred');
         }
     }
 );
