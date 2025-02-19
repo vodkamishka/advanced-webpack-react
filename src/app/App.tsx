@@ -1,5 +1,6 @@
-
+import { Sidebar } from 'widgets/Sidebar';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Navbar } from 'widgets/Navbar';
 import { AppRouter } from 'app/providers/router';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useCallback, useEffect, useState } from 'react';
@@ -26,7 +27,9 @@ const App = () => {
         <div className={classNames('app', {}, [theme])}>
             <div>{count}</div>
             <button onClick={handleClick}>{t('Увеличить')}</button>
+            <Navbar />
             <div className="content-page">
+                <Sidebar />
                 <AppRouter />
             </div>
         </div>
