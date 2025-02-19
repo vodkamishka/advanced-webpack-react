@@ -4,7 +4,7 @@ import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button';
 import cls from './Sidebar.module.scss';
-import { SidebarItemList, SidebarItemType } from 'widgets/Sidebar/SidebarItem/model/types/types';
+import { SidebarItemList, SidebarItemType } from '../../SidebarItem/model/types/types';
 import { SidebarItem } from '../../SidebarItem';
 
 interface SidebarProps {
