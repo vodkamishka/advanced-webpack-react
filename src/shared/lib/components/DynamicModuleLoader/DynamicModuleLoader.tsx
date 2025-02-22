@@ -8,8 +8,6 @@ export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;
 }
 
-type ReducersListEntry = [StateSchemaKey, Reducer]
-
 interface DynamicModuleLoaderProps {
     asyncReducers: ReducersList;
     removeAfterUnmount?: boolean;

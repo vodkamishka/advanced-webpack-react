@@ -5,11 +5,11 @@ import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
 
 
-export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg }>(
-    'profile/fetchProfileData',
-    async (_, { extra, rejectWithValue }) => {
+export const updateProfileData = createAsyncThunk<Profile, Profile, { extra: ThunkExtraArg }>(
+    'profile/updateProfileData',
+    async (data, { extra, rejectWithValue }) => {
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.put<Profile>('/profile', data);
 
             return response.data;
         } catch (error) {

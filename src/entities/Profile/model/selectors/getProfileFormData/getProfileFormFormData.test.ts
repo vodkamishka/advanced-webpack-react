@@ -1,12 +1,12 @@
-import { getProfileData } from './getProfileData';
+import { getProfileFormData } from './getProfileFormData';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Country, Currency } from 'shared/const/common';
 
 
-describe('getProfileData selector', () => {
+describe('getProfileFormData selector', () => {
     test('must return profile data', () => {
 
-        const data = {
+        const formData = {
             'first': 'andrey',
             'lastname': 'gr',
             'age': 22,
@@ -19,17 +19,17 @@ describe('getProfileData selector', () => {
 
         const state: Pick<StateSchema, 'profile'> = {
             profile: {
-                data,
+                formData,
                 isLoading: false,
                 readonly: false,
             }
         };
 
-        expect(getProfileData(state)).toEqual(data);
+        expect(getProfileFormData(state)).toEqual(formData);
     });
 
     test('must return undefined if state is empty', () => {
         const state = {} as StateSchema;
-        expect(getProfileData(state)).toBeUndefined();
+        expect(getProfileFormData(state)).toBeUndefined();
     });
 });
