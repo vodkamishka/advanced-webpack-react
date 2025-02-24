@@ -1,13 +1,24 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { Profile } from '../../types/profileTypes';
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
+import { validateProfileData } from 'entities/Profile/model/services/validateProfileData/validateProfileData';
+import { getProfileFormData } from 'entities/Profile';
 
 
-export const updateProfileData = createAsyncThunk<Profile, Profile, { extra: ThunkExtraArg }>(
+export const updateProfileData = createAsyncThunk<Profile, Profile, { extra: ThunkExtraArg, state: StateSchema }>(
     'profile/updateProfileData',
-    async (data, { extra, rejectWithValue }) => {
+    async (data, { extra, rejectWithValue, getState }) => {
+
+        const formData = getProfileFormData(getState());
+
+        const errors = validateProfileData(formData);
+
+        if (errors?.length) {
+            return rejectWithValue(errors)
+        }
+
         try {
             const response = await extra.api.put<Profile>('/profile', data);
 

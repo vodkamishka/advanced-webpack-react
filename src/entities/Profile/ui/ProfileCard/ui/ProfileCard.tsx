@@ -9,6 +9,10 @@ import { TextAlign, TextTheme } from 'shared/ui/Text/ui/Text';
 import { Country, CountrySelect } from 'entities/Country';
 
 import { Currency, CurrencySelect } from 'entities/Currency';
+import { useSelector } from 'react-redux';
+import {
+    getProfileValidateErrors
+} from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface ProfileCardProps {
     className?: string;
@@ -43,6 +47,8 @@ export const ProfileCard = ({
 }: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
+    const validateErrors = useSelector(getProfileValidateErrors);
+
     if (isLoading) {
         return(
             <Text
@@ -64,7 +70,12 @@ export const ProfileCard = ({
 
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
-            <div className={cls.data}>
+
+            {validateErrors?.length && validateErrors.map(error => (
+                <div className={cls.error} key={error}>{error}</div>
+            ))}
+
+            < div className={cls.data}>
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше первое имя')}
