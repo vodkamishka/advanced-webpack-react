@@ -3,6 +3,7 @@ import { MainPage } from 'pages/MainPage';
 import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
+import React from 'react';
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -18,7 +19,12 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NOT_FOUND]: '*',
 };
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+interface RouteConfigProps extends Omit<RouteProps, 'element'> {
+    withAuth?: boolean;
+    element: React.ReactNode
+}
+
+export const routeConfig: Record<AppRoutes, RouteConfigProps> = {
     [AppRoutes.MAIN]: {
         path: RoutePath.main,
         element: <MainPage />,
@@ -30,6 +36,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.PROFILE]: {
         path: RoutePath.profile,
         element: <ProfilePage />,
+        withAuth: true,
     },
     [AppRoutes.NOT_FOUND]: {
         path: RoutePath.not_found,
