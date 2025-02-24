@@ -1,4 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useMemo } from 'react';
 interface AvatarProps {
     className?: string
     src?: string;
@@ -13,10 +14,10 @@ export const Avatar = ({
     size = 100
 }: AvatarProps) => {
     
-    const style = {
+    const style = useMemo(() => ({
         width: size,
         height: size
-    }
+    }), [size])
     
     return (
         <img

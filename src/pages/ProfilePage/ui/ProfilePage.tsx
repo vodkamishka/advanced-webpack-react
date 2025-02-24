@@ -14,6 +14,9 @@ import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ui/Pro
 
 import cls from './ProfilePage.module.scss';
 import {  updateProfile } from 'entities/Profile/model/slice/profileSlice';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+
 
 
 const reducers: ReducersList = {
@@ -58,6 +61,14 @@ const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps) 
     const onChangeAvatar = useCallback((value: string) => {
         dispatch(updateProfile({ avatar: value }));
     }, [dispatch])
+
+    const onChangeCountry = useCallback((value: Country) => {
+        dispatch(updateProfile({ country: value }));
+    }, [dispatch])
+
+    const onChangeCurrency = useCallback((value: Currency) => {
+        dispatch(updateProfile({ currency: value }));
+    }, [dispatch])
     
     return (
         <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
@@ -77,6 +88,8 @@ const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps) 
                     onChangeCity={onChangeCity}
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
+                    onChangeCountry={onChangeCountry}
+                    onChangeCurrency={onChangeCurrency}
                 />
             </div>
         </DynamicModuleLoader>

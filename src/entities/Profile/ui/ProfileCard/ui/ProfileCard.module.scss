@@ -1,12 +1,13 @@
 .profileCard {
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
+    width: 100%;
 }
 
 .data {
     margin-top: 30px;
-}
-
-.input {
-    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
 }
