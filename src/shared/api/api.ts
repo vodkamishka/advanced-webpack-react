@@ -6,7 +6,9 @@ export const $api: AxiosInstance = axios.create({
     //baseURL:  __API__,
     //baseURL:  'http://localhost:8000',
     baseURL: process.env.REACT_APP_API_URL,
-    headers: {
-        authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY) || '',
-    },
+});
+
+$api.interceptors.request.use((config) => {
+    config.headers.authorization = localStorage.getItem(USER_LOCALSTORAGE_KEY) || '';
+    return config;
 });
