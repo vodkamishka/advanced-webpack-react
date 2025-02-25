@@ -19,7 +19,7 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NOT_FOUND]: '*',
 };
 
-interface RouteConfigProps extends Omit<RouteProps, 'element'> {
+export interface RouteConfigProps extends Omit<RouteProps, 'element'> {
     withAuth?: boolean;
     element: React.ReactNode
 }

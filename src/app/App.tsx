@@ -3,15 +3,18 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
 import { AppRouter } from 'app/providers/router';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { initAuthData } from 'entities/User';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { getIsInit } from 'entities/User/model/selectors/getIsInit/getIsInit';
 
 const App = () => {
     const { theme } = useTheme();
     const dispatch = useDispatch();
     const { t } = useTranslation('about-page');
+
+    const isInit = useSelector(getIsInit);
 
     const [count, setCount] = useState(0);
 
@@ -30,7 +33,7 @@ const App = () => {
             <Navbar />
             <div className="content-page">
                 <Sidebar />
-                <AppRouter />
+                {isInit && <AppRouter/>}
             </div>
         </div>
     );

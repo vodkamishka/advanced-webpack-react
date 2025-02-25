@@ -14,6 +14,7 @@ export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkEx
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
+                console.log('error', error);
                 return rejectWithValue(error.response?.data?.message || 'Fetch data failed');
             }
             return rejectWithValue('An unknown error occurred');

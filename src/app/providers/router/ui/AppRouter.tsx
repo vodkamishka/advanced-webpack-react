@@ -1,26 +1,26 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from 'shared/config/routeConfig/routeConfig';
-import { useSelector } from 'react-redux';
-import { getAuthData } from 'entities/User/model/selectors/getAuthData/getAuthData';
+import { routeConfig, RouteConfigProps } from 'shared/config/routeConfig/routeConfig';
+import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
 
 const AppRouter = () => {
 
-    const authData = useSelector(getAuthData);
+    const renderWithWrapper = useCallback(({ path, element, withAuth }: RouteConfigProps) => {
 
-    const getProtectedRoutes = () => {
-        return Object.values(routeConfig).filter(({ withAuth }) => !(!authData && withAuth));
-    }
+        const elem = withAuth ? <RequireAuth>{element}</RequireAuth> : element;
+
+        return (
+            <Route
+                path={path}
+                element={<div className="page-wrapper">{elem}</div>}
+                key={path}
+            />
+        )
+    }, [])
 
     return (
         <Routes>
-            {getProtectedRoutes()?.map(({ path, element }) => (
-                <Route
-                    path={path}
-                    element={<div className="page-wrapper">{element}</div>}
-                    key={path}
-                />
-            ))}
+            {Object.values(routeConfig).map(renderWithWrapper)}
         </Routes>
     )
 };
