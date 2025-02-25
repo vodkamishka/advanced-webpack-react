@@ -3,7 +3,7 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { Navbar } from 'widgets/Navbar';
 import { AppRouter } from 'app/providers/router';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { initAuthData } from 'entities/User';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
