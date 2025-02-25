@@ -17,6 +17,7 @@ export function buildWebpackConfig(options: BuildOptions) {
             filename: '[name][contenthash].js', // кеширование js файлов
             path: output,
             clean: true, // очитска старых неиспользуемых файлов
+            publicPath: '/', // это базовый URL для всех ресурсов (JS, CSS, шрифтов, изображений и т. д.
         },
         module: {
             rules: buildLoaders(options),
