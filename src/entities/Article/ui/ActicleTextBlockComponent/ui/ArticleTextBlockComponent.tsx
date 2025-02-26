@@ -1,16 +1,24 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleTextBlock } from '../../../model/types/articleTypes';
+import cls from './ArticleTextBlockComponent.module.scss';
+import { Text } from 'shared/ui/Text';
 
 
 interface ArticleTextBlockComponentProps {
-    className?: string
+    className?: string;
+    block: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent = ({ className }: ArticleTextBlockComponentProps) => {
+export const ArticleTextBlockComponent = ({ className, block }: ArticleTextBlockComponentProps) => {
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames('', {}, [className])}>
-            ArticleTextBlockComponent
+            {block.title && (
+                <Text title={block.title} className={cls.title} />
+            )}
+            {block.paragraphs.map((paragraph, index) => (
+                <Text key={paragraph} text={paragraph} className={cls.paragraph} />
+            ))}
         </div>
     );
 };

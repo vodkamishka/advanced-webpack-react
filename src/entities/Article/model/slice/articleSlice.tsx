@@ -31,6 +31,3 @@ export const articleSlice = createSlice({
     },
 })
 export const { reducer: articleReducer } = articleSlice;
-
-// eslint-disable-next-line no-empty-pattern
-export const { } = articleSlice.actions;

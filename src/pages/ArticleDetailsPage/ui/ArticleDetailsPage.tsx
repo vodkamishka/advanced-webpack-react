@@ -9,6 +9,15 @@ interface ArticleDetailsPageProps {
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     const { id } = useParams<{ id: string }>();
+
+    if (!id) {
+        return (
+            // eslint-disable-next-line i18next/no-literal-string
+            <div className={classNames('', {}, [className])}>
+                &#39;Статья не найдена&#39;
+            </div>
+        );
+    }
  
     return (
          
