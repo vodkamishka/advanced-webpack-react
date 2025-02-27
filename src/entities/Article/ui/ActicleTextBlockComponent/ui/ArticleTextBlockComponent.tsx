@@ -16,7 +16,7 @@ export const ArticleTextBlockComponent = ({ className, block }: ArticleTextBlock
             {block.title && (
                 <Text title={block.title} className={cls.title} />
             )}
-            {block.paragraphs.map((paragraph, index) => (
+            {block.paragraphs.map((paragraph) => (
                 <Text key={paragraph} text={paragraph} className={cls.paragraph} />
             ))}
         </div>

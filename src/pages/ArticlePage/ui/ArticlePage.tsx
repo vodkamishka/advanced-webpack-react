@@ -1,4 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleList } from '../../../entities/Article/ui/ArticleList/ArticleList';
+import { ArticleView } from '../../../entities/Article/model/types/articleTypes';
 
 interface ArticlePageProps {
     className?: string
@@ -6,9 +8,13 @@ interface ArticlePageProps {
 
 export const ArticlePage = ({ className }: ArticlePageProps) => {
     return (
-        // eslint-disable-next-line i18next/no-literal-string
+         
         <div className={classNames('', {}, [className])}>
-            Article Page
+            <ArticleList
+                isLoading
+                view={ArticleView.BIG}
+                articles={[]}
+            />
         </div>
     );
 };
