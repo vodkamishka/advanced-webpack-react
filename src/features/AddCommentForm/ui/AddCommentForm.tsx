@@ -8,10 +8,7 @@ import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/Dynamic
 import { addCommentFormReducer, setText } from '../model/slice/addCommentSliceForm';
 
 import cls from './AddCommentForm.module.scss';
-import {
-    getAddCommentFormError,
-    getAddCommentFormText
-} from '../model/selectors/getAddCommentFormText';
+import { getAddCommentFormText } from '../model/selectors/getAddCommentFormText';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
