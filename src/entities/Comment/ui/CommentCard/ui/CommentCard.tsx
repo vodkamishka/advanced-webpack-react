@@ -3,6 +3,7 @@ import cls from './CommentCard.module.scss';
 import { Comment } from '../../../model/types/commentTypes';
 import { Text } from 'shared/ui/Text';
 import { Avatar } from 'shared/ui/Avatar';
+import { AppLink } from 'shared/ui/AppLink';
 
 interface CommentCardProps {
     className?: string;
@@ -18,10 +19,10 @@ export const CommentCard = ({ className, comment, isLoading }: CommentCardProps)
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <div className={cls.header}>
+            <AppLink to={`/profile/${comment?.user?.id}`} className={cls.header}>
                 {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
                 <Text className={cls.username} title={comment.user.username} />
-            </div>
+            </AppLink>
             <Text className={cls.text} text={comment.text} />
         </div>
     );

@@ -5,16 +5,15 @@ import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
 
 
-export const fetchProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg }>(
-    'profile/fetchProfileData',
-    async (_, { extra, rejectWithValue }) => {
+export const fetchProfileDataById = createAsyncThunk<Profile, string, { extra: ThunkExtraArg }>(
+    'profile/fetchProfileDataById',
+    async (id, { extra, rejectWithValue }) => {
         try {
-            const response = await extra.api.get<Profile>('/profile');
+            const response = await extra.api.get<Profile>(`/profile/${id}`);
 
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                console.log('error', error);
                 return rejectWithValue(error.response?.data?.message || 'Fetch data failed');
             }
             return rejectWithValue('An unknown error occurred');

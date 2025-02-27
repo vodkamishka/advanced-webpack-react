@@ -14,7 +14,7 @@ interface DynamicModuleLoaderProps {
     children: ReactNode;
 }
 
-export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, asyncReducers, removeAfterUnmount }) => {
+export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, asyncReducers, removeAfterUnmount = true }) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {

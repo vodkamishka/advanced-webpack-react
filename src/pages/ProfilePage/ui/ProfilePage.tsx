@@ -3,7 +3,7 @@ import { memo, useCallback, useEffect } from 'react';
 import { ProfileCard, profileReducer } from 'entities/Profile';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { fetchProfileData } from 'entities/Profile';
+import { fetchProfileDataById } from 'entities/Profile';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import {  useSelector } from 'react-redux';
 import { getProfileFormData } from 'entities/Profile';
@@ -16,6 +16,7 @@ import cls from './ProfilePage.module.scss';
 import {  updateProfile } from 'entities/Profile/model/slice/profileSlice';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { useParams } from 'react-router-dom';
 
 
 
@@ -28,6 +29,9 @@ interface ProfilePageProps {
 }
 
 const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps)  {
+
+    const { id } = useParams<{ id: string }>();
+    
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
@@ -35,8 +39,8 @@ const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps) 
     const error = useSelector(getProfileError);
 
     useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
+        dispatch(fetchProfileDataById(id));
+    }, [dispatch, id]);
 
     const onChangeFirstname = useCallback((value: string) => {
         dispatch(updateProfile({ first: value }));

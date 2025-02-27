@@ -6,7 +6,7 @@ export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getPr
 
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 
-export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
+export { fetchProfileDataById } from 'entities/Profile/model/services/fetchProfileDataById/fetchProfileDataById';
 
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 

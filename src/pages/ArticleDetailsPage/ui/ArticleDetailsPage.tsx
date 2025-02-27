@@ -9,7 +9,7 @@ import {
     getArticleDetailsCommentsIsLoading
 } from '../models/selectors/getArticleDetailsComments';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import {
     fetchCommentsByArticleId
@@ -18,6 +18,9 @@ import {
     articleDetailsCommentsReducer,
     getArticleDetailsCommentsSelectors
 } from '../models/slice/articleDetailsPageSlice';
+import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/models/services/addCommentForArticle/addCommentForArticle';
+import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -38,6 +41,12 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const comments = useSelector(getArticleDetailsCommentsSelectors.selectAll);
 
     const dispatch = useAppDispatch();
+    
+    const text = useSelector(getAddCommentFormText);
+
+    const onSendComment = useCallback(() => {
+        dispatch(addCommentForArticle(text));
+    }, [dispatch, text])
 
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id))
@@ -64,6 +73,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <div className={classNames('', {}, [className])}>
                 <ArticleDetails id={id}/>
                 <Text title={'Коммментарии'}/>
+                <AddCommentForm onSendComment={onSendComment}/>
                 <CommentList
                     isLoading={isLoading}
                     comments={comments}

@@ -7,9 +7,9 @@ import { validateProfileData } from 'entities/Profile/model/services/validatePro
 import { getProfileFormData } from 'entities/Profile';
 
 
-export const updateProfileData = createAsyncThunk<Profile, Profile, { extra: ThunkExtraArg, state: StateSchema }>(
+export const updateProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg, state: StateSchema }>(
     'profile/updateProfileData',
-    async (data, { extra, rejectWithValue, getState }) => {
+    async (_, { extra, rejectWithValue, getState }) => {
 
         const formData = getProfileFormData(getState());
 
@@ -20,7 +20,7 @@ export const updateProfileData = createAsyncThunk<Profile, Profile, { extra: Thu
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profile', data);
+            const response = await extra.api.put<Profile>(`/profile/${formData.id}`, formData);
 
             return response.data;
         } catch (error) {

@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { Profile, ProfileSchema, ValidateProfileErrors } from '../types/profileTypes';
-import { fetchProfileData } from '../services/fetchProfileData/fetchProfileData';
+import { fetchProfileDataById } from 'entities/Profile/model/services/fetchProfileDataById/fetchProfileDataById';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const initialState: ProfileSchema = {
@@ -33,16 +33,16 @@ export const profileSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(fetchProfileData.pending, (state) => {
+            .addCase(fetchProfileDataById.pending, (state) => {
                 state.isLoading = true;
                 state.error = null;
             })
-            .addCase(fetchProfileData.fulfilled, (state, action) => {
+            .addCase(fetchProfileDataById.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.data = action.payload;
                 state.formData = action.payload;
             })
-            .addCase(fetchProfileData.rejected, (state, action) => {
+            .addCase(fetchProfileDataById.rejected, (state, action) => {
                 state.isLoading = false;
                 state.error = action.payload as string; // Ошибка от сервера
             })
