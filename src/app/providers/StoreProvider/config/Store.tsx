@@ -4,7 +4,6 @@ import { counterReducer } from '../../../../entities/Counter';
 import { userReducer, UserSchema } from '../../../../entities/User';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
 import { $api } from 'shared/api/api';
-import { NavigateOptions, To } from 'react-router-dom';
 
 export interface IStore extends EnhancedStore<StateSchema> {
     reducerManager?: ReducerManagerType
@@ -22,15 +21,12 @@ export const initialState: StateSchema = {
     user: {} as UserSchema,
 }
 
-export const createStore = (
-    navigate: (to: To, options?: NavigateOptions) => void,
-): IStore => {
+const createStore = (): IStore => {
 
     const reducerManager = createReducerManager(rootReducer);
 
     const extraArg: ThunkExtraArg = {
         api: $api,
-        navigate,
     };
 
     const store: IStore = configureStore<StateSchema>({
@@ -48,6 +44,8 @@ export const createStore = (
     return store;
 
 }
+
+export const store = createStore();
 
 export type AppDispatch = ThunkDispatch<StateSchema, ThunkExtraArg, UnknownAction>;
 

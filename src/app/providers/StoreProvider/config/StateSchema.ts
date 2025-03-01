@@ -25,7 +25,6 @@ export interface StateSchema {
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions) => void,
 }
 
 export type StateSchemaKey = keyof StateSchema;
