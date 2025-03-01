@@ -1,6 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from '../../../entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
 import { CommentList } from '../../../entities/Comment';
 import { useSelector } from 'react-redux';
@@ -22,6 +22,9 @@ import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/models/services/addCommentForArticle/addCommentForArticle';
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 import { Page } from 'shared/ui/Page/ui/Page';
+import { Button, ButtonTheme } from 'shared/ui/Button';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -34,6 +37,8 @@ const reducers: ReducersList = {
 
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
+    const { t } = useTranslation();
+
     const { id } = useParams<{ id: string }>();
     
     const error = useSelector(getArticleDetailsCommentsError);
@@ -44,6 +49,12 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
     
     const text = useSelector(getAddCommentFormText);
+
+    const navigate = useNavigate();
+
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
     const onSendComment = useCallback(() => {
         dispatch(addCommentForArticle(text));
@@ -71,6 +82,9 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <Page>
             <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
+                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                    {t('Назад к списку')}
+                </Button>
                 <ArticleDetails id={id}/>
                 <Text title={'Коммментарии'}/>
                 <AddCommentForm onSendComment={onSendComment}/>
