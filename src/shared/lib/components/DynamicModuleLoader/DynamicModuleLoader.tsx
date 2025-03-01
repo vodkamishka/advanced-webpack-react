@@ -17,12 +17,18 @@ interface DynamicModuleLoaderProps {
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({ children, asyncReducers, removeAfterUnmount = true }) => {
     const dispatch = useAppDispatch();
 
+    const reducers = store.reducerManager.getReducerMap();
+
     useEffect(() => {
 
         Object.entries(asyncReducers).forEach(([key, reducer]) => {
             const typedKey = key as StateSchemaKey;
-            dispatch({ type: `@INIT ${typedKey} ${reducer}` });
-            store.reducerManager?.add(key as StateSchemaKey, reducer);
+
+            if (!reducers[typedKey]) {
+                dispatch({ type: `@INIT ${typedKey} ${reducer}` });
+                store.reducerManager?.add(key as StateSchemaKey, reducer);
+            }
+
         })
 
         return () => {
