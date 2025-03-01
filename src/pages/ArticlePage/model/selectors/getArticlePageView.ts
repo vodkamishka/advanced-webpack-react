@@ -5,3 +5,5 @@ export const getArticlePageView = (state: Pick<StateSchema, 'articlePage'>) => s
 export const getArticlePageNumber = (state: Pick<StateSchema, 'articlePage'>) => state.articlePage?.page;
 export const getArticlePageLimit = (state: Pick<StateSchema, 'articlePage'>) => state.articlePage?.limit;
 export const getArticlePageHasMore = (state: Pick<StateSchema, 'articlePage'>) => state.articlePage?.hasMore;
+
+export const getArticlePageIsInit = (state: Pick<StateSchema, 'articlePage'>) => state.articlePage?._isInit;

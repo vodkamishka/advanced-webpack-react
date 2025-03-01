@@ -2,10 +2,9 @@ import { ArticleList } from '../../../entities/Article/ui/ArticleList/ArticleLis
 import { ArticleView } from '../../../entities/Article/model/types/articleTypes';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-import { articlePageReducer, getArticlePageSelectors, initState, setView } from '../model/slice/articlePageSlice';
+import { articlePageReducer, getArticlePageSelectors, setView } from '../model/slice/articlePageSlice';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { memo, useCallback, useEffect, useRef } from 'react';
-import { fetchArticleList } from 'pages/ArticlePage/model/services/fetchArticleList/fetchArticleList';
 import { useSelector } from 'react-redux';
 import { getArticleIsLoading } from '../../../entities/Article/model/selectors/getArticleData';
 import { ArticleViewSelector } from '../../../entities/Article/ui/ArticleViewSelector/ui/AtricleViewSelector';
@@ -13,6 +12,7 @@ import { getArticlePageHasMore, getArticlePageView } from '../model/selectors/ge
 import { Page } from 'shared/ui/Page/ui/Page';
 import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll';
 import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlePage } from '../model/services/initArticlePage/initArticlePage';
 
 interface ArticlePageProps {
     className?: string
@@ -43,8 +43,7 @@ export const ArticlePage = memo(function ArticlePage({ className }: ArticlePageP
     }, [articles, hasMore])
 
     useEffect(() => {
-        dispatch(initState());
-        dispatch(fetchArticleList(1));
+        dispatch(initArticlePage);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 

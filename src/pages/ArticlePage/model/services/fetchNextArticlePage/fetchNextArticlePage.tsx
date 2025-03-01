@@ -1,14 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
-import { Article } from 'entities/Article';
 import { fetchArticleList } from 'pages/ArticlePage/model/services/fetchArticleList/fetchArticleList';
 import { setPage } from 'pages/ArticlePage/model/slice/articlePageSlice';
 import { getArticlePageHasMore, getArticlePageNumber } from '../../selectors/getArticlePageView';
 
 
-export const fetchNextArticlePage = createAsyncThunk<Article[], void, { extra: ThunkExtraArg }>(
-    'article/fetchCommentsByArticleId',
+export const fetchNextArticlePage = createAsyncThunk<void, void, { extra: ThunkExtraArg }>(
+    'article/fetchNextArticlePage',
     async (_ , { rejectWithValue, dispatch, getState }) => {
         try {
             const hasMore = getArticlePageHasMore(getState());
