@@ -43,7 +43,7 @@ export const ArticlePage = memo(function ArticlePage({ className }: ArticlePageP
     }, [articles, hasMore])
 
     useEffect(() => {
-        dispatch(initArticlePage);
+        dispatch(initArticlePage());
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -63,7 +63,7 @@ export const ArticlePage = memo(function ArticlePage({ className }: ArticlePageP
 
     return (
          
-        <Page ref={rootRef}>
+        <Page innerRef={rootRef}>
             <DynamicModuleLoader asyncReducers={reducers}>
                 <ArticleViewSelector
                     view={view}

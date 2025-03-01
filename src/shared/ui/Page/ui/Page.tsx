@@ -7,12 +7,12 @@ import cls from './Page.module.scss';
 interface PageProps {
     className?: string;
     children?: ReactNode;
-    ref?: RefObject<HTMLDivElement>
+    innerRef?: RefObject<HTMLDivElement>
 }
 
 export const Page: FC<PageProps> = ({ className, children }: PageProps) => {
     return (
-        <section className={classNames(cls.page, {}, [className])}>
+        <section  className={classNames(cls.page, {}, [className])}>
             { children }
         </section>
     );
