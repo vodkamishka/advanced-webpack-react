@@ -2,16 +2,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
 import { Article } from 'entities/Article';
+import { getArticlePageLimit } from '../../selectors/getArticlePageView';
 
 
-export const fetchArticleList = createAsyncThunk<Article[], void, { extra: ThunkExtraArg }>(
+export const fetchArticleList = createAsyncThunk<Article[],  number, { extra: ThunkExtraArg }>(
     'articlePage/fetchCommentsByArticleId',
-    async (_ , { extra, rejectWithValue }) => {
+    async (page , { extra, rejectWithValue, getState }) => {
         try {
+            
+            const limit = getArticlePageLimit(getState());
 
             const response = await extra.api.get<Article[]>('/articles/', {
                 params: {
-                    _expand: 'user'
+                    _expand: 'user',
+                    _page: page,
+                    _limit: limit
                 }
             });
 

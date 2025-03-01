@@ -17,6 +17,7 @@ import {  updateProfile } from 'entities/Profile/model/slice/profileSlice';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/ui/Page';
 
 
 
@@ -75,28 +76,30 @@ const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps) 
     }, [dispatch])
     
     return (
-        <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
-            <div className={classNames(cls.profilePage, {}, [className])}>
-                <ProfilePageHeader
-                    readonly={readonly}
-                    data={formData}
-                />
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    readonly={readonly}
-                    error={error}
-                    onChangeFirstname={onChangeFirstname}
-                    onChangeLastname={onChangeLastname}
-                    onChangeAge={onChangeAge}
-                    onChangeCity={onChangeCity}
-                    onChangeUsername={onChangeUsername}
-                    onChangeAvatar={onChangeAvatar}
-                    onChangeCountry={onChangeCountry}
-                    onChangeCurrency={onChangeCurrency}
-                />
-            </div>
-        </DynamicModuleLoader>
+        <Page>
+            <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
+                <div className={classNames(cls.profilePage, {}, [className])}>
+                    <ProfilePageHeader
+                        readonly={readonly}
+                        data={formData}
+                    />
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        readonly={readonly}
+                        error={error}
+                        onChangeFirstname={onChangeFirstname}
+                        onChangeLastname={onChangeLastname}
+                        onChangeAge={onChangeAge}
+                        onChangeCity={onChangeCity}
+                        onChangeUsername={onChangeUsername}
+                        onChangeAvatar={onChangeAvatar}
+                        onChangeCountry={onChangeCountry}
+                        onChangeCurrency={onChangeCurrency}
+                    />
+                </div>
+            </DynamicModuleLoader>
+        </Page>
     );
 });
 

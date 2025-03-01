@@ -21,6 +21,7 @@ import {
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/models/services/addCommentForArticle/addCommentForArticle';
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
+import { Page } from 'shared/ui/Page/ui/Page';
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -68,9 +69,8 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     }
  
     return (
-
-        <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+        <Page>
+            <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
                 <ArticleDetails id={id}/>
                 <Text title={'Коммментарии'}/>
                 <AddCommentForm onSendComment={onSendComment}/>
@@ -78,7 +78,8 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     isLoading={isLoading}
                     comments={comments}
                 />
-            </div>
-        </DynamicModuleLoader>
+            </DynamicModuleLoader>
+        </Page>
+        
     );
 };
