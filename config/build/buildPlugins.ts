@@ -13,7 +13,6 @@ export function buildPlugins(options: BuildOptions) {
             template: options.paths.html, // обязательно указание шаблона, иначе каждый раз
             // будет создаваться заново
         }),
-        new ReactRefreshWebpackPlugin(), // для обновления реакта без перзагрузки страницы
         new webpack.ProgressPlugin(), // отображает в процентах процесс сборки,
         new Dotenv({
             path: paths.env,
@@ -31,6 +30,7 @@ export function buildPlugins(options: BuildOptions) {
         plugins = [
             ...plugins,
             new webpack.HotModuleReplacementPlugin(), // для обновления страницы без перезагрузки
+            new ReactRefreshWebpackPlugin(), // для обновления реакта без перзагрузки страницы
         ];
     }
 
