@@ -3,15 +3,16 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ProfileSchema } from 'entities/Profile';
 import { AxiosInstance } from 'axios';
-import { NavigateOptions, To } from 'react-router-dom';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
+import { ScrollSchema } from 'features/ScrollObserver';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollPosition: ScrollSchema;
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema | undefined;

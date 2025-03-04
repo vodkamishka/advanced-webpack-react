@@ -3,6 +3,10 @@
 @use "themes/light";
 @use "themes/dark";
 
+body {
+    overflow: hidden;
+}
+
 .app {
     font: var(--font-m);
     background: var(--bg-color);

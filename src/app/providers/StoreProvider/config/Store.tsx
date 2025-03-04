@@ -4,6 +4,7 @@ import { counterReducer } from '../../../../entities/Counter';
 import { userReducer, UserSchema } from '../../../../entities/User';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
 import { $api } from 'shared/api/api';
+import { scrollReducer } from 'features/ScrollObserver';
 
 export interface IStore extends EnhancedStore<StateSchema> {
     reducerManager?: ReducerManagerType
@@ -12,6 +13,7 @@ export interface IStore extends EnhancedStore<StateSchema> {
 const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
+    scrollPosition: scrollReducer,
 };
 
 export const initialState: StateSchema = {
@@ -19,6 +21,7 @@ export const initialState: StateSchema = {
         value: 10
     },
     user: {} as UserSchema,
+    scrollPosition: undefined,
 }
 
 const createStore = (): IStore => {
