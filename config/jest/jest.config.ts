@@ -69,7 +69,8 @@ const config: Config = {
     moduleNameMapper: {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/svg-mock.tsx',
-        'src/(.*)': '<rootDir>/src/$1'
+        'src/(.*)': '<rootDir>/src/$1',
+        'entities/(.*)': '<rootDir>/src/entities/$1'
     },
 
     // A path to a module which exports an async function that is triggered once before all test suites
