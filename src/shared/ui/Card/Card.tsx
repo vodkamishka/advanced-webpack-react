@@ -5,14 +5,25 @@ import { classNames } from 'shared/lib/classNames/classNames';
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
     className?: string;
     children: ReactNode;
+    theme?: CardTheme;
+}
+
+export enum CardTheme {
+    NORMAL = 'normal',
+    OUTLINED = 'outlined',
 }
 
 export const Card = memo(function Card(props: CardProps) {
-    const { className, children, ...otherProps } = props;
+    const {
+        className,
+        children,
+        theme = CardTheme.NORMAL,
+        ...otherProps
+    } = props;
 
     return (
         <div
-            className={classNames(cls.card, {}, [className])}
+            className={classNames(cls.card, {}, [className, cls[theme]])}
             {...otherProps}
         >
             {children}
