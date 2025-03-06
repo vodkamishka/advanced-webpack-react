@@ -1,3 +1,17 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-export const getArticleDetailsCommentsError = (state: Pick<StateSchema, 'articleDetailsComments'>) => state.articleDetailsComments?.error;
-export const getArticleDetailsCommentsIsLoading = (state: Pick<StateSchema, 'articleDetailsComments'>) => state.articleDetailsComments?.isLoading;
+import { createSelector } from '@reduxjs/toolkit';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
+
+export const getArticleDetailsPage = (state: Pick<StateSchema, 'articleDetailsPage'>) => state.articleDetailsPage;
+
+
+export const getArticleDetailsCommentsError = createSelector(
+    getArticleDetailsPage,
+    (articleDetailsPage: ArticleDetailsPageSchema) => articleDetailsPage?.comments?.error
+)
+
+export const getArticleDetailsCommentsIsLoading = createSelector(
+    getArticleDetailsPage,
+    (articleDetailsPage: ArticleDetailsPageSchema) => articleDetailsPage?.comments?.isLoading
+)
+

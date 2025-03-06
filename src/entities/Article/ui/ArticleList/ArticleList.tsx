@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/articleTypes';
@@ -9,6 +9,7 @@ interface ArticleListProps {
     articles: Article[]
     isLoading?: boolean;
     view?: ArticleView;
+    target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
@@ -16,6 +17,7 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
         className,
         articles,
         view = ArticleView.SMALL,
+        target,
     } = props;
 
 
@@ -25,6 +27,7 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
             view={view}
             className={cls.card}
             key={article.id}
+            target={target}
         />
     );
 
