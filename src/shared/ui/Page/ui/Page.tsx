@@ -7,7 +7,7 @@ import { getScroll, setScrollPosition } from 'features/ScrollObserver';
 import { useSelector } from 'react-redux';
 
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { useThrottle } from 'shared/hooks/useTrotle';
+import { useThrottle } from 'shared/hooks/useThrottle';
 import { useInfiniteScroll } from 'shared/hooks/useInfiniteScroll';
 
 

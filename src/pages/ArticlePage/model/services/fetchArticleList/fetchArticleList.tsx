@@ -1,22 +1,44 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
-import { Article } from 'entities/Article';
-import { getArticlePageLimit } from '../../selectors/getArticlePageView';
+import { Article, ArticleType } from '../../../../../entities/Article';
+import {
+    getArticlePageLimit,
+    getArticlePageNumber,
+    getArticlePageOrder, getArticlePageSearch,
+    getArticlePageSort, getArticlePageType
+} from '../../selectors/getArticlePageView';
+import { addQueryParams } from 'shared/lib/url/addQueryParams';
 
-
-export const fetchArticleList = createAsyncThunk<Article[],  number, { extra: ThunkExtraArg }>(
+interface FetchArticleListProps {
+    replace?: boolean;
+}
+export const fetchArticleList = createAsyncThunk<Article[],  FetchArticleListProps, { extra: ThunkExtraArg }>(
     'articlePage/fetchCommentsByArticleId',
-    async (page , { extra, rejectWithValue, getState }) => {
+    async (props , { extra, rejectWithValue, getState }) => {
+
+        const page = getArticlePageNumber(getState());
+        const limit = getArticlePageLimit(getState());
+        const order = getArticlePageOrder(getState());
+        const sort = getArticlePageSort(getState());
+        const search = getArticlePageSearch(getState());
+        const type = getArticlePageType(getState());
+
         try {
-            
-            const limit = getArticlePageLimit(getState());
+
+            addQueryParams({
+                sort, order, search, type,
+            });
 
             const response = await extra.api.get<Article[]>('/articles/', {
                 params: {
                     _expand: 'user',
                     _page: page,
-                    _limit: limit
+                    _limit: limit,
+                    _sort: sort,
+                    _order: order,
+                    q: search,
+                    type: type === ArticleType.ALL ? undefined : type,
                 }
             });
 

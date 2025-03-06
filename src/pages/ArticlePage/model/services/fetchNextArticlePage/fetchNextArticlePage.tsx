@@ -13,8 +13,8 @@ export const fetchNextArticlePage = createAsyncThunk<void, void, { extra: ThunkE
             const hasMore = getArticlePageHasMore(getState());
             const page = getArticlePageNumber(getState());
             if (hasMore) {
-                dispatch(fetchArticleList(page + 1));
                 dispatch(setPage(page + 1));
+                dispatch(fetchArticleList({ replace: false }));
             }
         } catch (error) {
             if (axios.isAxiosError(error)) {

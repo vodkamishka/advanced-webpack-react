@@ -15,6 +15,11 @@ interface SelectProps {
     disabled?: boolean;
 }
 
+export interface SelectOption {
+    value: string;
+    content: string;
+}
+
 export const Select = ({ 
     className, 
     options, 
