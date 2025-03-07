@@ -10,4 +10,4 @@ export { articleDetailsCommentsSlice } from './models/slice/articleDetailsCommen
 
 export { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage/models/types/types';
 
-export { ArticleDetailsPage } from './ui/ArticleDetailsPage';
+export { ArticleDetailsPage } from './ui/ArticleDatailsPage/ArticleDetailsPage';

@@ -7,6 +7,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlePage } from 'pages/ArticlePage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 
 
 export enum AppRoutes {
@@ -15,7 +16,9 @@ export enum AppRoutes {
     NOT_FOUND = 'not_found',
     PROFILE = 'profile',
     ARTICLES = 'articles',
-    ARTICLE_DETAILS = 'article_details'
+    ARTICLE_DETAILS = 'article_details',
+    ARTICLE_CREATE = 'article_create',
+    ARTICLE_EDIT = 'article_edit',
 }
 
 export const RoutePath: Record<AppRoutes, string> = {
@@ -25,6 +28,8 @@ export const RoutePath: Record<AppRoutes, string> = {
     [AppRoutes.NOT_FOUND]: '*',
     [AppRoutes.ARTICLES]: '/articles',
     [AppRoutes.ARTICLE_DETAILS]: '/articles', // + :id
+    [AppRoutes.ARTICLE_CREATE]: '/articles/new',
+    [AppRoutes.ARTICLE_EDIT]: '/articles/:id/edit',
 };
 
 export interface RouteConfigProps extends Omit<RouteProps, 'element'> {
@@ -54,6 +59,16 @@ export const routeConfig: Record<AppRoutes, RouteConfigProps> = {
     [AppRoutes.ARTICLE_DETAILS]: {
         path: `${RoutePath.article_details}/:id`,
         element: <ArticleDetailsPage />,
+        withAuth: true,
+    },
+    [AppRoutes.ARTICLE_CREATE]: {
+        path: `${RoutePath.article_create}`,
+        element: <ArticleEditPage />,
+        withAuth: true,
+    },
+    [AppRoutes.ARTICLE_EDIT]: {
+        path: `${RoutePath.article_edit}`,
+        element: <ArticleEditPage />,
         withAuth: true,
     },
     [AppRoutes.NOT_FOUND]: {

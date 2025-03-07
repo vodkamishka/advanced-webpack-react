@@ -1,33 +1,30 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleDetails } from '../../../entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { ArticleDetails } from '../../../../entities/Article';
+import { useParams } from 'react-router-dom';
 import { Text } from 'shared/ui/Text';
-import { CommentList } from '../../../entities/Comment';
+import { CommentList } from '../../../../entities/Comment';
 import { useSelector } from 'react-redux';
 import {
     getArticleDetailsCommentsError,
     getArticleDetailsCommentsIsLoading
-} from '../models/selectors/getArticleDetailsComments';
+} from '../../models/selectors/getArticleDetailsComments';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import {
     fetchCommentsByArticleId
-} from '../models/services/fetchCommentsByAtricleId/fetchCommentsByArticleId';
+} from '../../models/services/fetchCommentsByAtricleId/fetchCommentsByArticleId';
 import {
     getArticleDetailsCommentsSelectors
-} from '../models/slice/articleDetailsCommentsSlice';
+} from '../../models/slice/articleDetailsCommentsSlice';
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
 import { addCommentForArticle } from 'pages/ArticleDetailsPage/models/services/addCommentForArticle/addCommentForArticle';
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 import { Page } from 'shared/ui/Page/ui/Page';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
 import {
     fetchArticleRecommendations
-} from '../models/services/fetchArticleRecommendations/fecthArticleRecommendations';
+} from '../../models/services/fetchArticleRecommendations/fecthArticleRecommendations';
 import {
     getArticleDetailsRecommendationsSelectors
 } from 'pages/ArticleDetailsPage/models/slice/articleDetailsRecommendationSlice';
@@ -37,7 +34,10 @@ import { TextSize } from 'shared/ui/Text/ui/Text';
 import cls from './ArticleDetailsPage.module.scss';
 import {
     getArticleDetailsRecommendationsIsLoading
-} from '../models/selectors/getArticleDetailsRecommendations';
+} from '../../models/selectors/getArticleDetailsRecommendations';
+import { useTranslation } from 'react-i18next';
+import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
 
 interface ArticleDetailsPageProps {
     className?: string
@@ -64,12 +64,6 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const dispatch = useAppDispatch();
     
     const text = useSelector(getAddCommentFormText);
-
-    const navigate = useNavigate();
-
-    const onBackToList = useCallback(() => {
-        navigate(RoutePath.articles);
-    }, [navigate]);
 
     const onSendComment = useCallback(() => {
         dispatch(addCommentForArticle(text));
@@ -98,9 +92,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     return (
         <Page>
             <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
-                <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
-                    {t('Назад к списку')}
-                </Button>
+                <ArticleDetailsPageHeader/>
                 <ArticleDetails id={id}/>
                 <Text
                     size={TextSize.L}
