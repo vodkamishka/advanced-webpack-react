@@ -47,9 +47,9 @@ export const ArticlePage = memo(function ArticlePage() {
 
     return (
          
-        <Page callback={callback}>
+        <Page callback={callback} disableScroll={true}>
             <DynamicModuleLoader asyncReducers={reducers}>
-                <ArticlePageFilters />
+                {/*<ArticlePageFilters />*/}
                 <ArticleList
                     isLoading={isLoading}
                     view={view}

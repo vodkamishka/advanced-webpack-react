@@ -16,9 +16,10 @@ interface PageProps {
     className?: string;
     children?: ReactNode;
     callback?: () => void;
+    disableScroll?: boolean;
 }
 
-export const Page: FC<PageProps> = ({ className, children, callback }: PageProps) => {
+export const Page: FC<PageProps> = ({ className, children, callback, disableScroll = false }: PageProps) => {
 
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
@@ -47,8 +48,12 @@ export const Page: FC<PageProps> = ({ className, children, callback }: PageProps
 
     const onScrollThrottle = useThrottle(onScroll, 1000);
 
+    const mods = {
+        [cls.disableScroll]: disableScroll
+    }
+
     return (
-        <section ref={rootRef} onScroll={onScrollThrottle}  className={classNames(cls.page, {}, [className])}>
+        <section ref={rootRef} onScroll={onScrollThrottle}  className={classNames(cls.page, mods, [className])}>
             { children }
             <div ref={targetRef} style={{ height: '2px' }} className='target'></div>
         </section>

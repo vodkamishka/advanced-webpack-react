@@ -5,3 +5,7 @@
     overflow-y: auto;
     flex-shrink: 100;
 }
+
+.disableScroll {
+    overflow-y: hidden;
+}
