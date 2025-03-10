@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
+import { AddCommentFormSchema } from '../types/types';
 
 const initialState: AddCommentFormSchema = {
     text: undefined,

@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
-import { fetchArticleList } from 'pages/ArticlePage/model/services/fetchArticleList/fetchArticleList';
-import { setPage } from 'pages/ArticlePage/model/slice/articlePageSlice';
+import { fetchArticleList } from '../fetchArticleList/fetchArticleList';
+import { setPage } from '../../slice/articlePageSlice';
 import { getArticlePageHasMore, getArticlePageNumber } from '../../selectors/getArticlePageView';
 
 

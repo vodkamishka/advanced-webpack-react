@@ -7,7 +7,7 @@ import cls from './ArticleDetailsPageHeader.module.scss';
 import { useSelector } from 'react-redux';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { getArticleData } from 'entities/Article/model/selectors/getArticleData';
-import { getArticleCanEdit } from 'pages/ArticleDetailsPage/models/selectors/getArticleCanEdit';
+import { getArticleCanEdit } from '../../models/selectors/getArticleCanEdit';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;

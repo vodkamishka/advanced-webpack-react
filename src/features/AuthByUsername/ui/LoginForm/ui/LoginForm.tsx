@@ -4,16 +4,16 @@ import cls from './LoginForm.module.scss';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { memo, useCallback } from 'react';
-import { loginReducer, setPassword, setUsername } from 'features/AuthByUsername/model/slice/loginSlice';
+import { loginReducer, setPassword, setUsername } from '../../../model/slice/loginSlice';
 import { useSelector } from 'react-redux';
 import { Text } from 'shared/ui/Text';
 import { TextTheme } from 'shared/ui/Text/ui/Text';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { loginByUsername } from '../../../model/services/loginByUsername/loginByUsername';
 import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { getUsername } from 'features/AuthByUsername/model/selectors/getUsername/getUsername.';
-import { getPassword } from 'features/AuthByUsername/model/selectors/getPassword/getPassword';
-import { getIsLoading } from 'features/AuthByUsername/model/selectors/getIsLoading/getIsLoading';
-import { getError } from 'features/AuthByUsername/model/selectors/getError/getError';
+import { getUsername } from '../../../model/selectors/getUsername/getUsername.';
+import { getPassword } from '../../../model/selectors/getPassword/getPassword';
+import { getIsLoading } from '../../../model/selectors/getIsLoading/getIsLoading';
+import { getError } from '../../../model/selectors/getError/getError';
 import { DynamicModuleLoader } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 

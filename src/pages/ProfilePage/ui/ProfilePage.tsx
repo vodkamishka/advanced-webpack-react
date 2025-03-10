@@ -10,7 +10,7 @@ import { getProfileFormData } from 'entities/Profile';
 import { getProfileIsLoading } from 'entities/Profile';
 import { getProfileReadonly } from 'entities/Profile';
 import { getProfileError } from 'entities/Profile';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ui/ProfilePageHeader';
+import { ProfilePageHeader } from './ProfilePageHeader/ui/ProfilePageHeader';
 
 import cls from './ProfilePage.module.scss';
 import {  updateProfile } from 'entities/Profile/model/slice/profileSlice';

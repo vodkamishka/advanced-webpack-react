@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Card } from 'shared/ui/Card/Card';
 
-import { Article } from 'entities/Article';
+import { Article } from '../../model/types/articleTypes';
 import { ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/articleTypes';
 
 import cls from './ArticleListItem.module.scss';

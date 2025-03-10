@@ -9,7 +9,7 @@ import {
     getArticlePageSort,
     getArticlePageView,
     getArticlePageType
-} from 'pages/ArticlePage/model/selectors/getArticlePageView';
+} from '../..//model/selectors/getArticlePageView';
 import { useCallback } from 'react';
 import { ArticleType, ArticleView } from 'entities/Article';
 import { setOrder, setPage, setSearch, setSort, setType, setView } from '../../model/slice/articlePageSlice';
@@ -17,7 +17,7 @@ import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { Card } from 'shared/ui/Card/Card';
 import { ArticleSortField } from 'entities/Article/model/types/articleTypes';
 import { SortOrder } from 'shared/types/types';
-import { fetchArticleList } from 'pages/ArticlePage/model/services/fetchArticleList/fetchArticleList';
+import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
 import { useDebounce } from 'shared/hooks/useDebounce';
 

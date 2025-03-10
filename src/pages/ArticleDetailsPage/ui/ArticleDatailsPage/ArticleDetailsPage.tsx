@@ -18,16 +18,16 @@ import {
     getArticleDetailsCommentsSelectors
 } from '../../models/slice/articleDetailsCommentsSlice';
 import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/models/services/addCommentForArticle/addCommentForArticle';
+import { addCommentForArticle } from '../../models/services/addCommentForArticle/addCommentForArticle';
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 import { Page } from 'shared/ui/Page/ui/Page';
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage';
+import { articleDetailsPageReducer } from '../../models/slice/';
 import {
     fetchArticleRecommendations
 } from '../../models/services/fetchArticleRecommendations/fecthArticleRecommendations';
 import {
     getArticleDetailsRecommendationsSelectors
-} from 'pages/ArticleDetailsPage/models/slice/articleDetailsRecommendationSlice';
+} from '../../models/slice/articleDetailsRecommendationSlice';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { TextSize } from 'shared/ui/Text/ui/Text';
 
@@ -36,7 +36,7 @@ import {
     getArticleDetailsRecommendationsIsLoading
 } from '../../models/selectors/getArticleDetailsRecommendations';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetailsPageHeader } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 
 interface ArticleDetailsPageProps {

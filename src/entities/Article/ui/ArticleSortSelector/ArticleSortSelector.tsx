@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleSortSelector.module.scss';
 import { useMemo } from 'react';
-import { ArticleSortField } from 'entities/Article/model/types/articleTypes';
+import { ArticleSortField } from '../../model/types/articleTypes';
 import { Select, SelectOption } from 'shared/ui/Select';
 import { SortOrder } from 'shared/types/types';
 

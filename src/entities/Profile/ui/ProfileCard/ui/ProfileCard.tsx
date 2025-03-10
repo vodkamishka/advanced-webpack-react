@@ -12,7 +12,7 @@ import { Currency, CurrencySelect } from 'entities/Currency';
 import { useSelector } from 'react-redux';
 import {
     getProfileValidateErrors
-} from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+} from '../../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 interface ProfileCardProps {
     className?: string;

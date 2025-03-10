@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { getArticleIsLoading } from '../../../../entities/Article/model/selectors/getArticleData';
 import { getArticlePageHasMore, getArticlePageView } from '../../model/selectors/getArticlePageView';
 import { Page } from 'shared/ui/Page/ui/Page';
-import { fetchNextArticlePage } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 import { useSearchParams } from 'react-router-dom';
