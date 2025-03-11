@@ -8,11 +8,13 @@ import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { ScrollSchema } from 'features/ScrollObserver';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
     scrollPosition: ScrollSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema | undefined;

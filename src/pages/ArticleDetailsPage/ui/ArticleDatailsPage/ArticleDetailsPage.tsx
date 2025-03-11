@@ -22,21 +22,9 @@ import { addCommentForArticle } from '../../models/services/addCommentForArticle
 import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 import { Page } from 'shared/ui/Page/ui/Page';
 import { articleDetailsPageReducer } from '../../models/slice/';
-import {
-    fetchArticleRecommendations
-} from '../../models/services/fetchArticleRecommendations/fecthArticleRecommendations';
-import {
-    getArticleDetailsRecommendationsSelectors
-} from '../../models/slice/articleDetailsRecommendationSlice';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { TextSize } from 'shared/ui/Text/ui/Text';
-
 import cls from './ArticleDetailsPage.module.scss';
-import {
-    getArticleDetailsRecommendationsIsLoading
-} from '../../models/selectors/getArticleDetailsRecommendations';
-import { useTranslation } from 'react-i18next';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleRecommendationsList } from 'features/ArticleRecommedationsList';
 
 
 interface ArticleDetailsPageProps {
@@ -50,16 +38,12 @@ const reducers: ReducersList = {
 
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
-    const { t } = useTranslation();
-
     const { id } = useParams<{ id: string }>();
     
     const error = useSelector(getArticleDetailsCommentsError);
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-    const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading);
 
     const comments = useSelector(getArticleDetailsCommentsSelectors.selectAll);
-    const recommendations = useSelector(getArticleDetailsRecommendationsSelectors.selectAll);
 
     const dispatch = useAppDispatch();
     
@@ -71,7 +55,6 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
-        dispatch(fetchArticleRecommendations());
     }, [dispatch, id]);
 
     if (!id) {
@@ -94,17 +77,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
                 <ArticleDetailsPageHeader/>
                 <ArticleDetails id={id}/>
-                <Text
-                    size={TextSize.L}
-                    className={cls.commentTitle}
-                    title={t('Рекомендуем')}
-                />
-                <ArticleList
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    className={cls.recommendations}
-                    target="_blank"
-                />
+                <ArticleRecommendationsList/>
                 <Text title={'Коммментарии'}/>
                 <AddCommentForm onSendComment={onSendComment}/>
                 <CommentList

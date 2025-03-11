@@ -5,6 +5,7 @@ import { userReducer, UserSchema } from '../../../../entities/User';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
 import { $api } from 'shared/api/api';
 import { scrollReducer } from 'features/ScrollObserver';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface IStore extends EnhancedStore<StateSchema> {
     reducerManager?: ReducerManagerType
@@ -14,6 +15,7 @@ const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
     scrollPosition: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer,
 };
 
 export const initialState: StateSchema = {
@@ -22,6 +24,7 @@ export const initialState: StateSchema = {
     },
     user: {} as UserSchema,
     scrollPosition: undefined,
+    [rtkApi.reducerPath]: undefined
 }
 
 const createStore = (): IStore => {
@@ -39,7 +42,7 @@ const createStore = (): IStore => {
             thunk: {
                 extraArgument: extraArg,
             },
-        }),
+        }).concat(rtkApi.middleware) as unknown as ReturnType<typeof getDefaultMiddleware>,
     });
 
     store.reducerManager = reducerManager;
