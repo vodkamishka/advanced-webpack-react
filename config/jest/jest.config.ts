@@ -73,6 +73,16 @@ const config: Config = {
         'entities/(.*)': '<rootDir>/src/entities/$1'
     },
 
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+            inlineSource: true,
+        }],
+    ],
+
     // A path to a module which exports an async function that is triggered once before all test suites
     // globalSetup: undefined,
 
