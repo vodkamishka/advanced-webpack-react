@@ -1,30 +1,15 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { ArticleDetails } from '../../../../entities/Article';
 import { useParams } from 'react-router-dom';
-import { Text } from 'shared/ui/Text';
-import { CommentList } from '../../../../entities/Comment';
 import { useSelector } from 'react-redux';
-import {
-    getArticleDetailsCommentsError,
-    getArticleDetailsCommentsIsLoading
-} from '../../models/selectors/getArticleDetailsComments';
+import { getArticleDetailsCommentsError } from '../../models/selectors/getArticleDetailsComments';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useCallback, useEffect } from 'react';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import {
-    fetchCommentsByArticleId
-} from '../../models/services/fetchCommentsByAtricleId/fetchCommentsByArticleId';
-import {
-    getArticleDetailsCommentsSelectors
-} from '../../models/slice/articleDetailsCommentsSlice';
-import AddCommentForm from 'features/AddCommentForm/ui/AddCommentForm';
-import { addCommentForArticle } from '../../models/services/addCommentForArticle/addCommentForArticle';
-import { getAddCommentFormText } from 'features/AddCommentForm/model/selectors/getAddCommentFormText';
 import { Page } from 'shared/ui/Page/ui/Page';
 import { articleDetailsPageReducer } from '../../models/slice/';
 import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from 'features/ArticleRecommedationsList';
+import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
 
 
 interface ArticleDetailsPageProps {
@@ -39,23 +24,8 @@ const reducers: ReducersList = {
 export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     const { id } = useParams<{ id: string }>();
-    
+
     const error = useSelector(getArticleDetailsCommentsError);
-    const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
-
-    const comments = useSelector(getArticleDetailsCommentsSelectors.selectAll);
-
-    const dispatch = useAppDispatch();
-    
-    const text = useSelector(getAddCommentFormText);
-
-    const onSendComment = useCallback(() => {
-        dispatch(addCommentForArticle(text));
-    }, [dispatch, text])
-
-    useEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
-    }, [dispatch, id]);
 
     if (!id) {
         return (
@@ -78,12 +48,7 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 <ArticleDetailsPageHeader/>
                 <ArticleDetails id={id}/>
                 <ArticleRecommendationsList/>
-                <Text title={'Коммментарии'}/>
-                <AddCommentForm onSendComment={onSendComment}/>
-                <CommentList
-                    isLoading={isLoading}
-                    comments={comments}
-                />
+                <ArticleDetailsComments id={id}/>
             </DynamicModuleLoader>
         </Page>
         

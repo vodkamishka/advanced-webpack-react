@@ -1,44 +1,40 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './ProfilePageHeader.module.scss';
-import { Text } from 'shared/ui/Text';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import cls from './EditableProfileCardHeader.module.scss';
+import { useAppDispatch } from 'shared/hooks/useAppDispatch';
 import { useCallback, useMemo } from 'react';
 import { cancelEdit, setReadonly } from 'entities/Profile/model/slice/profileSlice';
-import { Profile } from 'entities/Profile/model/types/profileTypes';
-import { Avatar } from 'shared/ui/Avatar';
-import { updateProfileData } from 'entities/Profile';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { getAuthData } from 'entities/User';
+import { getProfileFormData, getProfileReadonly, updateProfileData } from 'entities/Profile';
 import { useSelector } from 'react-redux';
+import { getAuthData } from 'entities/User';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 
-interface ProfilePageHeaderProps {
+
+interface EditableProfileCardHeaderProps {
     className?: string
-    readonly?: boolean;
-    data?: Profile;
 }
 
-export const ProfilePageHeader = ({ className, readonly, data }: ProfilePageHeaderProps) => {
+export const EditableProfileCardHeader = ({ className }: EditableProfileCardHeaderProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
     const onSave = useCallback(() => dispatch(setReadonly(false)), [dispatch]);
     const onCancelEdit = useCallback(() => dispatch(cancelEdit()), [dispatch]);
     const onUpdate = useCallback(() => dispatch(updateProfileData()), [dispatch]);
-    
-    const user = useSelector(getAuthData);
-    
-    const isEdit = useMemo(() => {
-        return data?.id === user?.id
-    }, [data, user])
-    
-    
+
+    const authData = useSelector(getAuthData);
+    const profileData = useSelector(getProfileFormData);
+    const readonly = useSelector(getProfileReadonly);
+
+    const isEdit = authData?.id === profileData?.id;
+
+
     const renderButtons = useMemo(() => {
 
         if (!isEdit) {
             return <></>
         }
-        
+
         return (
             readonly ?
 
@@ -70,13 +66,11 @@ export const ProfilePageHeader = ({ className, readonly, data }: ProfilePageHead
                 </div>
 
         )
-        
+
     }, [isEdit, onCancelEdit, onSave, onUpdate, readonly, t])
 
     return (
-        <div className={classNames(cls.profilePageHeader, {}, [className])}>
-            <Text title={t('Профиль')} />
-            <Avatar src={data?.avatar}/>
+        <div className={classNames(cls.editableProfileCardHeader, {}, [className])}>
             {renderButtons}
         </div>
     );
