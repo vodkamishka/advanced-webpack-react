@@ -1,9 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { getCounterValue } from '..';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { counterDecrement, counterIncrement } from '..';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { counterDecrement, counterIncrement } from '../model/slice/counterSlice';
 
 interface CounterProps {
     className?: string

@@ -16,7 +16,7 @@ const reducers = {
     articlePage: articlePageReducer,
 };
 
-export const ArticlePage = memo(function ArticlePage() {
+const ArticlePage = memo(function ArticlePage() {
 
     const dispatch = useAppDispatch();
 
@@ -44,4 +44,6 @@ export const ArticlePage = memo(function ArticlePage() {
         </DynamicModuleLoader>
     );
 });
+
+export default ArticlePage;
 

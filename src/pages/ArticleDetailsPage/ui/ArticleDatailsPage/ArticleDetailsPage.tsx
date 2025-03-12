@@ -21,7 +21,7 @@ const reducers: ReducersList = {
 };
 
 
-export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
+const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     const { id } = useParams<{ id: string }>();
 
@@ -54,3 +54,5 @@ export const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         
     );
 };
+
+export default ArticleDetailsPage;

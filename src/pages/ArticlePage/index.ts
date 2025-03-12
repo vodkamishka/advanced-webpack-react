@@ -1,5 +1,5 @@
 export type { ArticlePageSchema } from './model/types/types';
 
-export { ArticlePage } from './ui/ArticlePage/ArticlePage';
+export { ArticlePageAsync as ArticlePage } from './ui/ArticlePage/ArticlePage.async';
 
 

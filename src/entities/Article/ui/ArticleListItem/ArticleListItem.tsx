@@ -3,8 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { Card } from 'shared/ui/Card/Card';
 
-import { Article } from '../../model/types/articleTypes';
-import { ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/articleTypes';
+import { ArticleBlockType, ArticleTextBlock, ArticleView, Article } from '../../model/types/articleTypes';
 
 import cls from './ArticleListItem.module.scss';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
@@ -16,6 +15,7 @@ import { Avatar } from 'shared/ui/Avatar';
 import { ArticleTextBlockComponent } from '../ActicleTextBlockComponent';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { AppLink } from 'shared/ui/AppLink';
+
 interface ArticleListItemProps {
     className?: string;
     article: Article;

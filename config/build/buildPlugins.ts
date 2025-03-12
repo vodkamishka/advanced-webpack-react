@@ -4,6 +4,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BuildOptions } from './types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export function buildPlugins(options: BuildOptions) {
     const { isDev,  apiUrl, paths } = options;
@@ -21,6 +22,12 @@ export function buildPlugins(options: BuildOptions) {
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
         }),
+        new CircularDependencyPlugin({
+            // exclude detection of files based on a RegExp
+            exclude: /a\.js|node_modules/,
+            // add errors to webpack instead of warnings
+            failOnError: true,
+        })
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false
         // }), // плагин для анализа размеров бандла
