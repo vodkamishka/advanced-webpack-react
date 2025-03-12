@@ -26,6 +26,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-runtime": "^7.26.10",
+    "@babel/plugin-transform-typescript": "^7.26.8",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
     "@chromatic-com/storybook": "^3.2.4",
@@ -69,6 +71,7 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-storybook": "^0.11.2",
     "file-loader": "^6.2.0",
+    "fork-ts-checker-webpack-plugin": "^9.0.2",
     "globals": "^15.14.0",
     "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",

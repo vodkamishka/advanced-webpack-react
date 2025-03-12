@@ -1,6 +1,6 @@
-export function buildBabelLoader(isDev : boolean) {
+export function buildBabelLoader(isDev : boolean, isTsx: boolean) {
     return {
-        test: /\.(js|jsx|tsx)$/,
+        test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
         exclude: /node_modules/,
         use: {
             loader: 'babel-loader',
@@ -8,6 +8,13 @@ export function buildBabelLoader(isDev : boolean) {
                 presets: ['@babel/preset-env'],
                 plugins: [
                     isDev && require.resolve('react-refresh/babel'),
+                    '@babel/plugin-transform-runtime',
+                    [
+                        '@babel/plugin-transform-typescript',
+                        {
+                            isTsx,
+                        },
+                    ],
                 ].filter(Boolean),
             },
         },

@@ -1,6 +1,7 @@
 import { BuildOptions } from './types/config';
 import { getScssLoader } from './loaders/getStyleLoader';
 import { getSvgLoader } from './loaders/getSvgLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders({ isDev }: BuildOptions) {
 
@@ -19,15 +20,17 @@ export function buildLoaders({ isDev }: BuildOptions) {
         exclude: /node_modules/,
     };
 
-    //const babelLoader = buildBabelLoader(isDev);
+    const codeBabelLoader = buildBabelLoader(isDev, false );
+    const tsxCodeBabelLoader = buildBabelLoader(isDev, true );
     const svgLoader = getSvgLoader();
     const cssLoader = getScssLoader(isDev);
 
     return [
         svgLoader,
         fileLoader,
-        //babelLoader,
-        typeScriptLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        //typeScriptLoader,
         cssLoader
     ];
 }

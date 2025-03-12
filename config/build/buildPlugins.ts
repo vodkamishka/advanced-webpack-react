@@ -5,6 +5,7 @@ import { BuildOptions } from './types/config';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins(options: BuildOptions) {
     const { isDev,  apiUrl, paths } = options;
@@ -27,7 +28,16 @@ export function buildPlugins(options: BuildOptions) {
             exclude: /a\.js|node_modules/,
             // add errors to webpack instead of warnings
             failOnError: true,
-        })
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true,
+                },
+                mode: 'write-references',
+            },
+        }),
         // new BundleAnalyzerPlugin({
         //     openAnalyzer: false
         // }), // плагин для анализа размеров бандла
