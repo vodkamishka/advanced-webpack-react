@@ -7,6 +7,7 @@
     "jsx": "react-jsx",
     "strict": false,
     "allowJs": true,
+    "isolatedModules": true, // каждый файл компилируется отдельно, без зависимостей от других файлов
     "moduleResolution": "node",
     "esModuleInterop": true, // позволяет использовать import и export в CommonJs
     "allowSyntheticDefaultImports": true, // использовать синтетический экспорт по умолчанию для модулей, которые не
@@ -15,7 +16,7 @@
     "paths": {
       "*": ["./src/*"] // любые импорты, которые не совпадают с другими точно прописанными путями, должны разрешаться
       //начиная с папки src и учитывать структуру вложенных каталогов внутри этой папки
-    }
+    },
   },
   "ts-node": {
     "compilerOptions": {

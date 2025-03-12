@@ -1,2 +1,2 @@
-export { AddCommentFormSchema } from './model/types/types';
+export type { AddCommentFormSchema } from './model/types/types';
 

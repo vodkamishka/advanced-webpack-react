@@ -4,7 +4,10 @@ import { store } from './config/Store';
 
 export {
     StoreProvider,
-    StateSchema,
-    StateSchemaKey,
     store
+}
+
+export type {
+    StateSchemaKey,
+    StateSchema,
 }

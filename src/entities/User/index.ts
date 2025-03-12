@@ -4,6 +4,8 @@ export { getAuthData } from './model/selectors/getAuthData/getAuthData';
 
 export { setAuthData, userReducer, logout, initAuthData, userSlice } from './model/slice/userSlice';
 
-export { UserSchema, User, UserRole } from './model/types/userTypes';
+export { UserRole } from './model/types/userTypes';
+
+export type { UserSchema, User } from './model/types/userTypes';
 
 
