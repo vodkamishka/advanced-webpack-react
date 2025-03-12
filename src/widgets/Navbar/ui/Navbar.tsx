@@ -3,12 +3,9 @@ import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback, useState } from 'react';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-
-
-
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import cls from './Navbar.module.scss';
-import { getAuthData, logout } from 'entities/User';
+import { getAuthData, isAdmin, isManager, logout } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button';
@@ -19,9 +16,11 @@ interface NavbarProps {
 
 export const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const { t } = useTranslation();
-    const [isAuthModal] = useState(false);
     const authData = useSelector(getAuthData);
     const dispatch = useDispatch();
+
+    const isAdminRole = useSelector(isAdmin);
+    const isManagerRole = useSelector(isManager);
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -31,6 +30,8 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
         dispatch(logout());
     }, [dispatch]);
 
+    const isAdminPanelAvailable = isAdminRole || isManagerRole;
+
     if (authData) {
         return (
             <header className={classNames(cls.navbar, {}, [className])}>
@@ -39,6 +40,14 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                     title={t('Ulbi TV App')}
                     theme={TextTheme.INVERTED}
                 />
+                {isAdminPanelAvailable && (
+                    <AppLink
+                        to={RoutePath.admin_panel}
+                        theme={AppLinkTheme.SECONDARY}
+                    >
+                        {t('Админка')}
+                    </AppLink>
+                )}
                 <AppLink
                     to={RoutePath.article_create}
                     theme={AppLinkTheme.SECONDARY}
@@ -66,7 +75,7 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
             >
                 {t('Войти')}
             </Button>
-            {isAuthModal && (
+            {isOpen && (
                 <LoginModal
                     isOpen={isOpen}
                     setIsOpen={setIsOpen}
