@@ -1,8 +1,8 @@
-type Mode = Record<string, boolean | string | undefined> | [string]
+export type Mods = Record<string, boolean | string | undefined> | [string]
 
 export const classNames = (
     className: string,
-    mode: Mode = {},
+    mode: Mods = {},
     additionalClasses: Array<string | undefined> = [],
 ): string => [
     className,
