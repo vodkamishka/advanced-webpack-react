@@ -5,11 +5,7 @@ import { Page } from 'shared/ui/Page/ui/Page';
 import { EditableProfileCard } from 'features/EditableProfileCard/ui/EditableProfileCard/EditableProfileCard';
 
 
-interface ProfilePageProps {
-    className?: string
-}
-
-const ProfilePage = memo(function ProfilePage ({ className }: ProfilePageProps)  {
+const ProfilePage = memo(function ProfilePage ()  {
 
     const { id } = useParams<{ id: string }>();
 

@@ -9,6 +9,8 @@ import { getAuthData, isAdmin, isManager, logout } from 'entities/User';
 import { Text, TextTheme } from 'shared/ui/Text/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
 import { Button, ButtonTheme } from 'shared/ui/Button';
+import { AvatarDropdown } from 'features/AvatarDropdown';
+import { NotificationButton } from 'features/NotificationButton';
 
 interface NavbarProps {
     className?: string;
@@ -55,6 +57,10 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
                 >
                     {t('Создать статью')}
                 </AppLink>
+                <div className={cls.buttons}>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </div>
                 <Button
                     theme={ButtonTheme.CLEAR_INVERTED}
                     className={cls.links}
