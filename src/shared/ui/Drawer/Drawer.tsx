@@ -3,7 +3,7 @@ import cls from './Drawer.module.scss';
 import { Overlay } from 'shared/ui/Overlay/Overlay';
 import { Portal } from 'shared/ui/Portal';
 import { ReactNode } from 'react';
-import { useTheme } from '@storybook/theming';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 interface DrawerProps {
     className?: string;
