@@ -14,11 +14,11 @@ export function buildLoaders({ isDev }: BuildOptions) {
         ],
     };
 
-    const typeScriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-    };
+    // const typeScriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/,
+    // };
 
     const codeBabelLoader = buildBabelLoader(isDev, false );
     const tsxCodeBabelLoader = buildBabelLoader(isDev, true );
