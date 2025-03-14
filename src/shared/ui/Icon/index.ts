@@ -1,2 +1,2 @@
-export { Icon } from 'shared/ui/Icon/ui/Icon';
+export { Icon } from './ui/Icon';
 

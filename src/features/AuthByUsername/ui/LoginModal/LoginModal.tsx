@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Modal } from 'shared/ui/Modal'
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Modal } from '@/shared/ui/Modal'
 import { LoginForm } from '../LoginForm/';
 import { Suspense } from 'react';
 

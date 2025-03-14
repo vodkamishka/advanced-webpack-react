@@ -3,9 +3,9 @@ import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer, UserSchema } from '../../../../entities/User';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
-import { $api } from 'shared/api/api';
-import { scrollReducer } from 'features/ScrollObserver';
-import { rtkApi } from 'shared/api/rtkApi';
+import { $api } from '@/shared/api/api';
+import { scrollReducer } from '@/features/ScrollObserver';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface IStore extends EnhancedStore<StateSchema> {
     reducerManager?: ReducerManagerType

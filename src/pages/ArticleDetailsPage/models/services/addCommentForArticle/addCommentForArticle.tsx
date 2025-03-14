@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
-import { getAuthData } from 'entities/User';
-import { getArticleData } from 'entities/Article/model/selectors/getArticleData';
+import { getAuthData } from '@/entities/User';
+import { getArticleData } from '@/entities/Article/model/selectors/getArticleData';
 import { fetchCommentsByArticleId } from '../fetchCommentsByAtricleId/fetchCommentsByArticleId';
 
 

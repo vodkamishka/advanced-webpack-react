@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../../model/types/commentTypes';
-import { Text } from 'shared/ui/Text';
-import { Avatar } from 'shared/ui/Avatar';
-import { AppLink } from 'shared/ui/AppLink';
+import { Text } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar';
+import { AppLink } from '@/shared/ui/AppLink';
 
 interface CommentCardProps {
     className?: string;

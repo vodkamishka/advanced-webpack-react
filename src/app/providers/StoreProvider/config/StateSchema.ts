@@ -1,14 +1,14 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
+import { CounterSchema } from '@/entities/Counter';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
-import { ArticlePageSchema } from 'pages/ArticlePage';
-import { ScrollSchema } from 'features/ScrollObserver';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ProfileSchema } from 'features/EditableProfileCard/model/types/types';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
+import { ArticlePageSchema } from '@/pages/ArticlePage';
+import { ScrollSchema } from '@/features/ScrollObserver';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ProfileSchema } from '@/features/EditableProfileCard/model/types/types';
 
 export interface StateSchema {
     counter: CounterSchema;

@@ -1,4 +1,4 @@
-import { Select } from 'shared/ui/Select';
+import { Select } from '@/shared/ui/Select';
 import { Currency } from '../model/types/currencyTypes';
 
 

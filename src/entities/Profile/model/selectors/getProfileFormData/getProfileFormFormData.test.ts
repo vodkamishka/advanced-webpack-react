@@ -1,5 +1,5 @@
 import { getProfileFormData } from './getProfileFormData';
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { Country } from '../../../../Country';
 import { Currency } from '../../../../Currency';
 

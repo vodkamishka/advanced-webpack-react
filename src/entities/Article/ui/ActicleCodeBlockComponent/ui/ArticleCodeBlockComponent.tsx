@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleCodeBlockComponent.module.scss';
 import { ArticleCodeBlock } from '../../../model/types/articleTypes';
-import { Code } from 'shared/ui/Code';
+import { Code } from '@/shared/ui/Code';
 
 interface ArticleCodeBlockComponentProps {
     className?: string;

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig, RouteConfigProps } from 'shared/config/routeConfig/routeConfig';
-import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
+import { routeConfig, RouteConfigProps } from '@/shared/config/routeConfig/routeConfig';
+import { RequireAuth } from '@/app/providers/router/ui/RequireAuth';
 
 const AppRouter = () => {
 

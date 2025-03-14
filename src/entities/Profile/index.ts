@@ -1,4 +1,4 @@
-export { getProfileFormData } from 'entities/Profile/model/selectors/getProfileFormData/getProfileFormData';
+export { getProfileFormData } from './model/selectors/getProfileFormData/getProfileFormData';
 
 export { getProfileError } from './model/selectors/getProfileError/getProfileError';
 
@@ -6,7 +6,7 @@ export { getProfileIsLoading } from './model/selectors/getProfileIsLoading/getPr
 
 export { getProfileReadonly } from './model/selectors/getProfileReadonly/getProfileReadonly';
 
-export { fetchProfileDataById } from 'entities/Profile/model/services/fetchProfileDataById/fetchProfileDataById';
+export { fetchProfileDataById } from './model/services/fetchProfileDataById/fetchProfileDataById';
 
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 

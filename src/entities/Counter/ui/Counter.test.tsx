@@ -1,6 +1,6 @@
 import { screen, fireEvent } from '@testing-library/react';
 import { Counter } from './Counter';
-import { testProvider } from 'shared/lib/tests/testProvider/testProvider';
+import { testProvider } from '@/shared/lib/tests/testProvider/testProvider';
 describe('Counter', () => {
     test('test render', () => {
         testProvider(<Counter />);

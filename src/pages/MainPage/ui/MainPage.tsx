@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect, useState } from 'react';
-import { Counter } from 'entities/Counter';
-import { Page } from 'shared/ui/Page/ui/Page';
+import { Counter } from '@/entities/Counter';
+import { Page } from '@/shared/ui/Page/ui/Page';
 
 const MainPage = memo(function MainPage ()  {
     const { t } = useTranslation('main-page');

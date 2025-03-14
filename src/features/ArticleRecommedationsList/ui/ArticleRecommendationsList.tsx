@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
-import { TextSize } from 'shared/ui/Text/ui/Text';
-import cls from 'pages/ArticleDetailsPage/ui/ArticleDatailsPage/ArticleDetailsPage.module.scss';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { Text } from '@/shared/ui/Text';
+import { TextSize } from '@/shared/ui/Text/ui/Text';
+import cls from '@/pages/ArticleDetailsPage/ui/ArticleDatailsPage/ArticleDetailsPage.module.scss';
+import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
 import { useArticleRecommendationsList } from '../api/ArticleRecommendationsApi';
 
 interface ArticleRecommendationListProps {

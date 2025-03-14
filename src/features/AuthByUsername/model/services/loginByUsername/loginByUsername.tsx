@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { setAuthData } from '../../../../../entities/User';
-import { User } from 'entities/User';
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { User } from '@/entities/User';
+import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import { AxiosError } from 'axios';
 
 

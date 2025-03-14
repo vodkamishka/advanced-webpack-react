@@ -4,7 +4,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import '../../src/app/styles/index.scss'
 import './preview.scss';
 import { BrowserRouter } from 'react-router-dom';
-import { StoreProvider } from 'app/providers/StoreProvider';
+import { StoreProvider } from '@/app/providers/StoreProvider';
 
 const preview: Preview = {
     parameters: {

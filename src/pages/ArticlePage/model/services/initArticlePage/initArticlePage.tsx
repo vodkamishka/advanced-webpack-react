@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkExtraArg } from 'app/providers/StoreProvider/config/StateSchema';
+import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
 import { fetchArticleList } from '../../services/fetchArticleList/fetchArticleList';
 import { initState, setOrder, setSearch, setSort } from '../../slice/articlePageSlice';

@@ -1,6 +1,6 @@
-export  { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/models/slice';
+export  { articleDetailsPageReducer } from './models/slice';
 
-export type { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage/models/types';
+export type { ArticleDetailsPageSchema } from './models/types';
 
 export {
     fetchCommentsByArticleId
@@ -8,6 +8,6 @@ export {
 
 export { articleDetailsCommentsSlice } from './models/slice/articleDetailsCommentsSlice';
 
-export type { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from 'pages/ArticleDetailsPage/models/types/types';
+export type { ArticleDetailsCommentsSchema, ArticleDetailsRecommendationsSchema } from './models/types/types';
 
 export { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDatailsPage/ArticleDetailsPage.async';

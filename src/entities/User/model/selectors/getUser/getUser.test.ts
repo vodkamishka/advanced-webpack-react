@@ -1,5 +1,5 @@
 import { getUser } from './getUser';
-import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
+import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 
 describe('getUser selector', () => {
     test('must return user state', () => {

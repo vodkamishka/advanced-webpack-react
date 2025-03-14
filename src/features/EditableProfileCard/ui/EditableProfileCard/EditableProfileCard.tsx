@@ -1,7 +1,7 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import cls from './EditableProfileCard.module.scss';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import {
     fetchProfileDataById,
@@ -9,18 +9,18 @@ import {
     getProfileFormData,
     getProfileIsLoading,
     getProfileReadonly, ProfileCard, profileReducer
-} from 'entities/Profile';
+} from '@/entities/Profile';
 import { useCallback, useEffect } from 'react';
-import { updateProfile } from 'entities/Profile/model/slice/profileSlice';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { Page } from 'shared/ui/Page';
-import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { updateProfile } from '@/entities/Profile/model/slice/profileSlice';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Page } from '@/shared/ui/Page';
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 import {
     getProfileValidateErrors
-} from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { Text, TextTheme } from 'shared/ui/Text/ui/Text';
+} from '@/entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { Text, TextTheme } from '@/shared/ui/Text/ui/Text';
 import { ValidateProfileErrors } from '../../model/types/types';
 import {
     EditableProfileCardHeader

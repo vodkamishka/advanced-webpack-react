@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';

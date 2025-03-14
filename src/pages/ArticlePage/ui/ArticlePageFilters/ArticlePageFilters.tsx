@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlePageFilters.module.scss';
-import { Input } from 'shared/ui/Input';
-import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
-import { ArticleViewSelector } from 'entities/Article/ui/ArticleViewSelector';
+import { Input } from '@/shared/ui/Input';
+import { ArticleSortSelector } from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { ArticleViewSelector } from '@/entities/Article/ui/ArticleViewSelector';
 import { useSelector } from 'react-redux';
 import {
     getArticlePageOrder, getArticlePageSearch,
@@ -11,15 +11,15 @@ import {
     getArticlePageType
 } from '../..//model/selectors/getArticlePageView';
 import { useCallback } from 'react';
-import { ArticleType, ArticleView } from 'entities/Article';
+import { ArticleType, ArticleView } from '@/entities/Article';
 import { setOrder, setPage, setSearch, setSort, setType, setView } from '../../model/slice/articlePageSlice';
-import { useAppDispatch } from 'shared/hooks/useAppDispatch';
-import { Card } from 'shared/ui/Card/Card';
-import { ArticleSortField } from 'entities/Article/model/types/articleTypes';
-import { SortOrder } from 'shared/types/types';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { Card } from '@/shared/ui/Card/Card';
+import { ArticleSortField } from '@/entities/Article/model/types/articleTypes';
+import { SortOrder } from '@/shared/types/types';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
-import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
-import { useDebounce } from 'shared/hooks/useDebounce';
+import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { useDebounce } from '@/shared/hooks/useDebounce';
 
 interface ArticlePageFiltersProps {
     className?: string
