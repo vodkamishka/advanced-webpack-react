@@ -20,13 +20,18 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
     const { t } = useTranslation();
     const authData = useSelector(getAuthData);
     const dispatch = useDispatch();
+    const [isAuthModal, setIsAuthModal] = useState(false);
 
     const isAdminRole = useSelector(isAdmin);
     const isManagerRole = useSelector(isManager);
 
-    const [isOpen, setIsOpen] = useState(false);
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
 
-    const openModal = useCallback(() => setIsOpen(true), []);
+    const onShowModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
 
     const onLogout = useCallback(() => {
         dispatch(logout());
@@ -77,15 +82,14 @@ export const Navbar = memo(function Navbar({ className }: NavbarProps) {
             <Button
                 theme={ButtonTheme.CLEAR_INVERTED}
                 className={cls.links}
-                onClick={openModal}
+                onClick={onShowModal}
             >
                 {t('Войти')}
             </Button>
-            {isOpen && (
+            {isAuthModal && (
                 <LoginModal
-                    isOpen={isOpen}
-                    setIsOpen={setIsOpen}
-                    lazy={true}
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
                 />
             )}
         </header>

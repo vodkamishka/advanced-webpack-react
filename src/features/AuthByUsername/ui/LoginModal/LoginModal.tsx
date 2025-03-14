@@ -6,20 +6,19 @@ import { Suspense } from 'react';
 interface LoginModalProps {
     className?: string;
     isOpen?: boolean;
-    setIsOpen?: (isOpen: boolean) => void;
-    lazy?: boolean;
+    onClose?: () => void;
 }
 
-export const LoginModal = ({ className, isOpen, setIsOpen, lazy }: LoginModalProps) => {
+export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
     return (
         <Modal 
             className={classNames('', {}, [className])} 
             isOpen={isOpen}
-            setIsOpen={setIsOpen}
-            lazy={lazy}
+            onClose={onClose}
+            lazy={true}
         >
             <Suspense>
-                <LoginForm setIsOpen={setIsOpen}/>
+                <LoginForm setIsOpen={onClose}/>
             </Suspense>
         </Modal>
     );

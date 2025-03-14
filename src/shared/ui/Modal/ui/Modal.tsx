@@ -1,46 +1,50 @@
 import cls from './Modal.module.scss';
-import { classNames } from 'shared/lib/classNames/classNames';
-import React, { ReactNode, useCallback, useEffect, useState } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import React, { ReactNode } from 'react';
 import { Portal } from 'shared/ui/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
+import { useModal } from 'shared/hooks/useModal';
+import { Overlay } from 'shared/ui/Overlay/Overlay';
 
 interface ModalProps {
     className?: string;
     isOpen?: boolean;
     children?: never | string | ReactNode;
-    setIsOpen?: (isOpen: boolean) => void
+    onClose?: () => void;
     lazy?: boolean;
 }
 
-export const Modal = ({ className, isOpen, children, setIsOpen, lazy }: ModalProps) => {
-    
-    const mods = {
-        [cls.isOpen]: isOpen
-    }
-    
-    const closeModal = useCallback(() => setIsOpen?.(false), [setIsOpen]);
-    const clickContent = useCallback((e: React.MouseEvent) => e.stopPropagation(), []);
-    
-    const [isMounted, setIsMounted] = useState(false);
-    
-    useEffect(() => {
-        if (isOpen) {
-            setIsMounted(true);
-        }
-    }, [isOpen])
+const ANIMATION_DELAY = 300;
 
-    if (!isMounted && lazy) {
+export const Modal = ({ className, isOpen, children, onClose, lazy }: ModalProps) => {
+
+    const {
+        close,
+        isClosing,
+        isMounted,
+    } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        onClose,
+        isOpen,
+    });
+
+
+    const { theme } = useTheme();
+
+    const mods: Mods = {
+        [cls.opened]: isOpen,
+        [cls.isClosing]: isClosing,
+    };
+
+    if (lazy && !isMounted) {
         return null;
     }
-    
     return (
         <Portal>
-            <div
-                className={classNames(cls.modal, mods, [className])}
-                onClick={closeModal}
-            >
+            <div className={classNames(cls.modal, mods, [className, theme, 'app_modal'])}>
+                <Overlay onClick={close} />
                 <div
                     className={cls.content}
-                    onClick={clickContent}
                 >
                     {children}
                 </div>
