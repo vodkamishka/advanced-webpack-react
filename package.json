@@ -106,6 +106,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
+    "@react-spring/web": "^9.7.5",
+    "@use-gesture/react": "^10.3.1",
     "axios": "^1.7.9",
     "i18next": "^24.2.1",
     "i18next-browser-languagedetector": "^8.0.2",

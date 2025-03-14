@@ -6,6 +6,7 @@ import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 export function buildPlugins(options: BuildOptions) {
     const { isDev,  apiUrl, paths } = options;
@@ -39,7 +40,7 @@ export function buildPlugins(options: BuildOptions) {
             },
         }),
         // new BundleAnalyzerPlugin({
-        //     openAnalyzer: false
+        //     openAnalyzer: true
         // }), // плагин для анализа размеров бандла
     ];
 

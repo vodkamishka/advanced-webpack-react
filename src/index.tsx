@@ -7,6 +7,7 @@ import { Suspense } from 'react';
 import 'shared/config/i18n/i18n';
 import { ErrorBoundary } from 'app/providers/ErrorBoundary';
 import { StoreProvider } from 'app/providers/StoreProvider/';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 const rootElement = document.getElementById('root');
 

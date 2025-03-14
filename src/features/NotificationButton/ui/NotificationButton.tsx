@@ -8,6 +8,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import { Popover } from 'shared/ui/Popups';
 import cls from './NotificationButton.module.scss';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 
 interface NotificationButtonProps {
     className?: string
