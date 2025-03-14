@@ -70,7 +70,8 @@ const config: Config = {
         '\\.(css|scss)$': 'identity-obj-proxy',
         '\\.svg$': '<rootDir>/config/jest/svg-mock.tsx',
         'src/(.*)': '<rootDir>/src/$1',
-        'entities/(.*)': '<rootDir>/src/entities/$1'
+        'entities/(.*)': '<rootDir>/src/entities/$1',
+        '^@/(.*)$': '<rootDir>/src/$1',
     },
 
     reporters: [

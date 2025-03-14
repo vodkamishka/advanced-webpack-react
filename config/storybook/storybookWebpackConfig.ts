@@ -4,6 +4,11 @@ import { getSvgLoader } from '../build/loaders/getSvgLoader';
 import { Configuration } from 'webpack';
 export async function storybookWebpackConfig(config: Configuration) {
 
+    config.resolve.alias = {
+        ...config.resolve.alias,
+        '@': path.resolve(__dirname, '../../src'),
+    };
+    
     config!.resolve!.modules = [
         path.resolve(__dirname, '../../src'),
         'node_modules'
