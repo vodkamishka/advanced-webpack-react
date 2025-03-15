@@ -21,7 +21,9 @@ if (rootElement) {
                 <ThemeProvider>
                     <ErrorBoundary>
                         <Suspense fallback="...Loading">
-                            <App />
+                            <AnimationProvider>
+                                <App />
+                            </AnimationProvider>
                         </Suspense>
                     </ErrorBoundary>
                 </ThemeProvider>

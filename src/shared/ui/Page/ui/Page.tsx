@@ -32,7 +32,9 @@ export const Page: FC<PageProps> = ({ className, children, callback, disableScro
 
     useEffect(() => {
         setTimeout(() => {
-            rootRef.current.scrollTop = scroll?.[pathname];
+            if (rootRef.current) {
+                rootRef.current.scrollTop = scroll?.[pathname];
+            }
         }, 1000);// eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -43,7 +45,7 @@ export const Page: FC<PageProps> = ({ className, children, callback, disableScro
     });
 
     const onScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-        dispatch(setScrollPosition({ value: (e.target as HTMLElement).scrollTop , pathname }));
+        dispatch(setScrollPosition({ value: (e.target as HTMLElement)?.scrollTop , pathname }));
     }, [dispatch, pathname])
 
     const onScrollThrottle = useThrottle(onScroll, 1000);
