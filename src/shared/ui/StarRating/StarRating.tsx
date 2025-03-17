@@ -1,5 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './StartRating.module.scss';
+import cls from './StarRating.module.scss';
 import { memo, useState } from 'react';
 import StarIcon from '@/shared/assets/icons/star.svg';
 import { Icon } from '@/shared/ui/Icon';
@@ -19,7 +19,7 @@ export const StarRating = memo(function StarRating({
     selectedStars = 0, 
     onSelect 
 }: StarRatingProps) {
-    const [currentStarsCount, setCurrentStarsCount] = useState(0);
+    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
     const onHover = (starsCount: number) => () => {
@@ -41,23 +41,25 @@ export const StarRating = memo(function StarRating({
     };
 
     return (
-        <div className={classNames(cls.startRating, {}, [className])}>
-            {stars.map((starNumber) => (
-                <Icon
-                    className={classNames(
-                        cls.starIcon,
-                        { [cls.selected]: isSelected },
-                        [currentStarsCount >= starNumber ? cls.hovered : cls.normal],
-                    )}
-                    Svg={StarIcon}
-                    key={starNumber}
-                    width={size}
-                    height={size}
-                    onMouseLeave={onLeave}
-                    onMouseEnter={onHover(starNumber)}
-                    onClick={onClick(starNumber)}
-                />
-            ))}
+        <div className={classNames('', {}, [className])}>
+            {stars.map((starNumber) => {
+                return (
+                    <Icon
+                        className={classNames(
+                            cls.starIcon,
+                            { [cls.selected]: isSelected },
+                            [currentStarsCount >= starNumber ? cls.hovered : cls.normal],
+                        )}
+                        Svg={StarIcon}
+                        key={starNumber}
+                        width={size}
+                        height={size}
+                        onMouseLeave={onLeave}
+                        onMouseEnter={onHover(starNumber)}
+                        onClick={onClick(starNumber)}
+                    />
+                )
+            })}
         </div>
     );
 });

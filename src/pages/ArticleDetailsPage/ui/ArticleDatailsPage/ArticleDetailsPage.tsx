@@ -10,6 +10,7 @@ import cls from './ArticleDetailsPage.module.scss';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommedationsList';
 import { ArticleDetailsComments } from '../../ui/ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleRating } from '@/features/ArticleRating/ui/ArticleRating';
 
 
 interface ArticleDetailsPageProps {
@@ -47,6 +48,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
                 <ArticleDetailsPageHeader/>
                 <ArticleDetails id={id}/>
+                <ArticleRating articleId={id} />
                 <ArticleRecommendationsList/>
                 <ArticleDetailsComments id={id}/>
             </DynamicModuleLoader>

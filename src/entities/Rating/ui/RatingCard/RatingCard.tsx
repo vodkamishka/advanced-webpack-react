@@ -1,7 +1,7 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Input } from '@/shared/ui/Input';
 import { Text } from '@/shared/ui/Text';
 import { Card } from '@/shared/ui/Card/Card';
@@ -22,6 +22,7 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (starsCount: number) => void;
     onAccept?: (starsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo(function RatingCard({ 
@@ -31,11 +32,17 @@ export const RatingCard = memo(function RatingCard({
     hasFeedback,
     onCancel,
     title,
+    rate = 0,
 }: RatingCardProps) {
+
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [starsCount, setStarsCount] = useState(0);
+    const [starsCount, setStarsCount] = useState(rate);
     const [feedback, setFeedback] = useState<string>('');
+
+    useEffect(() => {
+        setStarsCount(rate);
+    }, [rate])
 
     const onSelectStars = useCallback((selectedStarsCount: number) => {
         setStarsCount(selectedStarsCount);
@@ -73,7 +80,11 @@ export const RatingCard = memo(function RatingCard({
         <Card className={classNames('', {}, [className])}>
             <div>
                 <Text title={title} />
-                <StarRating size={40} onSelect={onSelectStars} />
+                <StarRating
+                    size={40}
+                    onSelect={onSelectStars}
+                    selectedStars={starsCount}
+                />
             </div>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
