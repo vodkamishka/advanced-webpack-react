@@ -6,7 +6,7 @@ import React, { InputHTMLAttributes, memo } from 'react';
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'> {
     className?: string;
     value?: string | number;
-    onChange?: (value: string | number) => void;
+    onChange?: (value: string | number | (((prevState: string) => string) | string)) => void;
     type?: string;
     placeholder?: string;
     readonly?: boolean;
