@@ -1,4 +1,3 @@
-import { createSlice } from '@reduxjs/toolkit';
 import { buildSlice } from '@/shared/lib/store';
 
 const initialState = {

@@ -15,6 +15,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { ArticleTextBlockComponent } from '../ActicleTextBlockComponent';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { AppLink } from '@/shared/ui/AppLink';
+import { AppImage } from '@/shared/ui/AppImage';
 
 interface ArticleListItemProps {
     className?: string;
@@ -50,7 +51,12 @@ export const ArticleListItem = memo(function ArticleListItem(props: ArticleListI
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img src={article.img} className={cls.img} alt={article.title} />
+                    <AppImage
+                        fallback={<div>Loading... </div>}
+                        src={article.img}
+                        className={cls.img}
+                        alt={article.title}
+                    />
                     {textBlock && (
                         <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
                     )}
@@ -78,7 +84,12 @@ export const ArticleListItem = memo(function ArticleListItem(props: ArticleListI
         >
             <Card className='card'>
                 <div className={cls.imageWrapper}>
-                    <img alt={article.title} src={article.img} className={cls.img} />
+                    <AppImage
+                        fallback={<div>Loading... </div>}
+                        alt={article.title}
+                        src={article.img}
+                        className={cls.img}
+                    />
                     <Text text={article.createdAt} className={cls.date} />
                 </div>
                 <div className={cls.infoWrapper}>

@@ -1,7 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { useDispatch } from 'react-redux';
-import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useCounterActions } from '../model/slice/counterSlice';

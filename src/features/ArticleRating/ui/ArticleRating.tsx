@@ -15,7 +15,7 @@ export const ArticleRating = ({ className, articleId }: ArticleRatingProps) => {
     const { t } = useTranslation();
     const userData = useSelector(getAuthData);
 
-    const { data, isLoading } = useGetArticleRating({
+    const { data } = useGetArticleRating({
         articleId,
         userId: userData?.id ?? '',
     });

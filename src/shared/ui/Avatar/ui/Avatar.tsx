@@ -1,30 +1,43 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useMemo } from 'react';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Icon } from '@/shared/ui/Icon';
+import UserIcon from '../../../assets/icons/user-filled.svg';
+
+import cls from './Avatar.module.scss';
+
 interface AvatarProps {
     className?: string
     src?: string;
     alt?: string;
-    size?: number
+    size?: number;
+    fallbackInverted?: boolean;
 }
 
 export const Avatar = ({ 
     className, 
     src, 
     alt = 'picture',
-    size = 100
+    size = 100,
+    fallbackInverted,
 }: AvatarProps) => {
     
     const style = useMemo(() => ({
         width: size,
         height: size
     }), [size])
+
+    const fallback = <div>Loading...</div>;
+    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />;
     
     return (
-        <img
-            className={classNames('', {}, [className])}
+        <AppImage
+            fallback={fallback}
+            errorFallback={errorFallback}
             src={src}
             alt={alt}
             style={style}
+            className={classNames(cls.avatar, {}, [className])}
         />
     );
 };
