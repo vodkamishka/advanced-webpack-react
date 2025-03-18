@@ -1,16 +1,18 @@
-import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { memo, useCallback, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { articlePageReducer } from '../../model/slice/articlePageSlice';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
-import { memo, useCallback, useEffect } from 'react';
-import { Page } from '@/shared/ui/Page/ui/Page';
 import { fetchNextArticlePage } from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
 import { initArticlePage } from '../../model/services/initArticlePage/initArticlePage';
-import { useSearchParams } from 'react-router-dom';
 import { ArticleInfiniteList } from '../../ui/ArticleInfifniteList/ArticleInfiniteList';
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './ArticlePage.module.scss';
+
+import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { Page } from '@/shared/ui/Page/ui/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+
 
 const reducers = {
     articlePage: articlePageReducer,

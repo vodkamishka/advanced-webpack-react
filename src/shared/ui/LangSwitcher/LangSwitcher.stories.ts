@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+
 import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export

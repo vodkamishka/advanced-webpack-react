@@ -1,5 +1,7 @@
 import { createSelector } from '@reduxjs/toolkit';
+
 import { ArticleDetailsPageSchema } from '../types';
+
 import { getArticleDetailsPage } from './getArticleDetailsComments';
 
 export const getArticleDetailsRecommendationsError = createSelector(

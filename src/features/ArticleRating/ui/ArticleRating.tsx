@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { useGetArticleRating, useRateArticle } from '@/features/ArticleRating/api/articleRatingApi';
 import { useSelector } from 'react-redux';
-import { getAuthData } from '@/entities/User';
 import { useCallback } from 'react';
+
+import { useGetArticleRating, useRateArticle } from '@/features/ArticleRating/api/articleRatingApi';
+import { getAuthData } from '@/entities/User';
 import { RatingCard } from '@/entities/Rating';
 
 

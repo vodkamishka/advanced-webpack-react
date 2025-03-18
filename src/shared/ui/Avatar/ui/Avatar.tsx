@@ -1,10 +1,14 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useMemo } from 'react';
-import { AppImage } from '@/shared/ui/AppImage';
-import { Icon } from '@/shared/ui/Icon';
+
 import UserIcon from '../../../assets/icons/user-filled.svg';
 
 import cls from './Avatar.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Icon } from '@/shared/ui/Icon';
+
+
 
 interface AvatarProps {
     className?: string

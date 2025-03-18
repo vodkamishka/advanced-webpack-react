@@ -1,9 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
+import { AxiosError } from 'axios';
+
 import { setAuthData } from '../../../../../entities/User';
+
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 import { User } from '@/entities/User';
 import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
-import { AxiosError } from 'axios';
+
 
 
 interface LoginPayload {

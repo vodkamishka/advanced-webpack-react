@@ -1,11 +1,12 @@
 import {
     combineReducers,
-    PayloadAction,
-    ReducersMapObject,
-    Reducer,
+    type PayloadAction,
+    type ReducersMapObject,
+    type Reducer,
 } from '@reduxjs/toolkit';
-import { StateSchema } from './StateSchema';
-import { StateSchemaKey } from './StateSchema';
+
+import { StateSchema , StateSchemaKey } from './StateSchema';
+
 
 export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>) {
     const reducers = { ...initialReducers }

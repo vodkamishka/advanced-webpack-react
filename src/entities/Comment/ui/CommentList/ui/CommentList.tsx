@@ -1,7 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './CommentList.module.scss';
 import { Comment } from '../../../model/types/commentTypes';
 import { CommentCard } from '../../CommentCard';
+
+import cls from './CommentList.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CommentListProps {
     className?: string

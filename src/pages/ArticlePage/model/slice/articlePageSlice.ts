@@ -1,8 +1,9 @@
-import { createEntityAdapter, createSlice, EntityAdapter } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice, type EntityAdapter } from '@reduxjs/toolkit';
 
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { fetchArticleList } from '..//services/fetchArticleList/fetchArticleList';
 import { Article, ArticleType, ArticleView, ArticleSortField } from '../../../../entities/Article';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 const articlePageAdapter: EntityAdapter<Article, string> = createEntityAdapter({

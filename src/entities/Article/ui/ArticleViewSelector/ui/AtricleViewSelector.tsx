@@ -1,9 +1,12 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { memo } from 'react';
+
+import { ArticleView } from '../../../model/types/articleTypes';
+
+import cls from './AtricleViewSelector.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import TiledIcon from '@/shared/assets/icons/tiled-24-24.svg';
-import cls from './AtricleViewSelector.module.scss';
-import { ArticleView } from '../../../model/types/articleTypes';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 

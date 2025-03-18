@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { LoginSchema } from '../types/loginTypes';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
 

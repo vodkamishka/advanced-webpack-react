@@ -1,19 +1,22 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import cls from './LoginForm.module.scss';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
 import { memo, useCallback } from 'react';
-import { loginReducer, setPassword, setUsername } from '../../../model/slice/loginSlice';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/Text';
-import { TextTheme } from '@/shared/ui/Text/ui/Text';
+
+import { loginReducer, setPassword, setUsername } from '../../../model/slice/loginSlice';
 import { loginByUsername } from '../../../model/services/loginByUsername/loginByUsername';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { getUsername } from '../../../model/selectors/getUsername/getUsername.';
 import { getPassword } from '../../../model/selectors/getPassword/getPassword';
 import { getIsLoading } from '../../../model/selectors/getIsLoading/getIsLoading';
 import { getError } from '../../../model/selectors/getError/getError';
+
+import cls from './LoginForm.module.scss';
+
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { Text } from '@/shared/ui/Text';
+import { TextTheme } from '@/shared/ui/Text/ui/Text';
+import { Input } from '@/shared/ui/Input';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
 

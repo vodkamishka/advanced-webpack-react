@@ -1,9 +1,10 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { getAuthData, isAdmin, isManager, logout } from '@/entities/User';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';

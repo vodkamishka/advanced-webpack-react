@@ -1,10 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import cls from './SidebarItem.module.scss';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { memo } from 'react';
 
 import { SidebarItemType } from '../../Sidebar/model/types/types';
+
+import cls from './SidebarItem.module.scss';
+
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { memo } from 'react';
+
 
 interface SidebarItemProps {
     item: SidebarItemType;

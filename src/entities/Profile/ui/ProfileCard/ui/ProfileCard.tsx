@@ -1,18 +1,21 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-
-import cls from './ProfileCard.module.scss';
-import { Text } from '@/shared/ui/Text';
-import { Input } from '@/shared/ui/Input';
-import { Profile } from '../../../model/types/profileTypes';
-import { TextAlign, TextTheme } from '@/shared/ui/Text/ui/Text';
-import { Country, CountrySelect } from '@/entities/Country';
-
-import { Currency, CurrencySelect } from '@/entities/Currency';
 import { useSelector } from 'react-redux';
+
+import { Profile } from '../../../model/types/profileTypes';
 import {
     getProfileValidateErrors
 } from '../../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+
+import cls from './ProfileCard.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/Text';
+import { Input } from '@/shared/ui/Input';
+import { TextAlign, TextTheme } from '@/shared/ui/Text/ui/Text';
+import { Country, CountrySelect } from '@/entities/Country';
+import { Currency, CurrencySelect } from '@/entities/Currency';
+
+
 
 interface ProfileCardProps {
     className?: string;

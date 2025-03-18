@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
+
+import { LoginForm } from '../LoginForm/';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Modal } from '@/shared/ui/Modal'
-import { LoginForm } from '../LoginForm/';
-import { Suspense } from 'react';
 
 interface LoginModalProps {
     className?: string;

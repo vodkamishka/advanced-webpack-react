@@ -1,7 +1,9 @@
-import { getProfileFormData } from './getProfileFormData';
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { Country } from '../../../../Country';
 import { Currency } from '../../../../Currency';
+
+import { getProfileFormData } from './getProfileFormData';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileFormData selector', () => {
     test('must return profile data', () => {

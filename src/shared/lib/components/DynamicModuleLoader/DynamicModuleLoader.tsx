@@ -1,8 +1,9 @@
-import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { FC, ReactNode, useEffect } from 'react';
-import { store } from '@/app/providers/StoreProvider';
-import { Reducer } from '@reduxjs/toolkit';
-import { StateSchemaKey } from '@/app/providers/StoreProvider';
+import { type Reducer } from '@reduxjs/toolkit';
+
+import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
+import { store , StateSchemaKey } from '@/app/providers/StoreProvider';
+
 
 export type ReducersList = {
     [name in StateSchemaKey]?: Reducer;

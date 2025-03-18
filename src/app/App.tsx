@@ -1,11 +1,12 @@
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/app/providers/ThemeProvider';
 import { Navbar } from '@/widgets/Navbar';
 import { AppRouter } from '@/app/providers/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useEffect } from 'react';
 import { initAuthData } from '@/entities/User';
-import { useDispatch, useSelector } from 'react-redux';
 import { getIsInit } from '@/entities/User/model/selectors/getIsInit/getIsInit';
 
 const App = () => {

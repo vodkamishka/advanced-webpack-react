@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ArticleDetailsSchema } from '../types/types';
 
+import { ArticleDetailsSchema } from '../types/types';
 import { fetchArticleById } from '../servises/fetchArticleById';
 
 const initialState: ArticleDetailsSchema = {

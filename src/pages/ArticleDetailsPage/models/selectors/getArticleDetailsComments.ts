@@ -1,6 +1,8 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { createSelector } from '@reduxjs/toolkit';
+
 import { ArticleDetailsPageSchema } from '../types';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 export const getArticleDetailsPage = (state: Pick<StateSchema, 'articleDetailsPage'>) => state.articleDetailsPage;
 

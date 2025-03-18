@@ -1,8 +1,12 @@
-import { configureStore, EnhancedStore, ReducersMapObject, ThunkDispatch, UnknownAction } from '@reduxjs/toolkit'
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { configureStore, type EnhancedStore, type ReducersMapObject, type ThunkDispatch,
+    type UnknownAction } from '@reduxjs/toolkit'
+
 import { counterReducer } from '../../../../entities/Counter';
 import { userReducer, UserSchema } from '../../../../entities/User';
+
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { createReducerManager, ReducerManagerType } from './ReducerManager';
+
 import { $api } from '@/shared/api/api';
 import { scrollReducer } from '@/features/ScrollObserver';
 import { rtkApi } from '@/shared/api/rtkApi';

@@ -1,4 +1,5 @@
 import { getCounterValue } from './getCounterValue';
+
 import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 
 describe('getCounterValue selector', () => {

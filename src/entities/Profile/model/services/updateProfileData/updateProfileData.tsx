@@ -1,10 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 import { Profile } from '../../types/profileTypes';
-import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
-import axios from 'axios';
 import { validateProfileData } from '../../services/validateProfileData/validateProfileData';
 import { getProfileFormData } from '../../selectors/getProfileFormData/getProfileFormData';
+
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 
 
 export const updateProfileData = createAsyncThunk<Profile, void, { extra: ThunkExtraArg, state: StateSchema }>(

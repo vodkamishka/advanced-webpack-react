@@ -1,4 +1,5 @@
 import { Profile } from '../../types/profileTypes';
+
 import { ValidateProfileErrors } from '@/features/EditableProfileCard/model/types/types';
 
 export const validateProfileData = (profile?: Profile):ValidateProfileErrors[]  => {

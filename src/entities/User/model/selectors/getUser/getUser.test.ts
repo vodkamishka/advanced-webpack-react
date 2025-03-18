@@ -1,4 +1,5 @@
 import { getUser } from './getUser';
+
 import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 
 describe('getUser selector', () => {

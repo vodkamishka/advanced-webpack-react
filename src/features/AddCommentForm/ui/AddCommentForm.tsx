@@ -1,14 +1,14 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-
 import { useSelector } from 'react-redux';
 
-import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { addCommentFormReducer, setText } from '../model/slice/addCommentSliceForm';
+import { getAddCommentFormText } from '../model/selectors/getAddCommentFormText';
 
 import cls from './AddCommentForm.module.scss';
-import { getAddCommentFormText } from '../model/selectors/getAddCommentFormText';
+
+import { DynamicModuleLoader, ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';

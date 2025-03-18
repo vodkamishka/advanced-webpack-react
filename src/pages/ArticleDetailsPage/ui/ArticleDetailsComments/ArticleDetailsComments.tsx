@@ -1,14 +1,18 @@
+import { useSelector } from 'react-redux';
+import { useCallback, useEffect } from 'react';
+
+import { getArticleDetailsCommentsIsLoading } from '../../models/selectors/getArticleDetailsComments';
+import { getArticleDetailsCommentsSelectors } from '../../models/slice/articleDetailsCommentsSlice';
+import { addCommentForArticle } from '../../models/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../models/services/fetchCommentsByAtricleId/fetchCommentsByArticleId';
+
 import { Text } from '@/shared/ui/Text';
 import AddCommentForm from '@/features/AddCommentForm/ui/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
-import { useSelector } from 'react-redux';
-import { getArticleDetailsCommentsIsLoading } from '../../models/selectors/getArticleDetailsComments';
-import { getArticleDetailsCommentsSelectors } from '../../models/slice/articleDetailsCommentsSlice';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { getAddCommentFormText } from '@/features/AddCommentForm/model/selectors/getAddCommentFormText';
-import { useCallback, useEffect } from 'react';
-import { addCommentForArticle } from '../../models/services/addCommentForArticle/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../../models/services/fetchCommentsByAtricleId/fetchCommentsByArticleId';
+
+
 
 
 interface ArticleDetailsCommentsProps {

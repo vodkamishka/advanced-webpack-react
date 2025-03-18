@@ -1,9 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import axios from 'axios';
+
+import { fetchCommentsByArticleId } from '../fetchCommentsByAtricleId/fetchCommentsByArticleId';
+
+import { StateSchema, ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import { getAuthData } from '@/entities/User';
 import { getArticleData } from '@/entities/Article/model/selectors/getArticleData';
-import { fetchCommentsByArticleId } from '../fetchCommentsByAtricleId/fetchCommentsByArticleId';
+
 
 
 export const addCommentForArticle = createAsyncThunk<void, string, { extra: ThunkExtraArg; state: StateSchema; }>(

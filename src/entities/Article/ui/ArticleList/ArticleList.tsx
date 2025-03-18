@@ -1,10 +1,13 @@
 import { CSSProperties, HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
-import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/articleTypes';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { FixedSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
+
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+import { Article, ArticleView } from '../../model/types/articleTypes';
+
+import cls from './ArticleList.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleListProps {
     className?: string;

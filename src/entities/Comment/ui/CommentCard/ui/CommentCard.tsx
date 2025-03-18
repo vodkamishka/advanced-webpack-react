@@ -1,6 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './CommentCard.module.scss';
 import { Comment } from '../../../model/types/commentTypes';
+
+import cls from './CommentCard.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/Text';
 import { Avatar } from '@/shared/ui/Avatar';
 import { AppLink } from '@/shared/ui/AppLink';

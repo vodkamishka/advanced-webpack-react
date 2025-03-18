@@ -1,7 +1,9 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './NotificationList.module.scss';
 import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
+
+import cls from './NotificationList.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface NotificationListProps {
     className?: string

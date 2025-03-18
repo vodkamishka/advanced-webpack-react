@@ -1,11 +1,11 @@
 import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
-
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Page.module.scss';
 import { useLocation } from 'react-router-dom';
-import { getScroll, setScrollPosition } from '@/features/ScrollObserver';
 import { useSelector } from 'react-redux';
 
+import cls from './Page.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { getScroll, setScrollPosition } from '@/features/ScrollObserver';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useThrottle } from '@/shared/hooks/useThrottle';
 import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';

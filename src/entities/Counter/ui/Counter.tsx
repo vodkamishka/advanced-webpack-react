@@ -1,8 +1,10 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useTranslation } from 'react-i18next';
+
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 import { useCounterActions } from '../model/slice/counterSlice';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CounterProps {
     className?: string

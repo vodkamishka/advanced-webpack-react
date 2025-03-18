@@ -1,4 +1,5 @@
 import type { StorybookConfig } from '@storybook/react-webpack5';
+
 import { storybookWebpackConfig } from './storybookWebpackConfig';
 
 const config: StorybookConfig = {

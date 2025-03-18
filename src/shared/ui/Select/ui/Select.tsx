@@ -1,6 +1,8 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import cls from './Select.module.scss';
 import React, { ChangeEvent } from 'react';
+
+import cls from './Select.module.scss';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface IOptions {
     value: string;

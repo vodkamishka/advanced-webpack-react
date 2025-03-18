@@ -1,5 +1,6 @@
-import { Select } from '@/shared/ui/Select';
 import { Country } from '../model/types/countryTypes';
+
+import { Select } from '@/shared/ui/Select';
 
 
 interface CountrySelectProps {

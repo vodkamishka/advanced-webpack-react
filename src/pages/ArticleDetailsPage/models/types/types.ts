@@ -1,4 +1,5 @@
-import { EntityState } from '@reduxjs/toolkit';
+import { type EntityState } from '@reduxjs/toolkit';
+
 import { Comment } from '@/entities/Comment';
 import { Article } from '@/entities/Article';
 

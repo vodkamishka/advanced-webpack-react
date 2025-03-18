@@ -1,4 +1,5 @@
 import { getProfileIsLoading } from './getProfileIsLoading';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileIsLoading selector', () => {

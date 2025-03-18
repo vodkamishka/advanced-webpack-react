@@ -6,6 +6,7 @@ import i18next from 'eslint-plugin-i18next';
 import hooksPlugin from "eslint-plugin-react-hooks";
 import checkImportPlugin from "eslint-plugin-deynega-check-import-path";
 import unusedImports from "eslint-plugin-unused-imports";
+import importPlugin from 'eslint-plugin-import';
 
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -22,6 +23,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  importPlugin.flatConfigs.recommended,
   i18next.configs['flat/recommended'],
 
   {
@@ -68,6 +70,13 @@ export default [
           "args": "after-used",
           "argsIgnorePattern": "^_",
         },
+      ],
+      "import/order": [
+        "error",
+        {
+          "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+          "newlines-between": "always"
+        }
       ]
     }
   }

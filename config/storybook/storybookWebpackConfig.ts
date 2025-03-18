@@ -1,7 +1,9 @@
 import path from 'path';
+
+import { Configuration } from 'webpack';
+
 import { getScssLoader } from '../build/loaders/getStyleLoader';
 import { getSvgLoader } from '../build/loaders/getSvgLoader';
-import { Configuration } from 'webpack';
 export async function storybookWebpackConfig(config: Configuration) {
 
     config.resolve.alias = {

@@ -1,5 +1,6 @@
-import { Select } from '@/shared/ui/Select';
 import { Currency } from '../model/types/currencyTypes';
+
+import { Select } from '@/shared/ui/Select';
 
 
 interface CurrencySelectProps {
