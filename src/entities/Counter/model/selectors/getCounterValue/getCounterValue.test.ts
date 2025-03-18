@@ -9,7 +9,7 @@ describe('getCounterValue selector', () => {
             }
         };
 
-        expect(getCounterValue(state)).toBe(10); // Исправленный тест
+        expect(getCounterValue(state as StateSchema)).toBe(10); // Исправленный тест
     });
 
     test('must return undefined if state is empty', () => {

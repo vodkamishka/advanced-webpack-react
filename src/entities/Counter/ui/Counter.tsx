@@ -1,10 +1,10 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterDecrement, counterIncrement } from '../model/slice/counterSlice';
+import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
+import { useCounterActions } from '../model/slice/counterSlice';
 
 interface CounterProps {
     className?: string
@@ -12,11 +12,16 @@ interface CounterProps {
 
 export const Counter = ({ className }: CounterProps) => {
     const { t } = useTranslation();
-    const counterValue = useSelector(getCounterValue);
-    const dispatch = useDispatch();
-    
-    const increment = useCallback(() => dispatch(counterIncrement()), [dispatch]);
-    const decrement = useCallback(() => dispatch(counterDecrement()), [dispatch]);
+    const counterValue = useCounterValue();
+    const { decrement, increment } = useCounterActions();
+
+    const handleInc = () => {
+        increment();
+    };
+
+    const handleDec = () => {
+        decrement();
+    };
     
     return (
         <div className={classNames('', {}, [className])}>
@@ -24,13 +29,13 @@ export const Counter = ({ className }: CounterProps) => {
 
             <button
                 data-testid="increment-btn"
-                onClick={increment}
+                onClick={handleInc}
             >
                 {t('Инкремент')}
             </button>
             <button
                 data-testid="decrement-btn"
-                onClick={decrement}
+                onClick={handleDec}
             >
                 {t('Декремент')}
             </button>
