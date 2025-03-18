@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import i18next from 'eslint-plugin-i18next';
 import hooksPlugin from "eslint-plugin-react-hooks";
 import checkImportPlugin from "eslint-plugin-deynega-check-import-path";
+import unusedImports from "eslint-plugin-unused-imports";
 
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -27,6 +28,7 @@ export default [
     plugins: {
       "react-hooks": hooksPlugin,
       "check-import-plugin": checkImportPlugin,
+      "unused-imports": unusedImports,
     },
     rules: {
       ...hooksPlugin.configs.recommended.rules,
@@ -43,7 +45,6 @@ export default [
       'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
       'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',
-      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'react/require-default-props': 'off',
       'react/react-in-jsx-scope': 'off',
@@ -57,6 +58,17 @@ export default [
       'object-curly-spacing': ['error', 'always'], // пробелы внутри скобок
       "quotes": ["error", "single", { "avoidEscape": true }], // одианрные кавычки,
       'react/prop-types': 'off',
+      "unused-imports/no-unused-imports": "error",
+      'no-unused-vars': 'off',
+      "unused-imports/no-unused-vars": [
+        "warn",
+        {
+          "vars": "all",
+          "varsIgnorePattern": "^_",
+          "args": "after-used",
+          "argsIgnorePattern": "^_",
+        },
+      ]
     }
   }
 ];
