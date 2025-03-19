@@ -23,7 +23,7 @@ const MainPage = memo(function MainPage ()  {
             {t('Главная страница')}
             <Counter/>
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <button onClick={onClick}>throw error</button>
+            <button onClick={onClick} data-testid="MainPage">throw error</button>
         </Page>
     );
 });

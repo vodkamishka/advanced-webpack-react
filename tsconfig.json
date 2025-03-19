@@ -28,7 +28,8 @@
     "src/**/*.tsx",
     "config/jest/**/*",
     "config/storybook/**/*",
-    "storybook-static/sb-manager/globals-runtime.js"
+    "storybook-static/sb-manager/globals-runtime.js",
+    "cypress.config.ts"
   ],
   "exclude": [
     "node_modules"

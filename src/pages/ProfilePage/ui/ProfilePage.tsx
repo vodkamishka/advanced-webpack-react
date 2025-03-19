@@ -11,6 +11,7 @@ const ProfilePage = memo(function ProfilePage ()  {
 
     return (
         <Page>
+            <div data-testid='ProfilePage'></div>
             <EditableProfileCard id={id} />
         </Page>
     );

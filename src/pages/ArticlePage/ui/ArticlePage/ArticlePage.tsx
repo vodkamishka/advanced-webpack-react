@@ -41,6 +41,7 @@ const ArticlePage = memo(function ArticlePage() {
                 className={classNames(cls.articlesPage, {}, [])}
             >
                 {/*<ArticlePageFilters />*/}
+                <div data-testid="ArticlesPage"></div>
                 <ArticleInfiniteList className={cls.list} />
             </Page>
         </DynamicModuleLoader>

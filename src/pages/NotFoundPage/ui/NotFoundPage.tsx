@@ -13,7 +13,10 @@ export const NotFoundPage = memo(function NotFoundPage ({ className }: NotFoundP
     const { t } = useTranslation();
     return (
         <Page>
-            <div className={classNames(cls.NotFoundPage, {}, [className])}>
+            <div
+                className={classNames(cls.NotFoundPage, {}, [className])}
+                data-testid="NotFoundPage"
+            >
                 {t('Страница не найдена')}
             </div>
         </Page>
