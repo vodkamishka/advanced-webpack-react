@@ -9,12 +9,12 @@ describe('getProfileError selector', () => {
         const state: Pick<StateSchema, 'profile'> = {
             profile: {
                 isLoading: false,
-                error: 'the login is not correct',
+                error: 'the common is not correct',
                 readonly: false,
             }
         };
 
-        expect(getProfileError(state)).toBe('the login is not correct');
+        expect(getProfileError(state)).toBe('the common is not correct');
     });
 
     test('must return  error to be null', () => {

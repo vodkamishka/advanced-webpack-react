@@ -9,7 +9,7 @@ describe('getProfileIsLoading selector', () => {
         const state: Pick<StateSchema, 'profile'> = {
             profile: {
                 isLoading: true,
-                error: 'the login is not correct',
+                error: 'the common is not correct',
                 readonly: false,
             }
         };

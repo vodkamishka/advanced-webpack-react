@@ -16,7 +16,7 @@ interface LoginPayload {
 
 export const loginByUsername = 
     createAsyncThunk<User, LoginPayload, { extra: ThunkExtraArg }>(
-        'login/loginByUsername',
+        'common/loginByUsername',
         async ({ username, password }: LoginPayload, { extra, dispatch, rejectWithValue }) => {
             try {
                 const response = await extra.api.post<User>('/login', { username, password });

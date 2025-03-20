@@ -72,29 +72,40 @@ export const RatingCard = memo(function RatingCard({
                 value={feedback}
                 onChange={setFeedback}
                 placeholder={t('Ваш отзыв')}
+                data-testid='RatingCard.Input'
             />
         </>
     );
 
     return (
-        <Card className={classNames('', {}, [className])}>
-            <div>
+        <Card
+            className={classNames('', {}, [className])}
+            data-testid="RatingCard"
+        >
+            <>
                 <Text title={title} />
                 <StarRating
                     size={40}
                     onSelect={onSelectStars}
                     selectedStars={starsCount}
                 />
-            </div>
+            </>
             <BrowserView>
                 <Modal isOpen={isModalOpen} lazy>
                     <div>
                         {modalContent}
                         <div className={cls.ratingCard}>
-                            <Button onClick={cancelHandle} theme={ButtonTheme.OUTLINE_RED}>
+                            <Button
+                                onClick={cancelHandle}
+                                theme={ButtonTheme.OUTLINE_RED}
+                                data-testid='RatingCard.Close'
+                            >
                                 {t('Закрыть')}
                             </Button>
-                            <Button onClick={acceptHandle}>
+                            <Button
+                                onClick={acceptHandle}
+                                data-testid='RatingCard.Send'
+                            >
                                 {t('Отправить')}
                             </Button>
                         </div>

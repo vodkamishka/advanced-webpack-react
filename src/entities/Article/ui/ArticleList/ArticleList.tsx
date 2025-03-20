@@ -45,7 +45,10 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
     }
 
     return (
-        <div className={classNames(cls.articleList, {}, [className, cls[view]])}>
+        <div
+            className={classNames(cls.articleList, {}, [className, cls[view]])}
+            data-testid="ArticleList"
+        >
             <AutoSizer>
                 {({ height, width }: {height: number, width: number}) => {
                     return (

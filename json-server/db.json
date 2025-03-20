@@ -643,6 +643,17 @@
       "city": "Moscow",
       "username": "ulbi tv",
       "avatar": "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10933531_p_v8_ak.jpg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "article-ratings": [

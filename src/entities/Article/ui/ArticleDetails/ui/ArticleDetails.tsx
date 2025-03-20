@@ -110,7 +110,10 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
 
     return (
         <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
-            <div className={classNames('', {}, [className])}>
+            <div
+                className={classNames('', {}, [className])}
+                data-testid="ArticleDetails.Info"
+            >
                 {content}
             </div>
         </DynamicModuleLoader>

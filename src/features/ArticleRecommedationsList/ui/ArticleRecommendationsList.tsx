@@ -22,7 +22,10 @@ export const ArticleRecommendationsList = ({ className }: ArticleRecommendationL
         return null;
     }
     return (
-        <div className={classNames('', {}, [className])}>
+        <div
+            className={classNames('', {}, [className])}
+            data-testid = 'ArticleRecommendationsList'
+        >
             <Text
                 size={TextSize.L}
                 className={cls.commentTitle}

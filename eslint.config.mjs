@@ -48,6 +48,7 @@ export default [
       'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',
       '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
+      '@typescript-eslint/no-namespace': 'warn',
       'react/require-default-props': 'off',
       'react/react-in-jsx-scope': 'off',
       'react/jsx-props-no-spreading': 'warn',

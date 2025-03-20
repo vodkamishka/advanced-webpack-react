@@ -95,7 +95,9 @@ export const EditableProfileCard = ({ className, id }: EditableProfileCardProps)
     return (
         <Page>
             <DynamicModuleLoader asyncReducers={reducers} removeAfterUnmount>
-                <div className={classNames(cls.editableProfileCard, {}, [className])}>
+                <div
+                    className={classNames(cls.editableProfileCard, {}, [className])}
+                >
                     <EditableProfileCardHeader />
                     {validateErrors?.length && validateErrors.map((err) => (
                         <Text
