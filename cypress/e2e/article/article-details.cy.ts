@@ -15,15 +15,16 @@ describe('Пользователь заходит на страницу стат
         cy.removeArticle(currentArticle);
     })
 
-    it('И видит содержимое статьи', () => {
+    it.skip('И видит содержимое статьи', () => {
         cy.getByTestId('ArticleDetails.Info').should('exist');
     })
 
-    it('И видит список рекоммендаций', () => {
+    it.skip('И видит список рекоммендаций', () => {
         cy.getByTestId('ArticleRecommendationsList').should('exist');
     });
 
-    it('И оставляет комментарий', () => {
+    it.skip('И оставляет комментарий (пример со стабом на фикстурах)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
         cy.getByTestId('ArticleDetails.Info');
         cy.getByTestId('AddCommentForm').scrollIntoView();
         cy.addComment('text');

@@ -6,6 +6,12 @@ describe('Пользователь заходит на стрнаицу со с�
         })
     })
 
+    it('На стабах (фикстурах)', () => {
+        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+        cy.getByTestId('ArticleList').should('exist');
+        cy.getByTestId('ArticleListItem').should('have.lengthOf.greaterThan', 2);
+    })
+
     it('И статьи успешно подгружаются', () => {
         cy.getByTestId('ArticleList').should('exist');
         cy.getByTestId('ArticleListItem').should('have.lengthOf.greaterThan', 2);
