@@ -10,7 +10,7 @@ import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
 
 interface AvatarDropdownProps {
-    className?: string
+    className?: string;
 }
 
 export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
@@ -34,20 +34,24 @@ export const AvatarDropdown = ({ className }: AvatarDropdownProps) => {
             direction="bottom left"
             className={classNames('', {}, [className])}
             items={[
-                ...(isAdminPanelAvailable ? [{
-                    content: t('Админка'),
-                    href: RoutePath.admin_panel,
-                    key: '1'
-                }] : []),
+                ...(isAdminPanelAvailable
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: RoutePath.admin_panel,
+                              key: '1',
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
                     href: RoutePath.profile + authData.id,
-                    key: '2'
+                    key: '2',
                 },
                 {
                     content: t('Выйти'),
                     onClick: onLogout,
-                    key: '3'
+                    key: '3',
                 },
             ]}
             trigger={<Avatar size={30} src={authData.avatar} />}

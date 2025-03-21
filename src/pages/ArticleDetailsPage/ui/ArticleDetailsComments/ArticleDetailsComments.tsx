@@ -12,16 +12,12 @@ import { CommentList } from '@/entities/Comment';
 import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { getAddCommentFormText } from '@/features/AddCommentForm/model/selectors/getAddCommentFormText';
 
-
-
-
 interface ArticleDetailsCommentsProps {
     className?: string;
     id: string;
 }
 
 export const ArticleDetailsComments = ({ id }: ArticleDetailsCommentsProps) => {
-
     const isLoading = useSelector(getArticleDetailsCommentsIsLoading);
 
     const comments = useSelector(getArticleDetailsCommentsSelectors.selectAll);
@@ -32,7 +28,7 @@ export const ArticleDetailsComments = ({ id }: ArticleDetailsCommentsProps) => {
 
     const onSendComment = useCallback(() => {
         dispatch(addCommentForArticle(text));
-    }, [dispatch, text])
+    }, [dispatch, text]);
 
     useEffect(() => {
         dispatch(fetchCommentsByArticleId(id));
@@ -40,12 +36,9 @@ export const ArticleDetailsComments = ({ id }: ArticleDetailsCommentsProps) => {
 
     return (
         <>
-            <Text title={'Коммментарии'}/>
-            <AddCommentForm onSendComment={onSendComment}/>
-            <CommentList
-                isLoading={isLoading}
-                comments={comments}
-            />
+            <Text title={'Коммментарии'} />
+            <AddCommentForm onSendComment={onSendComment} />
+            <CommentList isLoading={isLoading} comments={comments} />
         </>
     );
 };

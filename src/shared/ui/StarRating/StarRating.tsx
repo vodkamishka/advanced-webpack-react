@@ -15,11 +15,11 @@ interface StarRatingProps {
 
 const stars = [1, 2, 3, 4, 5];
 
-export const StarRating = memo(function StarRating({ 
-    className, 
-    size = 30, 
-    selectedStars = 0, 
-    onSelect 
+export const StarRating = memo(function StarRating({
+    className,
+    size = 30,
+    selectedStars = 0,
+    onSelect,
 }: StarRatingProps) {
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
@@ -50,7 +50,11 @@ export const StarRating = memo(function StarRating({
                         className={classNames(
                             cls.starIcon,
                             { [cls.selected]: isSelected },
-                            [currentStarsCount >= starNumber ? cls.hovered : cls.normal],
+                            [
+                                currentStarsCount >= starNumber
+                                    ? cls.hovered
+                                    : cls.normal,
+                            ],
                         )}
                         Svg={StarIcon}
                         key={starNumber}
@@ -62,7 +66,7 @@ export const StarRating = memo(function StarRating({
                         data-testid={`StarRating.${starNumber}`}
                         data-selected={currentStarsCount >= starNumber}
                     />
-                )
+                );
             })}
         </div>
     );

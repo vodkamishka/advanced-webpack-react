@@ -2,7 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { loginReducer, setPassword, setUsername } from '../../../model/slice/loginSlice';
+import {
+    loginReducer,
+    setPassword,
+    setUsername,
+} from '../../../model/slice/loginSlice';
 import { loginByUsername } from '../../../model/services/loginByUsername/loginByUsername';
 import { getUsername } from '../../../model/selectors/getUsername/getUsername.';
 import { getPassword } from '../../../model/selectors/getPassword/getPassword';
@@ -19,47 +23,57 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
-
 export interface LoginFormProps {
     className?: string;
     setIsOpen?: (isOpen: boolean) => void;
 }
 
-const LoginForm = memo(function LoginForm ({ className, setIsOpen }: LoginFormProps) {
-
+const LoginForm = memo(function LoginForm({
+    className,
+    setIsOpen,
+}: LoginFormProps) {
     const dispatch = useAppDispatch();
 
     const username = useSelector(getUsername) || '';
     const password = useSelector(getPassword) || '';
     const isLoading = useSelector(getIsLoading) || false;
-    const error  = useSelector(getError) || undefined;
+    const error = useSelector(getError) || undefined;
 
-    const setUsernameValue = useCallback((username: string) => dispatch(setUsername(username)), [dispatch]);
-    const setPasswordValue = useCallback((password: string) => dispatch(setPassword(password)), [dispatch]);
+    const setUsernameValue = useCallback(
+        (username: string) => dispatch(setUsername(username)),
+        [dispatch],
+    );
+    const setPasswordValue = useCallback(
+        (password: string) => dispatch(setPassword(password)),
+        [dispatch],
+    );
 
     const onClose = useCallback(() => {
         setIsOpen?.(false);
-    }, [setIsOpen])
+    }, [setIsOpen]);
 
     const submit = useCallback(async () => {
         const result = await dispatch(loginByUsername({ username, password }));
         if (result?.meta.requestStatus === 'fulfilled') {
             onClose();
         }
-    }, [dispatch, onClose, password, username])
-
-
+    }, [dispatch, onClose, password, username]);
 
     const asyncReducers = {
-        loginForm: loginReducer
-    }
+        loginForm: loginReducer,
+    };
 
     const { t } = useTranslation();
     return (
         <DynamicModuleLoader asyncReducers={asyncReducers}>
             <div className={classNames(cls.loginForm, {}, [className])}>
-                <Text title={t('Форма авторизации')}/>
-                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR}/>}
+                <Text title={t('Форма авторизации')} />
+                {error && (
+                    <Text
+                        text={t('Вы ввели неверный логин или пароль')}
+                        theme={TextTheme.ERROR}
+                    />
+                )}
                 <Input
                     placeholder={t('Логин')}
                     value={username}
@@ -79,7 +93,6 @@ const LoginForm = memo(function LoginForm ({ className, setIsOpen }: LoginFormPr
                 </Button>
             </div>
         </DynamicModuleLoader>
-
     );
 });
 

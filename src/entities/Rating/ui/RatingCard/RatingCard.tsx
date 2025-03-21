@@ -10,10 +10,8 @@ import { Text } from '@/shared/ui/Text';
 import { Card } from '@/shared/ui/Card/Card';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
 import { Modal } from '@/shared/ui/Modal';
-import { ButtonSize, ButtonTheme , Button } from '@/shared/ui/Button';
+import { ButtonSize, ButtonTheme, Button } from '@/shared/ui/Button';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
-
-
 
 interface RatingCardProps {
     className?: string;
@@ -25,7 +23,7 @@ interface RatingCardProps {
     rate?: number;
 }
 
-export const RatingCard = memo(function RatingCard({ 
+export const RatingCard = memo(function RatingCard({
     className,
     onAccept,
     feedbackTitle,
@@ -34,7 +32,6 @@ export const RatingCard = memo(function RatingCard({
     title,
     rate = 0,
 }: RatingCardProps) {
-
     const { t } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [starsCount, setStarsCount] = useState(rate);
@@ -42,16 +39,19 @@ export const RatingCard = memo(function RatingCard({
 
     useEffect(() => {
         setStarsCount(rate);
-    }, [rate])
+    }, [rate]);
 
-    const onSelectStars = useCallback((selectedStarsCount: number) => {
-        setStarsCount(selectedStarsCount);
-        if (hasFeedback) {
-            setIsModalOpen(true);
-        } else {
-            onAccept?.(selectedStarsCount);
-        }
-    }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
     const acceptHandle = useCallback(() => {
         setIsModalOpen(false);
@@ -65,14 +65,12 @@ export const RatingCard = memo(function RatingCard({
 
     const modalContent = (
         <>
-            <Text
-                title={feedbackTitle}
-            />
+            <Text title={feedbackTitle} />
             <Input
                 value={feedback}
                 onChange={setFeedback}
                 placeholder={t('Ваш отзыв')}
-                data-testid='RatingCard.Input'
+                data-testid="RatingCard.Input"
             />
         </>
     );
@@ -98,13 +96,13 @@ export const RatingCard = memo(function RatingCard({
                             <Button
                                 onClick={cancelHandle}
                                 theme={ButtonTheme.OUTLINE_RED}
-                                data-testid='RatingCard.Close'
+                                data-testid="RatingCard.Close"
                             >
                                 {t('Закрыть')}
                             </Button>
                             <Button
                                 onClick={acceptHandle}
-                                data-testid='RatingCard.Send'
+                                data-testid="RatingCard.Send"
                             >
                                 {t('Отправить')}
                             </Button>
@@ -116,7 +114,11 @@ export const RatingCard = memo(function RatingCard({
                 <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
                     <div>
                         {modalContent}
-                        <Button fullWidth onClick={acceptHandle} size={ButtonSize.L}>
+                        <Button
+                            fullWidth
+                            onClick={acceptHandle}
+                            size={ButtonSize.L}
+                        >
                             {t('Отправить')}
                         </Button>
                     </div>

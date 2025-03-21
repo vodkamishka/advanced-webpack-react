@@ -12,7 +12,6 @@ import { AdminPage } from '@/pages/AdminPage';
 import { UserRole } from '@/entities/User';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 
-
 export enum AppRoutes {
     MAIN = 'main',
     ABOUT = 'about',
@@ -87,7 +86,7 @@ export const routeConfig: Record<AppRoutes, RouteConfigProps> = {
         path: RoutePath.admin_panel,
         element: <AdminPage />,
         withAuth: true,
-        roles: [UserRole.MANAGER, UserRole.ADMIN]
+        roles: [UserRole.MANAGER, UserRole.ADMIN],
     },
     [AppRoutes.FORBIDDEN]: {
         path: `${RoutePath.forbidden}`,

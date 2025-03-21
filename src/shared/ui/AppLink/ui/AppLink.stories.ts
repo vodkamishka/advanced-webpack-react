@@ -25,7 +25,7 @@ export const Default: Story = {
     args: {
         className: '',
         children: 'Default',
-        to: '/'
+        to: '/',
     },
 };
 
@@ -34,7 +34,7 @@ export const PRIMARY: Story = {
         className: '',
         children: 'Primary',
         theme: AppLinkTheme.PRIMARY,
-        to: '/about'
+        to: '/about',
     },
 };
 
@@ -43,7 +43,7 @@ export const SECONDARY: Story = {
         className: '',
         children: 'SECONDARY',
         theme: AppLinkTheme.SECONDARY,
-        to: '/'
+        to: '/',
     },
 };
 
@@ -52,7 +52,6 @@ export const RED: Story = {
         className: '',
         children: 'RED',
         theme: AppLinkTheme.RED,
-        to: '/about'
+        to: '/about',
     },
 };
-

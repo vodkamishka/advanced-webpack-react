@@ -1,7 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 
-import { ArticleBlockType, ArticleTextBlock, ArticleView, Article } from '../../model/types/articleTypes';
+import {
+    ArticleBlockType,
+    ArticleTextBlock,
+    ArticleView,
+    Article,
+} from '../../model/types/articleTypes';
 import { ArticleTextBlockComponent } from '../ActicleTextBlockComponent';
 
 import cls from './ArticleListItem.module.scss';
@@ -24,7 +29,9 @@ interface ArticleListItemProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleListItem = memo(function ArticleListItem(props: ArticleListItemProps)  {
+export const ArticleListItem = memo(function ArticleListItem(
+    props: ArticleListItemProps,
+) {
     const { className, article, view, target } = props;
     const { t } = useTranslation();
 
@@ -46,10 +53,13 @@ export const ArticleListItem = memo(function ArticleListItem(props: ArticleListI
                 className={classNames('', {}, [className, cls[view]])}
                 data-testid="ArticleListItem"
             >
-                <Card className='card'>
+                <Card className="card">
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
-                        <Text text={article.user.username} className={cls.username} />
+                        <Text
+                            text={article.user.username}
+                            className={cls.username}
+                        />
                         <Text text={article.createdAt} className={cls.date} />
                     </div>
                     <Text title={article.title} className={cls.title} />
@@ -61,7 +71,10 @@ export const ArticleListItem = memo(function ArticleListItem(props: ArticleListI
                         alt={article.title}
                     />
                     {textBlock && (
-                        <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                        />
                     )}
                     <div className={cls.footer}>
                         <AppLink
@@ -86,7 +99,7 @@ export const ArticleListItem = memo(function ArticleListItem(props: ArticleListI
             className={classNames('', {}, [className, cls[view]])}
         >
             <div data-testid="ArticleListItem"></div>
-            <Card className='card'>
+            <Card className="card">
                 <div className={cls.imageWrapper}>
                     <AppImage
                         fallback={<div>Loading... </div>}

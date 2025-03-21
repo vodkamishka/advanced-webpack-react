@@ -13,19 +13,27 @@ interface CommentCardProps {
     isLoading?: boolean;
 }
 
-export const CommentCard = ({ className, comment, isLoading }: CommentCardProps) => {
-
+export const CommentCard = ({
+    className,
+    comment,
+    isLoading,
+}: CommentCardProps) => {
     if (isLoading) {
-        return <div>Loading...</div>
+        return <div>Loading...</div>;
     }
 
     return (
         <div
             className={classNames(cls.commentCard, {}, [className])}
-            data-testid='CommentCard.Content'
+            data-testid="CommentCard.Content"
         >
-            <AppLink to={`/profile/${comment?.user?.id}`} className={cls.header}>
-                {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
+            <AppLink
+                to={`/profile/${comment?.user?.id}`}
+                className={cls.header}
+            >
+                {comment.user.avatar ? (
+                    <Avatar size={30} src={comment.user.avatar} />
+                ) : null}
                 <Text className={cls.username} title={comment.user.username} />
             </AppLink>
             <Text className={cls.text} text={comment.text} />

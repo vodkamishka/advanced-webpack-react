@@ -1,18 +1,29 @@
-import { createEntityAdapter, createSlice, type EntityAdapter } from '@reduxjs/toolkit';
+import {
+    createEntityAdapter,
+    createSlice,
+    type EntityAdapter,
+} from '@reduxjs/toolkit';
 
 import { fetchArticleList } from '..//services/fetchArticleList/fetchArticleList';
-import { Article, ArticleType, ArticleView, ArticleSortField } from '../../../../entities/Article';
+import {
+    Article,
+    ArticleType,
+    ArticleView,
+    ArticleSortField,
+} from '../../../../entities/Article';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localstorage';
 
 const articlePageAdapter: EntityAdapter<Article, string> = createEntityAdapter({
     selectId: (article: Article) => article.id,
-})
+});
 
-export const getArticlePageSelectors = articlePageAdapter.getSelectors<StateSchema>(
-    (state: StateSchema) => state?.articlePage || articlePageAdapter.getInitialState(),
-)
+export const getArticlePageSelectors =
+    articlePageAdapter.getSelectors<StateSchema>(
+        (state: StateSchema) =>
+            state?.articlePage || articlePageAdapter.getInitialState(),
+    );
 export const articlePageSlice = createSlice({
     name: 'articlePage',
     initialState: articlePageAdapter.getInitialState({
@@ -28,12 +39,15 @@ export const articlePageSlice = createSlice({
         order: 'asc',
         sort: ArticleSortField.VIEWS,
         search: '',
-        type: ArticleType.IT
+        type: ArticleType.IT,
     }),
     reducers: {
         setView(state, action) {
             state.view = action.payload;
-            localStorage.setItem(ARTICLES_VIEW_LOCALSTORAGE_KEY, action.payload);
+            localStorage.setItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+                action.payload,
+            );
         },
         setPage(state, action) {
             state.page = action.payload;
@@ -42,10 +56,12 @@ export const articlePageSlice = createSlice({
             state.hasMore = action.payload;
         },
         initState(state) {
-            const view = localStorage.getItem(ARTICLES_VIEW_LOCALSTORAGE_KEY) as ArticleView;
+            const view = localStorage.getItem(
+                ARTICLES_VIEW_LOCALSTORAGE_KEY,
+            ) as ArticleView;
             state.view = view;
             state.limit = view === ArticleView.BIG ? 4 : 9;
-            state.isInit = true ;
+            state.isInit = true;
         },
         setOrder(state, action) {
             state.order = action.payload;
@@ -84,7 +100,7 @@ export const articlePageSlice = createSlice({
                 state.error = action.payload as string; // Ошибка от сервера
             });
     },
-})
+});
 export const { reducer: articlePageReducer } = articlePageSlice;
 
 export const {
@@ -95,5 +111,5 @@ export const {
     setSort,
     setOrder,
     setSearch,
-    setType
+    setType,
 } = articlePageSlice.actions;

@@ -8,15 +8,20 @@ import { TextSize } from '@/shared/ui/Text/ui/Text';
 import cls from '@/pages/ArticleDetailsPage/ui/ArticleDatailsPage/ArticleDetailsPage.module.scss';
 import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
 
-
 interface ArticleRecommendationListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleRecommendationsList = ({ className }: ArticleRecommendationListProps) => {
+export const ArticleRecommendationsList = ({
+    className,
+}: ArticleRecommendationListProps) => {
     const { t } = useTranslation();
 
-    const { isLoading, data: articles, error } = useArticleRecommendationsList(3);
+    const {
+        isLoading,
+        data: articles,
+        error,
+    } = useArticleRecommendationsList(3);
 
     if (isLoading || error) {
         return null;
@@ -24,7 +29,7 @@ export const ArticleRecommendationsList = ({ className }: ArticleRecommendationL
     return (
         <div
             className={classNames('', {}, [className])}
-            data-testid = 'ArticleRecommendationsList'
+            data-testid="ArticleRecommendationsList"
         >
             <Text
                 size={TextSize.L}

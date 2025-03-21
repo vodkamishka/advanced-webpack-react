@@ -28,9 +28,7 @@ const config: Config = {
     testEnvironment: 'jsdom',
 
     // An array of regexp pattern strings used to skip coverage collection
-    coveragePathIgnorePatterns: [
-        '\\\\node_modules\\\\',
-    ],
+    coveragePathIgnorePatterns: ['\\\\node_modules\\\\'],
 
     // An array of file extensions your modules use
     moduleFileExtensions: [
@@ -46,10 +44,7 @@ const config: Config = {
 
     // An array of directory names to be searched recursively up from the requiring
     // module's location
-    moduleDirectories: [
-        'node_modules',
-        'src'
-    ],
+    moduleDirectories: ['node_modules', 'src'],
 
     // The root directory that Jest should scan for tests and modules within
     rootDir: '../../',
@@ -82,12 +77,15 @@ const config: Config = {
 
     reporters: [
         'default',
-        ['jest-html-reporters', {
-            publicPath: '<rootDir>/reports/unit',
-            filename: 'report.html',
-            openReport: false,
-            inlineSource: true,
-        }],
+        [
+            'jest-html-reporters',
+            {
+                publicPath: '<rootDir>/reports/unit',
+                filename: 'report.html',
+                openReport: false,
+                inlineSource: true,
+            },
+        ],
     ],
 
     // A path to a module which exports an async function that is triggered once before all test suites
@@ -152,8 +150,6 @@ const config: Config = {
     //   "json",
     //   "node"
     // ],
-
-
 
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],

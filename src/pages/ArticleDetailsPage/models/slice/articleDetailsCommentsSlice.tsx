@@ -7,18 +7,21 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 
 const articleDetailsCommentsAdapter = createEntityAdapter({
     selectId: (comment: Comment) => comment.id,
-})
+});
 
-export const getArticleDetailsCommentsSelectors = articleDetailsCommentsAdapter.getSelectors<StateSchema>(
-    (state: StateSchema) => state?.articleDetailsPage?.comments || articleDetailsCommentsAdapter.getInitialState()
-)
+export const getArticleDetailsCommentsSelectors =
+    articleDetailsCommentsAdapter.getSelectors<StateSchema>(
+        (state: StateSchema) =>
+            state?.articleDetailsPage?.comments ||
+            articleDetailsCommentsAdapter.getInitialState(),
+    );
 export const articleDetailsCommentsSlice = createSlice({
     name: 'articleDetailsComments',
     initialState: articleDetailsCommentsAdapter.getInitialState({
         isLoading: false,
         error: undefined,
         ids: [],
-        entities: {}
+        entities: {},
     }),
     reducers: undefined,
     extraReducers: (builder) => {
@@ -36,5 +39,6 @@ export const articleDetailsCommentsSlice = createSlice({
                 state.error = action.payload as string; // Ошибка от сервера
             });
     },
-})
-export const { reducer: articleDetailsCommentsReducer } = articleDetailsCommentsSlice;
+});
+export const { reducer: articleDetailsCommentsReducer } =
+    articleDetailsCommentsSlice;

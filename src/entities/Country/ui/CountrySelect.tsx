@@ -2,7 +2,6 @@ import { Country } from '../model/types/countryTypes';
 
 import { Select } from '@/shared/ui/Select';
 
-
 interface CountrySelectProps {
     className?: string;
     label?: string;
@@ -23,7 +22,6 @@ export const CountrySelect = ({
     onChange,
     disabled,
 }: CountrySelectProps) => {
-
     return (
         <Select
             label="Country"

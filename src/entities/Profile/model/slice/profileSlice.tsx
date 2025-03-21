@@ -4,7 +4,10 @@ import { Profile } from '../types/profileTypes';
 import { fetchProfileDataById } from '../services/fetchProfileDataById/fetchProfileDataById';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
-import { ProfileSchema, ValidateProfileErrors } from '@/features/EditableProfileCard/model/types/types';
+import {
+    ProfileSchema,
+    ValidateProfileErrors,
+} from '@/features/EditableProfileCard/model/types/types';
 
 const initialState: ProfileSchema = {
     data: undefined,
@@ -29,9 +32,9 @@ export const profileSlice = createSlice({
         updateProfile(state: ProfileSchema, action: PayloadAction<Profile>) {
             state.formData = {
                 ...state.formData,
-                ...action.payload
-            }
-        }
+                ...action.payload,
+            };
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -64,10 +67,11 @@ export const profileSlice = createSlice({
                 if (typeof action.payload === 'string') {
                     state.error = action.payload as string; // Ошибка от сервера
                 }
-                state.validateErrors = action.payload as ValidateProfileErrors[];
+                state.validateErrors =
+                    action.payload as ValidateProfileErrors[];
             });
     },
-})
+});
 export const { reducer: profileReducer } = profileSlice;
 
 export const { setReadonly, updateProfile, cancelEdit } = profileSlice.actions;

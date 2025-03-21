@@ -8,7 +8,7 @@ const meta = {
     title: 'Button',
     component: Button,
     parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
+        // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: 'centered',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
@@ -32,7 +32,7 @@ export const Clear: Story = {
     args: {
         className: '',
         children: 'Clear',
-        theme: ButtonTheme.CLEAR
+        theme: ButtonTheme.CLEAR,
     },
 };
 
@@ -40,7 +40,7 @@ export const Outline: Story = {
     args: {
         className: '',
         children: 'Outline',
-        theme: ButtonTheme.OUTLINE
+        theme: ButtonTheme.OUTLINE,
     },
 };
 
@@ -49,7 +49,7 @@ export const OutlineSizeL: Story = {
         className: '',
         children: 'OutlineSizeL',
         theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.L
+        size: ButtonSize.L,
     },
 };
 
@@ -58,7 +58,7 @@ export const OutlineSizeXL: Story = {
         className: '',
         children: 'OutlineSizeXL',
         theme: ButtonTheme.OUTLINE,
-        size: ButtonSize.L
+        size: ButtonSize.L,
     },
 };
 
@@ -91,7 +91,7 @@ export const Square: Story = {
         className: '',
         children: '>',
         theme: ButtonTheme.BACKGROUND_INVERTED,
-        square: true
+        square: true,
     },
 };
 
@@ -114,6 +114,3 @@ export const SquareSizeXl: Story = {
         size: ButtonSize.XL,
     },
 };
-
-
-

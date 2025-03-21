@@ -7,19 +7,17 @@ import { getArticleIsLoading } from '@/entities/Article/model/selectors/getArtic
 import { ArticleList } from '@/entities/Article/ui/ArticleList/ArticleList';
 
 interface ArticleInfiniteListProps {
-    className?: string
+    className?: string;
 }
 
-export const ArticleInfiniteList = ({ className }: ArticleInfiniteListProps) => {
+export const ArticleInfiniteList = ({
+    className,
+}: ArticleInfiniteListProps) => {
     const isLoading = useSelector(getArticleIsLoading);
     const view = useSelector(getArticlePageView);
 
     const articles = useSelector(getArticlePageSelectors.selectAll);
     return (
-        <ArticleList
-            isLoading={isLoading}
-            view={view}
-            articles={articles}
-        />
+        <ArticleList isLoading={isLoading} view={view} articles={articles} />
     );
 };

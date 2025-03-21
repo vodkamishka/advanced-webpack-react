@@ -2,14 +2,14 @@ import { Profile } from '../../types/profileTypes';
 
 import { ValidateProfileErrors } from '@/features/EditableProfileCard/model/types/types';
 
-export const validateProfileData = (profile?: Profile):ValidateProfileErrors[]  => {
+export const validateProfileData = (
+    profile?: Profile,
+): ValidateProfileErrors[] => {
     if (!profile) {
         return [ValidateProfileErrors.NO_DATA];
     }
 
-    const {
-        first, lastname, age, country,
-    } = profile;
+    const { first, lastname, age, country } = profile;
 
     const errors: ValidateProfileErrors[] = [];
 

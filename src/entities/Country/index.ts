@@ -1,5 +1,3 @@
-export  { CountrySelect } from './ui/CountrySelect';
+export { CountrySelect } from './ui/CountrySelect';
 
 export { Country } from './model/types/countryTypes';
-
-

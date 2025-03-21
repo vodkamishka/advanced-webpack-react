@@ -3,8 +3,15 @@ import { useSelector } from 'react-redux';
 
 import { articleReducer } from '../../../model/slice/articleSlice';
 import { fetchArticleById } from '../../../model/servises/fetchArticleById';
-import { getArticleData, getArticleError, getArticleIsLoading } from '../../../model/selectors/getArticleData';
-import { ArticleBlock, ArticleBlockType } from '../../../model/types/articleTypes';
+import {
+    getArticleData,
+    getArticleError,
+    getArticleIsLoading,
+} from '../../../model/selectors/getArticleData';
+import {
+    ArticleBlock,
+    ArticleBlockType,
+} from '../../../model/types/articleTypes';
 import { ArticleCodeBlockComponent } from '../../ActicleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../../ActicleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../../ActicleTextBlockComponent';
@@ -31,7 +38,6 @@ const reducers = {
 };
 
 export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
-    
     const dispatch = useAppDispatch();
     const isLoading = useSelector(getArticleIsLoading);
     const article = useSelector(getArticleData);
@@ -39,47 +45,46 @@ export const ArticleDetails = ({ className, id }: ArticleDetailsProps) => {
 
     const renderBlock = useCallback((block: ArticleBlock) => {
         switch (block.type) {
-        case ArticleBlockType.CODE:
-            return (
-                <ArticleCodeBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.IMAGE:
-            return (
-                <ArticleImageBlockComponent
-                    key={block.id}
-                    block={block}
-                    className={cls.block}
-                />
-            );
-        case ArticleBlockType.TEXT:
-            return (
-                <ArticleTextBlockComponent
-                    key={block.id}
-                    className={cls.block}
-                    block={block}
-                />
-            );
-        default:
-            return null;
+            case ArticleBlockType.CODE:
+                return (
+                    <ArticleCodeBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.IMAGE:
+                return (
+                    <ArticleImageBlockComponent
+                        key={block.id}
+                        block={block}
+                        className={cls.block}
+                    />
+                );
+            case ArticleBlockType.TEXT:
+                return (
+                    <ArticleTextBlockComponent
+                        key={block.id}
+                        className={cls.block}
+                        block={block}
+                    />
+                );
+            default:
+                return null;
         }
     }, []);
-    
+
     useEffect(() => {
-        dispatch(fetchArticleById(id))
-    }, [dispatch, id])
+        dispatch(fetchArticleById(id));
+    }, [dispatch, id]);
 
     let content;
 
     if (isLoading) {
-        content = <div>Loading...</div>
+        content = <div>Loading...</div>;
     } else if (error) {
-        content = <Text theme={TextTheme.ERROR} title={error}/>
+        content = <Text theme={TextTheme.ERROR} title={error} />;
     } else {
-
         content = (
             <>
                 <div className={cls.avatarWrapper}>

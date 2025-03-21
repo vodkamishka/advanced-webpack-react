@@ -3,15 +3,13 @@ import { getProfileIsLoading } from './getProfileIsLoading';
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileIsLoading selector', () => {
-
     test('must return profile isLoading', () => {
-
         const state: Pick<StateSchema, 'profile'> = {
             profile: {
                 isLoading: true,
                 error: 'the common is not correct',
                 readonly: false,
-            }
+            },
         };
 
         expect(getProfileIsLoading(state)).toBe(true);

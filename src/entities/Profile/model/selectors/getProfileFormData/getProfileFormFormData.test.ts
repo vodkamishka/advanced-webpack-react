@@ -7,7 +7,6 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getProfileFormData selector', () => {
     test('must return profile data', () => {
-
         const formData = {
             first: 'andrey',
             lastname: 'gr',
@@ -17,14 +16,14 @@ describe('getProfileFormData selector', () => {
             city: 'Moscow',
             username: 'cd',
             avatar: '',
-        }
+        };
 
         const state: Pick<StateSchema, 'profile'> = {
             profile: {
                 formData,
                 isLoading: false,
                 readonly: false,
-            }
+            },
         };
 
         expect(getProfileFormData(state)).toEqual(formData);

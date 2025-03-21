@@ -6,16 +6,12 @@ import { MemoryRouter } from 'react-router-dom';
 import i18n from '@/shared/config/i18n/i18nForTests';
 import { StoreProvider } from '@/app/providers/StoreProvider/';
 
-export const testProvider = (
-    children: ReactNode
-) => {
+export const testProvider = (children: ReactNode) => {
     return render(
         <MemoryRouter>
             <StoreProvider>
-                <I18nextProvider i18n={i18n}>
-                    {children}
-                </I18nextProvider>
+                <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
             </StoreProvider>
-        </MemoryRouter>
-    )
-}
+        </MemoryRouter>,
+    );
+};

@@ -3,7 +3,7 @@ import { memo } from 'react';
 
 import { Page } from '@/shared/ui/Page/ui/Page';
 
-export const ErrorPage = memo(function ErrorPage () {
+export const ErrorPage = memo(function ErrorPage() {
     const onClick = () => window.location.reload();
     const { t } = useTranslation();
     return (

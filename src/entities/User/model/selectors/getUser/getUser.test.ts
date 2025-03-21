@@ -8,16 +8,16 @@ describe('getUser selector', () => {
             user: {
                 authData: {
                     username: 'username',
-                    id: 'id'
-                }
+                    id: 'id',
+                },
             },
         };
 
         expect(getUser(state)).toEqual({
             authData: {
                 username: 'username',
-                id: 'id'
-            }
+                id: 'id',
+            },
         });
     });
 

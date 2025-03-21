@@ -13,7 +13,7 @@ interface ArticleEditPageProps {
 export const ArticleEditPage = (props: ArticleEditPageProps) => {
     const { className } = props;
     const { t } = useTranslation();
-    const { id } = useParams<{id: string}>();
+    const { id } = useParams<{ id: string }>();
     const isEdit = Boolean(id);
 
     return (
@@ -24,4 +24,3 @@ export const ArticleEditPage = (props: ArticleEditPageProps) => {
         </Page>
     );
 };
-

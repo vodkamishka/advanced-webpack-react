@@ -12,7 +12,7 @@ const meta = {
         layout: 'centered',
     },
     // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-    tags: ['autodocs']
+    tags: ['autodocs'],
 } satisfies Meta<typeof Text>;
 
 export default meta;
@@ -44,8 +44,3 @@ export const OnlyText: Story = {
         text: 'Only text',
     },
 };
-
-
-
-
-

@@ -5,9 +5,10 @@ import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 describe('getCounterValue selector', () => {
     test('must return counter state value', () => {
         const state: Pick<StateSchema, 'counter'> = {
-            counter: {  // Должно быть `counter`, а не `CounterSchema`
+            counter: {
+                // Должно быть `counter`, а не `CounterSchema`
                 value: 10,
-            }
+            },
         };
 
         expect(getCounterValue(state as StateSchema)).toBe(10); // Исправленный тест

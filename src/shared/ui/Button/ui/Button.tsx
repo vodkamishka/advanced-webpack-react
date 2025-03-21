@@ -19,7 +19,7 @@ export enum ButtonSize {
     XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
     theme?: ButtonTheme;
     square?: boolean;
@@ -27,7 +27,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     fullWidth?: boolean;
 }
 
-export const Button: FC<ButtonProps> = memo(function Button (props) {
+export const Button: FC<ButtonProps> = memo(function Button(props) {
     const {
         className,
         children,
@@ -37,7 +37,6 @@ export const Button: FC<ButtonProps> = memo(function Button (props) {
         fullWidth,
         ...otherProps
     } = props;
-
 
     const mods: Record<string, boolean | undefined> = {
         [cls[theme]]: true,

@@ -23,8 +23,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
     addCommentForm?: AddCommentFormSchema;
-    articlePage?: ArticlePageSchema,
-
+    articlePage?: ArticlePageSchema;
 }
 
 export interface ThunkExtraArg {

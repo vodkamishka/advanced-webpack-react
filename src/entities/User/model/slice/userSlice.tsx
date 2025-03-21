@@ -27,7 +27,7 @@ export const userSlice = createSlice({
             localStorage.removeItem(USER_LOCALSTORAGE_KEY);
         },
     },
-})
+});
 
 export const { setAuthData, initAuthData, logout } = userSlice.actions;
-export const { reducer : userReducer } = userSlice;
+export const { reducer: userReducer } = userSlice;

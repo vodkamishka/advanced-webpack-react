@@ -9,7 +9,9 @@ import { Page } from '@/shared/ui/Page/ui/Page';
 interface NotFoundPageProps {
     className?: string;
 }
-export const NotFoundPage = memo(function NotFoundPage ({ className }: NotFoundPageProps) {
+export const NotFoundPage = memo(function NotFoundPage({
+    className,
+}: NotFoundPageProps) {
     const { t } = useTranslation();
     return (
         <Page>
@@ -20,6 +22,5 @@ export const NotFoundPage = memo(function NotFoundPage ({ className }: NotFoundP
                 {t('Страница не найдена')}
             </div>
         </Page>
-
     );
 });

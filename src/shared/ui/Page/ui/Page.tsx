@@ -10,8 +10,6 @@ import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { useThrottle } from '@/shared/hooks/useThrottle';
 import { useInfiniteScroll } from '@/shared/hooks/useInfiniteScroll';
 
-
-
 interface PageProps {
     className?: string;
     children?: ReactNode;
@@ -19,8 +17,12 @@ interface PageProps {
     disableScroll?: boolean;
 }
 
-export const Page: FC<PageProps> = ({ className, children, callback, disableScroll = false }: PageProps) => {
-
+export const Page: FC<PageProps> = ({
+    className,
+    children,
+    callback,
+    disableScroll = false,
+}: PageProps) => {
     const { pathname } = useLocation();
     const dispatch = useAppDispatch();
 
@@ -35,29 +37,45 @@ export const Page: FC<PageProps> = ({ className, children, callback, disableScro
             if (rootRef.current) {
                 rootRef.current.scrollTop = scroll?.[pathname];
             }
-        }, 1000);// eslint-disable-next-line react-hooks/exhaustive-deps
+        }, 1000); // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useInfiniteScroll({
         root: rootRef,
         target: targetRef,
-        callback
+        callback,
     });
 
-    const onScroll = useCallback((e: React.UIEvent<HTMLDivElement>) => {
-        dispatch(setScrollPosition({ value: (e.target as HTMLElement)?.scrollTop , pathname }));
-    }, [dispatch, pathname])
+    const onScroll = useCallback(
+        (e: React.UIEvent<HTMLDivElement>) => {
+            dispatch(
+                setScrollPosition({
+                    value: (e.target as HTMLElement)?.scrollTop,
+                    pathname,
+                }),
+            );
+        },
+        [dispatch, pathname],
+    );
 
     const onScrollThrottle = useThrottle(onScroll, 1000);
 
     const mods = {
-        [cls.disableScroll]: disableScroll
-    }
+        [cls.disableScroll]: disableScroll,
+    };
 
     return (
-        <section ref={rootRef} onScroll={onScrollThrottle}  className={classNames(cls.page, mods, [className])}>
-            { children }
-            <div ref={targetRef} style={{ height: '2px' }} className='target'></div>
+        <section
+            ref={rootRef}
+            onScroll={onScrollThrottle}
+            className={classNames(cls.page, mods, [className])}
+        >
+            {children}
+            <div
+                ref={targetRef}
+                style={{ height: '2px' }}
+                className="target"
+            ></div>
         </section>
     );
 };

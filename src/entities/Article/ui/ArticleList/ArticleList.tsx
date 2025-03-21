@@ -11,23 +11,22 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface ArticleListProps {
     className?: string;
-    articles: Article[]
+    articles: Article[];
     isLoading?: boolean;
     view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
 }
 
-export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
-    const {
-        className,
-        articles,
-        view = ArticleView.SMALL,
-        target,
-    } = props;
+export const ArticleList = memo(function ArticleList(props: ArticleListProps) {
+    const { className, articles, view = ArticleView.SMALL, target } = props;
 
-
-    const renderArticle = ({ index, style }: {index: number; style: CSSProperties}) => {
-
+    const renderArticle = ({
+        index,
+        style,
+    }: {
+        index: number;
+        style: CSSProperties;
+    }) => {
         const article = articles[index];
 
         return (
@@ -40,9 +39,8 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
                     target={target}
                 />
             </div>
-
-        )
-    }
+        );
+    };
 
     return (
         <div
@@ -50,7 +48,7 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
             data-testid="ArticleList"
         >
             <AutoSizer>
-                {({ height, width }: {height: number, width: number}) => {
+                {({ height, width }: { height: number; width: number }) => {
                     return (
                         <List
                             height={height}
@@ -60,7 +58,7 @@ export const ArticleList = memo(function ArticleList (props: ArticleListProps) {
                         >
                             {renderArticle}
                         </List>
-                    )
+                    );
                 }}
             </AutoSizer>
         </div>

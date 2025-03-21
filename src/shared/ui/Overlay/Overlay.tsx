@@ -9,6 +9,9 @@ interface OverlayProps {
 
 export const Overlay = ({ className, onClick }: OverlayProps) => {
     return (
-        <div onClick={onClick} className={classNames(cls.overlay, {}, [className])}/>
-    )
+        <div
+            onClick={onClick}
+            className={classNames(cls.overlay, {}, [className])}
+        />
+    );
 };

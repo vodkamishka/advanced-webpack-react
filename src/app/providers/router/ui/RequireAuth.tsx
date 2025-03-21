@@ -12,27 +12,31 @@ interface RequireAuthProps {
 export const RequireAuth: FC<RequireAuthProps> = ({ children, roles }) => {
     const authData = useSelector(getAuthData);
     const location = useLocation();
-    
+
     const userRoles = useSelector(getRoles);
-    
+
     const hasRoles = useMemo(() => {
         if (!roles) {
             return true;
         }
         return roles.some((role) => userRoles?.includes(role));
-    }, [roles, userRoles])
+    }, [roles, userRoles]);
 
     if (!authData) {
         return (
-            <Navigate to={RoutePath.main} state = {{ state: location }} replace />
+            <Navigate to={RoutePath.main} state={{ state: location }} replace />
         );
     }
 
     if (!hasRoles) {
-        return <Navigate to={RoutePath.forbidden} state={{ from: location }} replace />;
+        return (
+            <Navigate
+                to={RoutePath.forbidden}
+                state={{ from: location }}
+                replace
+            />
+        );
     }
 
-
-    return children
-
+    return children;
 };

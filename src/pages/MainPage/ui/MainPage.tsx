@@ -4,7 +4,7 @@ import { memo, useEffect, useState } from 'react';
 import { Counter } from '@/entities/Counter';
 import { Page } from '@/shared/ui/Page/ui/Page';
 
-const MainPage = memo(function MainPage ()  {
+const MainPage = memo(function MainPage() {
     const { t } = useTranslation('main-page');
 
     const [error, setError] = useState(false);
@@ -21,9 +21,11 @@ const MainPage = memo(function MainPage ()  {
     return (
         <Page>
             {t('Главная страница')}
-            <Counter/>
+            <Counter />
             {/* eslint-disable-next-line i18next/no-literal-string */}
-            <button onClick={onClick} data-testid="MainPage">throw error</button>
+            <button onClick={onClick} data-testid="MainPage">
+                throw error
+            </button>
         </Page>
     );
 });

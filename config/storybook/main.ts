@@ -31,6 +31,5 @@ const config: StorybookConfig = {
     webpackFinal: storybookWebpackConfig,
 
     docs: {},
-
 };
 export default config;

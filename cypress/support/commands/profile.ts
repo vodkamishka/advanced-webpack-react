@@ -3,7 +3,7 @@ export const updateProfile = (firstname: string, lastname: string) => {
     cy.getByTestId('ProfileCard.firstname').clear().type(firstname);
     cy.getByTestId('ProfileCard.lastname').clear().type(lastname);
     cy.getByTestId('EditableProfileHeader.SaveButton').click();
-}
+};
 
 export const resetProfile = (profileId: string) => {
     return cy.request({
@@ -21,8 +21,8 @@ export const resetProfile = (profileId: string) => {
             username: 'testuser',
             avatar: 'https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg',
         },
-    })
-}
+    });
+};
 
 declare global {
     // eslint-disable-next-line @typescript-eslint/no-namespace

@@ -8,32 +8,39 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppImage } from '@/shared/ui/AppImage';
 import { Icon } from '@/shared/ui/Icon';
 
-
-
 interface AvatarProps {
-    className?: string
+    className?: string;
     src?: string;
     alt?: string;
     size?: number;
     fallbackInverted?: boolean;
 }
 
-export const Avatar = ({ 
-    className, 
-    src, 
+export const Avatar = ({
+    className,
+    src,
     alt = 'picture',
     size = 100,
     fallbackInverted,
 }: AvatarProps) => {
-    
-    const style = useMemo(() => ({
-        width: size,
-        height: size
-    }), [size])
+    const style = useMemo(
+        () => ({
+            width: size,
+            height: size,
+        }),
+        [size],
+    );
 
     const fallback = <div>Loading...</div>;
-    const errorFallback = <Icon inverted={fallbackInverted} width={size} height={size} Svg={UserIcon} />;
-    
+    const errorFallback = (
+        <Icon
+            inverted={fallbackInverted}
+            width={size}
+            height={size}
+            Svg={UserIcon}
+        />
+    );
+
     return (
         <AppImage
             fallback={fallback}

@@ -8,13 +8,13 @@ interface ArticleBlockBase {
 export enum ArticleBlockType {
     CODE = 'CODE',
     IMAGE = 'IMAGE',
-    TEXT = 'TEXT'
+    TEXT = 'TEXT',
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
     type: ArticleBlockType.TEXT;
     title?: string;
-    paragraphs: string[]
+    paragraphs: string[];
 }
 
 export interface ArticleImageBlock extends ArticleBlockBase {
@@ -25,7 +25,7 @@ export interface ArticleImageBlock extends ArticleBlockBase {
 
 export enum ArticleView {
     BIG = 'BIG',
-    SMALL = 'SMALL'
+    SMALL = 'SMALL',
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
@@ -33,29 +33,32 @@ export interface ArticleCodeBlock extends ArticleBlockBase {
     code: string;
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;
+export type ArticleBlock =
+    | ArticleTextBlock
+    | ArticleImageBlock
+    | ArticleCodeBlock;
 
 export interface Article {
-    id: string,
-    title: string,
-    subtitle: string,
-    user: User,
-    img: string,
-    views: number,
-    createdAt: string,
-    type: ArticleType[],
-    blocks: ArticleBlock[]
+    id: string;
+    title: string;
+    subtitle: string;
+    user: User;
+    img: string;
+    views: number;
+    createdAt: string;
+    type: ArticleType[];
+    blocks: ArticleBlock[];
 }
 
 export enum ArticleType {
     ALL = 'ALL',
     IT = 'IT',
     SCIENCE = 'SCIENCE',
-    ECONOMICS = 'ECONOMICS'
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleSortField {
     VIEWS = 'VIEWS',
     'TITLE' = 'TITLE',
-    'CREATED_AT' = 'CREATED_AT'
+    'CREATED_AT' = 'CREATED_AT',
 }

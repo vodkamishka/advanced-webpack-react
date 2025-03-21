@@ -2,10 +2,9 @@ import { getLoginForm } from './getLoginForm';
 
 import { StateSchema } from '@/app/providers/StoreProvider/config/StateSchema';
 describe('getLoginForm selector', () => {
-
     const state: Pick<StateSchema, 'loginForm'> = {
         loginForm: {
-            username: 'username' ,
+            username: 'username',
             password: 'password',
             isLoading: false,
         },
@@ -13,7 +12,7 @@ describe('getLoginForm selector', () => {
 
     test('must return loginForm state', () => {
         expect(getLoginForm(state)).toEqual({
-            username: 'username' ,
+            username: 'username',
             password: 'password',
             isLoading: false,
         });

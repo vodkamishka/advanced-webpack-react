@@ -1,4 +1,3 @@
-
 import { useTranslation } from 'react-i18next';
 
 import { useCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
@@ -7,7 +6,7 @@ import { useCounterActions } from '../model/slice/counterSlice';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface CounterProps {
-    className?: string
+    className?: string;
 }
 
 export const Counter = ({ className }: CounterProps) => {
@@ -22,21 +21,15 @@ export const Counter = ({ className }: CounterProps) => {
     const handleDec = () => {
         decrement();
     };
-    
+
     return (
         <div className={classNames('', {}, [className])}>
             <h1 data-testid="value-title">{counterValue}</h1>
 
-            <button
-                data-testid="increment-btn"
-                onClick={handleInc}
-            >
+            <button data-testid="increment-btn" onClick={handleInc}>
                 {t('Инкремент')}
             </button>
-            <button
-                data-testid="decrement-btn"
-                onClick={handleDec}
-            >
+            <button data-testid="decrement-btn" onClick={handleDec}>
                 {t('Декремент')}
             </button>
         </div>

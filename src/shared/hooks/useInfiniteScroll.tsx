@@ -1,15 +1,17 @@
 import { RefObject, useEffect } from 'react';
 
 export interface UseInfiniteScrollProps {
-    root: RefObject<HTMLDivElement>,
-    target?: RefObject<HTMLDivElement>,
+    root: RefObject<HTMLDivElement>;
+    target?: RefObject<HTMLDivElement>;
     callback?: () => void;
 }
 
-export const useInfiniteScroll = ({ root, target, callback }: UseInfiniteScrollProps) => {
-
+export const useInfiniteScroll = ({
+    root,
+    target,
+    callback,
+}: UseInfiniteScrollProps) => {
     useEffect(() => {
-
         if (!callback || !target.current) {
             return;
         }
@@ -38,8 +40,6 @@ export const useInfiniteScroll = ({ root, target, callback }: UseInfiniteScrollP
             if (target) {
                 observer.unobserve(current);
             }
-        }
-
-    }, [callback, root, target])
-
-}
+        };
+    }, [callback, root, target]);
+};

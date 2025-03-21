@@ -1,5 +1,5 @@
 const SvgMock = () => {
-    return <></>
+    return <></>;
 };
 
 export default SvgMock;

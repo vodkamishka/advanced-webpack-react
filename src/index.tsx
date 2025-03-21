@@ -13,7 +13,6 @@ import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
-
     const root = createRoot(rootElement);
 
     root.render(
@@ -29,14 +28,8 @@ if (rootElement) {
                     </ErrorBoundary>
                 </ThemeProvider>
             </StoreProvider>
-        </BrowserRouter>
+        </BrowserRouter>,
     );
-
 } else {
     console.error('Root element not found');
 }
-
-
-
-
-

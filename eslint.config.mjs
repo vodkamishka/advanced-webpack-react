@@ -7,7 +7,7 @@ import hooksPlugin from "eslint-plugin-react-hooks";
 import checkImportPlugin from "eslint-plugin-deynega-check-import-path";
 import unusedImports from "eslint-plugin-unused-imports";
 import importPlugin from 'eslint-plugin-import';
-
+import eslintPluginPrettier from 'eslint-plugin-prettier/recommended';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
@@ -25,6 +25,7 @@ export default [
   pluginReact.configs.flat.recommended,
   importPlugin.flatConfigs.recommended,
   i18next.configs['flat/recommended'],
+  eslintPluginPrettier,
 
   {
     plugins: {
@@ -41,9 +42,6 @@ export default [
   },
   {
     rules: {
-      'react/jsx-indent': [2, 4],
-      'react/jsx-indent-props': [2, 4],
-      indent: [2, 4],
       'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
       'import/no-unresolved': 'off',
       'import/prefer-default-export': 'off',

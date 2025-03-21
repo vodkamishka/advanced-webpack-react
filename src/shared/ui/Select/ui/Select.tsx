@@ -22,18 +22,17 @@ export interface SelectOption {
     content: string;
 }
 
-export const Select = ({ 
-    className, 
-    options, 
+export const Select = ({
+    className,
+    options,
     label,
     onChange,
     value,
     disabled,
 }: SelectProps) => {
-
     const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
         onChange?.(e.target.value);
-    }
+    };
 
     return (
         <div className={classNames(cls.select, {}, [className])}>
@@ -44,15 +43,11 @@ export const Select = ({
                 disabled={disabled}
             >
                 {options?.map(({ value, content }) => (
-                    <option
-                        key={value}
-                        value={value}
-                    >
+                    <option key={value} value={value}>
                         {content}
                     </option>
                 ))}
             </select>
         </div>
-
     );
 };

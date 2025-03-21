@@ -2,9 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { Profile } from '../../../model/types/profileTypes';
-import {
-    getProfileValidateErrors
-} from '../../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { getProfileValidateErrors } from '../../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
 import cls from './ProfileCard.module.scss';
 
@@ -14,8 +12,6 @@ import { Input } from '@/shared/ui/Input';
 import { TextAlign, TextTheme } from '@/shared/ui/Text/ui/Text';
 import { Country, CountrySelect } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
-
-
 
 interface ProfileCardProps {
     className?: string;
@@ -46,21 +42,16 @@ export const ProfileCard = ({
     onChangeUsername,
     onChangeAvatar,
     onChangeCountry,
-    onChangeCurrency
+    onChangeCurrency,
 }: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
     const validateErrors = useSelector(getProfileValidateErrors);
 
     if (isLoading) {
-        return(
-            <Text
-                title={t('Загрузка...')}
-                align={TextAlign.CENTER}
-            />
-        )
+        return <Text title={t('Загрузка...')} align={TextAlign.CENTER} />;
     }
-    
+
     if (error) {
         return (
             <Text
@@ -68,17 +59,19 @@ export const ProfileCard = ({
                 title={error}
                 align={TextAlign.CENTER}
             />
-        )
+        );
     }
 
     return (
         <div className={classNames(cls.profileCard, {}, [className])}>
+            {validateErrors?.length &&
+                validateErrors.map((error) => (
+                    <div className={cls.error} key={error}>
+                        {error}
+                    </div>
+                ))}
 
-            {validateErrors?.length && validateErrors.map(error => (
-                <div className={cls.error} key={error}>{error}</div>
-            ))}
-
-            < div className={cls.data}>
+            <div className={cls.data}>
                 <Input
                     value={data?.first}
                     placeholder={t('Ваше первое имя')}
@@ -97,7 +90,7 @@ export const ProfileCard = ({
                 />
                 <Input
                     value={data?.age}
-                    type='number'
+                    type="number"
                     placeholder={t('Ваша фамилия')}
                     className={cls.input}
                     readonly={readonly}
@@ -128,13 +121,11 @@ export const ProfileCard = ({
                     value={data?.country}
                     disabled={readonly}
                     onChange={onChangeCountry}
-
                 />
                 <CurrencySelect
                     value={data?.currency}
                     disabled={readonly}
                     onChange={onChangeCurrency}
-
                 />
             </div>
         </div>

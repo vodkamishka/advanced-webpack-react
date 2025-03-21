@@ -29,8 +29,8 @@ export const Main: Story = {
         item: {
             path: RoutePath.main,
             text: 'Главная',
-            Icon: MainIcon
-        }
+            Icon: MainIcon,
+        },
     },
 };
 
@@ -40,8 +40,8 @@ export const About: Story = {
         item: {
             path: RoutePath.about,
             text: 'О сайте',
-            Icon: AboutIcon
-        }
+            Icon: AboutIcon,
+        },
     },
 };
 
@@ -51,8 +51,8 @@ export const MainCollapsed: Story = {
         item: {
             path: RoutePath.main,
             text: 'Главная',
-            Icon: MainIcon
-        }
+            Icon: MainIcon,
+        },
     },
 };
 
@@ -62,8 +62,7 @@ export const AboutCollapsed: Story = {
         item: {
             path: RoutePath.about,
             text: 'О сайте',
-            Icon: AboutIcon
-        }
+            Icon: AboutIcon,
+        },
     },
 };
-

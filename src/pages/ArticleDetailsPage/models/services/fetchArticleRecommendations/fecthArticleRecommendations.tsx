@@ -4,16 +4,19 @@ import axios from 'axios';
 import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
 import { Article } from '@/entities/Article';
 
-export const fetchArticleRecommendations = createAsyncThunk<Article[], void, { extra: ThunkExtraArg }>(
+export const fetchArticleRecommendations = createAsyncThunk<
+    Article[],
+    void,
+    { extra: ThunkExtraArg }
+>(
     'article/fetchArticleRecommendations',
-    async (_ , { extra, rejectWithValue }) => {
+    async (_, { extra, rejectWithValue }) => {
         try {
-
             const response = await extra.api.get<Article[]>('/articles/', {
                 params: {
                     _expand: 'user',
                     _limit: 4,
-                }
+                },
             });
 
             if (!response.data) {
@@ -23,9 +26,11 @@ export const fetchArticleRecommendations = createAsyncThunk<Article[], void, { e
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                return rejectWithValue(error.response?.data?.message || 'Fetch data failed');
+                return rejectWithValue(
+                    error.response?.data?.message || 'Fetch data failed',
+                );
             }
             return rejectWithValue('An unknown error occurred');
         }
-    }
+    },
 );

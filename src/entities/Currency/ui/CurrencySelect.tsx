@@ -2,7 +2,6 @@ import { Currency } from '../model/types/currencyTypes';
 
 import { Select } from '@/shared/ui/Select';
 
-
 interface CurrencySelectProps {
     className?: string;
     label?: string;
@@ -22,7 +21,6 @@ export const CurrencySelect = ({
     onChange,
     disabled,
 }: CurrencySelectProps) => {
-
     return (
         <Select
             label="Currency"

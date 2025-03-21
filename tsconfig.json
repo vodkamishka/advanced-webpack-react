@@ -1,36 +1,34 @@
 {
-  "compilerOptions": {
-    "noImplicitAny": true,
-    "module": "ESNext",
-    "target": "es5",
-    "lib": ["es2017", "DOM"],
-    "jsx": "react-jsx",
-    "strict": false,
-    "allowJs": true,
-    "isolatedModules": true, // каждый файл компилируется отдельно, без зависимостей от других файлов
-    "moduleResolution": "node",
-    "esModuleInterop": true, // позволяет использовать import и export в CommonJs
-    "allowSyntheticDefaultImports": true, // использовать синтетический экспорт по умолчанию для модулей, которые не
-    //имеют реального экспорта по умолчанию (импортировать без *),
-    "baseUrl": ".", // эта настройка определяет, с какого каталога будут начинаться все абсолютные пути в проекте
-    "paths": {
-      "@/*": ["./src/*"] // любые импорты, которые не совпадают с другими точно прописанными путями, должны разрешаться
-      //начиная с папки src и учитывать структуру вложенных каталогов внутри этой папки
-    },
-  },
-  "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS" // позволяет запускать ts-код напрямую в Node.js без предварительной компиляции в js
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "config/jest/**/*",
-    "config/storybook/**/*",
-    "storybook-static/sb-manager/globals-runtime.js"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+        "noImplicitAny": true,
+        "module": "ESNext",
+        "target": "es5",
+        "lib": ["es2017", "DOM"],
+        "jsx": "react-jsx",
+        "strict": false,
+        "allowJs": true,
+        "isolatedModules": true, // каждый файл компилируется отдельно, без зависимостей от других файлов
+        "moduleResolution": "node",
+        "esModuleInterop": true, // позволяет использовать import и export в CommonJs
+        "allowSyntheticDefaultImports": true, // использовать синтетический экспорт по умолчанию для модулей, которые не
+        //имеют реального экспорта по умолчанию (импортировать без *),
+        "baseUrl": ".", // эта настройка определяет, с какого каталога будут начинаться все абсолютные пути в проекте
+        "paths": {
+            "@/*": ["./src/*"] // любые импорты, которые не совпадают с другими точно прописанными путями, должны разрешаться
+            //начиная с папки src и учитывать структуру вложенных каталогов внутри этой папки
+        }
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS" // позволяет запускать ts-код напрямую в Node.js без предварительной компиляции в js
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "config/jest/**/*",
+        "config/storybook/**/*",
+        "storybook-static/sb-manager/globals-runtime.js"
+    ],
+    "exclude": ["node_modules"]
 }

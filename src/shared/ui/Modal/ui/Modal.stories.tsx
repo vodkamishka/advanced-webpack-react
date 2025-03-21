@@ -22,12 +22,11 @@ type Story = StoryObj<typeof Modal>;
 export const Default: Story = {
     args: {
         className: '',
-        children: 'Piece words and group words\n' +
+        children:
+            'Piece words and group words\n' +
             'Piece words make it possible to talk about a single unit or units of something which is seen as uncountable.\n' +
             'Piece words include words such as piece, bit, item, article. We normally use them with of. We can use them in\n' +
             'the singular or the plural. …',
         isOpen: true,
     },
 };
-
-

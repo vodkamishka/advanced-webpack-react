@@ -16,7 +16,9 @@ interface ArticleDetailsPageHeaderProps {
     className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo(function ArticleDetailsPageHeader(props: ArticleDetailsPageHeaderProps) {
+export const ArticleDetailsPageHeader = memo(function ArticleDetailsPageHeader(
+    props: ArticleDetailsPageHeaderProps,
+) {
     const { className } = props;
     const { t } = useTranslation();
     const navigate = useNavigate();
@@ -32,7 +34,11 @@ export const ArticleDetailsPageHeader = memo(function ArticleDetailsPageHeader(p
     }, [article?.id, navigate]);
 
     return (
-        <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
+        <div
+            className={classNames(cls.articleDetailsPageHeader, {}, [
+                className,
+            ])}
+        >
             <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
                 {t('Назад к списку')}
             </Button>

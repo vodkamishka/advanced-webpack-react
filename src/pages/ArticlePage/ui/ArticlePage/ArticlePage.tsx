@@ -13,20 +13,18 @@ import { useAppDispatch } from '@/shared/hooks/useAppDispatch';
 import { Page } from '@/shared/ui/Page/ui/Page';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-
 const reducers = {
     articlePage: articlePageReducer,
 };
 
 const ArticlePage = memo(function ArticlePage() {
-
     const dispatch = useAppDispatch();
 
     const [searchParams] = useSearchParams();
 
     const callback = useCallback(() => {
-        dispatch(fetchNextArticlePage())
-    }, [dispatch])
+        dispatch(fetchNextArticlePage());
+    }, [dispatch]);
 
     useEffect(() => {
         dispatch(initArticlePage(searchParams));
@@ -35,8 +33,8 @@ const ArticlePage = memo(function ArticlePage() {
 
     return (
         <DynamicModuleLoader asyncReducers={reducers}>
-            <Page 
-                callback={callback} 
+            <Page
+                callback={callback}
                 disableScroll={true}
                 className={classNames(cls.articlesPage, {}, [])}
             >
@@ -49,4 +47,3 @@ const ArticlePage = memo(function ArticlePage() {
 });
 
 export default ArticlePage;
-

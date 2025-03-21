@@ -5,8 +5,10 @@ import { Article, ArticleType } from '../../../../../entities/Article';
 import {
     getArticlePageLimit,
     getArticlePageNumber,
-    getArticlePageOrder, getArticlePageSearch,
-    getArticlePageSort, getArticlePageType
+    getArticlePageOrder,
+    getArticlePageSearch,
+    getArticlePageSort,
+    getArticlePageType,
 } from '../../selectors/getArticlePageView';
 
 import { ThunkExtraArg } from '@/app/providers/StoreProvider/config/StateSchema';
@@ -15,10 +17,13 @@ import { addQueryParams } from '@/shared/lib/url/addQueryParams';
 interface FetchArticleListProps {
     replace?: boolean;
 }
-export const fetchArticleList = createAsyncThunk<Article[],  FetchArticleListProps, { extra: ThunkExtraArg }>(
+export const fetchArticleList = createAsyncThunk<
+    Article[],
+    FetchArticleListProps,
+    { extra: ThunkExtraArg }
+>(
     'articlePage/fetchCommentsByArticleId',
-    async (props , { extra, rejectWithValue, getState }) => {
-
+    async (props, { extra, rejectWithValue, getState }) => {
         const page = getArticlePageNumber(getState());
         const limit = getArticlePageLimit(getState());
         const order = getArticlePageOrder(getState());
@@ -27,9 +32,11 @@ export const fetchArticleList = createAsyncThunk<Article[],  FetchArticleListPro
         const type = getArticlePageType(getState());
 
         try {
-
             addQueryParams({
-                sort, order, search, type,
+                sort,
+                order,
+                search,
+                type,
             });
 
             const response = await extra.api.get<Article[]>('/articles/', {
@@ -41,7 +48,7 @@ export const fetchArticleList = createAsyncThunk<Article[],  FetchArticleListPro
                     _order: order,
                     q: search,
                     type: type === ArticleType.ALL ? undefined : type,
-                }
+                },
             });
 
             if (!response.data) {
@@ -51,9 +58,11 @@ export const fetchArticleList = createAsyncThunk<Article[],  FetchArticleListPro
             return response.data;
         } catch (error) {
             if (axios.isAxiosError(error)) {
-                return rejectWithValue(error.response?.data?.message || 'Fetch data failed');
+                return rejectWithValue(
+                    error.response?.data?.message || 'Fetch data failed',
+                );
             }
             return rejectWithValue('An unknown error occurred');
         }
-    }
+    },
 );

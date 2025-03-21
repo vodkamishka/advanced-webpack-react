@@ -12,11 +12,10 @@ import { Popover } from '@/shared/ui/Popups';
 import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 interface NotificationButtonProps {
-    className?: string
+    className?: string;
 }
 
 export const NotificationButton = ({ className }: NotificationButtonProps) => {
-
     const [isOpen, setIsOpen] = useState(false);
 
     const onOpenDrawer = useCallback(() => {

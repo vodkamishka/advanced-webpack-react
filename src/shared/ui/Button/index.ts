@@ -1,7 +1,3 @@
 import { Button, ButtonTheme, ButtonSize } from './ui/Button';
 
-export {
-    Button,
-    ButtonTheme,
-    ButtonSize
-};
+export { Button, ButtonTheme, ButtonSize };
