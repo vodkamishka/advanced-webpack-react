@@ -1,6 +1,6 @@
 import path from 'path';
 
-import { Configuration } from 'webpack';
+import webpack, { Configuration } from 'webpack';
 
 import { getScssLoader } from '../build/loaders/getStyleLoader';
 import { getSvgLoader } from '../build/loaders/getSvgLoader';
@@ -14,6 +14,12 @@ export async function storybookWebpackConfig(config: Configuration) {
         path.resolve(__dirname, '../../src'),
         'node_modules',
     ];
+
+    config.plugins.push(
+        new webpack.DefinePlugin({
+            __API__: JSON.stringify('http://localhost:8000'),
+        }),
+    );
 
     // Удаляем SVG из других лоадеров
     config?.module?.rules?.forEach((rule) => {
